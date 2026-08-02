@@ -364,12 +364,13 @@ em.tm{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
     <div class="sl" data-slide="9"><span class="sl-num">08</span> Why This Works</div>
     <div class="sl" data-slide="10"><span class="sl-num">09</span> Next Steps</div>
     <div class="sg">Operations</div>
-    <div class="sl" data-slide="11"><span class="sl-num">10</span> Integrations</div>
-    <div class="sl" data-slide="12"><span class="sl-num">11</span> Unit Economics — Inputs</div>
-    <div class="sl" data-slide="13"><span class="sl-num">11</span> Unit Economics — Outputs <span class="sl-badge">Input needed</span></div>
-    <div class="sl" data-slide="14"><span class="sl-num">12</span> KPIs</div>
-    <div class="sl" data-slide="15"><span class="sl-num">12</span> Reporting Cadence</div>
-    <div class="sl" data-slide="16"><span class="sl-num">13</span> Recovery Plan</div>
+    <div class="sl" data-slide="11"><span class="sl-num">10</span> Integrations — 1 of 2</div>
+    <div class="sl" data-slide="12"><span class="sl-num">10</span> Integrations — 2 of 2</div>
+    <div class="sl" data-slide="13"><span class="sl-num">11</span> Unit Economics — Inputs</div>
+    <div class="sl" data-slide="14"><span class="sl-num">11</span> Unit Economics — Outputs <span class="sl-badge">Input needed</span></div>
+    <div class="sl" data-slide="15"><span class="sl-num">12</span> KPIs</div>
+    <div class="sl" data-slide="16"><span class="sl-num">12</span> Reporting Cadence</div>
+    <div class="sl" data-slide="17"><span class="sl-num">13</span> Recovery Plan</div>
   </div>
 </div>
 
@@ -613,45 +614,59 @@ em.tm{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
     <div class="callout warn"><strong>Time-sensitive:</strong> Go-live by mid-September to complete the PMax learning phase before Navratri and Diwali. Delaying past mid-September misses the festive season entirely.</div>
   </div>
 
-  <!-- ── SLIDE 11: INTEGRATIONS ── -->
+  <!-- ── SLIDE 11a: INTEGRATIONS (1/2) ── -->
   <div class="slide" id="s11">
     <div class="slide-num">10</div>
-    <div class="s-label">10 — Operations</div>
+    <div class="s-label">10 — Operations &nbsp;·&nbsp; 1 of 2</div>
     <h2 class="slide-title">Integrations &amp; Tracking</h2>
-    <div class="slide-body">
-      <p style="color:var(--tb);font-size:12.5px">All must be verified before campaigns go live. Broken tracking = algorithm optimises toward the wrong signal.</p>
-      <div class="chk-cards">
-        <div class="chk-card">
-          <div><div class="chk-name">Shopify ↔ Google Merchant Center</div><div class="chk-desc">Product feed for Shopping / PMax — syncs titles, prices, images, inventory</div></div>
-          <span class="chk-todo">□ Feed live, zero disapprovals</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">Purchase conversion event</div><div class="chk-desc">Fires on order confirmation with correct <code>value</code> — primary PMax optimisation signal</div></div>
-          <span class="chk-todo">□ Verified in Tag Assistant</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">GA4 e-commerce events</div><div class="chk-desc"><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code> — funnel &amp; audience building</div></div>
-          <span class="chk-todo">□ All 3 in GA4 DebugView</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">Google Ads ↔ GA4 link</div><div class="chk-desc">Import GA4 goals into Google Ads; enables audience sharing</div></div>
-          <span class="chk-todo">□ Link active, goals imported</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">Remarketing audience tag</div><div class="chk-desc">Site visitor lists for Demand Gen retargeting and PMax audience signals</div></div>
-          <span class="chk-todo">□ Fires on all pages</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">Judge.me → Google Shopping ratings</div><div class="chk-desc">Star ratings under Shopping ads — improves CTR at zero extra cost</div></div>
-          <span class="chk-todo">□ Integration enabled in Judge.me</span>
-        </div>
-        <div class="chk-card">
-          <div><div class="chk-name">Merchant Center product approvals</div><div class="chk-desc">All active products approved, no policy violations, GTIN attributes complete</div></div>
-          <span class="chk-todo">□ &lt; 5% disapproval rate</span>
-        </div>
+    <p style="color:var(--tb);font-size:12.5px;margin-bottom:12px">All must be verified <strong style="color:var(--tx)">before campaigns go live.</strong> Broken tracking = algorithm optimises toward the wrong signal. Items 1–4 of 7:</p>
+    <div class="chk-cards">
+      <div class="chk-card">
+        <div class="chk-name">Shopify ↔ Google Merchant Center</div>
+        <div class="chk-desc">Product feed for Shopping / PMax — syncs titles, prices, images, inventory</div>
+        <span class="chk-todo">□ Feed live, zero disapprovals</span>
       </div>
-      <div class="callout danger"><strong>Critical:</strong> purchase event must fire with correct <code>value</code>. Always verify with a real test transaction before spending.</div>
+      <div class="chk-card">
+        <div class="chk-name">Purchase conversion event</div>
+        <div class="chk-desc">Fires on order confirmation with correct <code>value</code> — primary PMax signal</div>
+        <span class="chk-todo">□ Verified in Tag Assistant</span>
+      </div>
+      <div class="chk-card">
+        <div class="chk-name">GA4 e-commerce events</div>
+        <div class="chk-desc"><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code> — funnel &amp; audience building</div>
+        <span class="chk-todo">□ All 3 in GA4 DebugView</span>
+      </div>
+      <div class="chk-card">
+        <div class="chk-name">Google Ads ↔ GA4 link</div>
+        <div class="chk-desc">Import GA4 goals into Google Ads; enables cross-platform audience sharing</div>
+        <span class="chk-todo">□ Link active, goals imported</span>
+      </div>
     </div>
+  </div>
+
+  <!-- ── SLIDE 11b: INTEGRATIONS (2/2) ── -->
+  <div class="slide" id="s11b">
+    <div class="slide-num">10</div>
+    <div class="s-label">10 — Operations &nbsp;·&nbsp; 2 of 2</div>
+    <h2 class="slide-title">Integrations &amp; Tracking</h2>
+    <div class="chk-cards">
+      <div class="chk-card">
+        <div class="chk-name">Remarketing audience tag</div>
+        <div class="chk-desc">Builds site visitor lists for Demand Gen retargeting and PMax audience signals — must fire on all pages</div>
+        <span class="chk-todo">□ Fires on all pages</span>
+      </div>
+      <div class="chk-card">
+        <div class="chk-name">Judge.me → Google Shopping ratings</div>
+        <div class="chk-desc">Surfaces star ratings under Shopping ads — improves CTR at zero extra cost. Enable in Judge.me → Integrations.</div>
+        <span class="chk-todo">□ Integration enabled in Judge.me</span>
+      </div>
+      <div class="chk-card">
+        <div class="chk-name">Merchant Center product approvals</div>
+        <div class="chk-desc">All active products approved, no policy violations, GTIN attributes complete</div>
+        <span class="chk-todo">□ &lt; 5% disapproval rate before launch</span>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px"><strong>Rule of thumb:</strong> don't spend a single rupee until every box on both slides is ticked. An hour of setup saves weeks of misleading data.</div>
   </div>
 
   <!-- ── SLIDE 12: UNIT ECONOMICS (inputs) ── -->

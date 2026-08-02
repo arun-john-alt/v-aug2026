@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Proposal — Slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0e;--s1:#131316;--s2:#1b1b1f;--br:#252529;--brd:#1d1d21;
+  --tx:#e2e2dc;--ts:#76767280;--tb:#767672;--td:#3e3e3c;
+  --ac:#c9a55a;--ad:rgba(201,165,90,.10);--ag:rgba(201,165,90,.05);
+  --wn:#d97b3a;--wd:rgba(217,123,58,.12);
+  --dn:#c94444;--dd:rgba(201,68,68,.11);
+  --gn:#4ea87a;--gd:rgba(78,168,122,.12);
+  --f:'Inter',system-ui,sans-serif;
+  --fd:'Playfair Display',Georgia,serif;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:var(--f)}
+
+/* ── Deck ── */
+#deck{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+}
+#deck::-webkit-scrollbar{display:none}
+
+/* ── Slides ── */
+.slide{
+  height:100vh;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:48px 72px;
+  position:relative;
+  overflow:hidden;
+}
+.slide-num{
+  position:absolute;
+  font-family:var(--fd);
+  font-size:min(22vw,280px);
+  color:rgba(201,165,90,.04);
+  right:-20px;top:50%;
+  transform:translateY(-50%);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+}
+.slide-body{
+  overflow-y:auto;
+  max-height:calc(100vh - 150px);
+  scrollbar-width:thin;
+  scrollbar-color:var(--br) transparent;
+  padding-right:8px;
+}
+.slide-body::-webkit-scrollbar{width:3px}
+.slide-body::-webkit-scrollbar-track{background:transparent}
+.slide-body::-webkit-scrollbar-thumb{background:var(--br);border-radius:2px}
+
+/* eyebrow */
+.eyebrow{
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ac);margin-bottom:14px;opacity:.85;
+}
+/* section label */
+.s-label{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--td);margin-bottom:10px;
+}
+h1.hero-title{
+  font-family:var(--fd);font-size:clamp(30px,4.5vw,52px);
+  font-weight:400;line-height:1.15;color:var(--tx);margin-bottom:18px;
+}
+h1.hero-title em{font-style:italic;color:var(--ac)}
+h2.slide-title{
+  font-family:var(--fd);font-size:clamp(24px,3vw,38px);
+  font-weight:400;color:var(--tx);margin-bottom:20px;line-height:1.2;
+}
+h3{font-size:13px;font-weight:600;color:var(--tx);margin:18px 0 8px;letter-spacing:.1px}
+p{font-size:13px;margin-bottom:12px;color:var(--tx);line-height:1.7}
+ul,ol{margin:6px 0 12px 18px}
+li{font-size:13px;margin-bottom:5px;color:var(--tx)}
+strong{font-weight:600;color:var(--tx)}
+code{
+  font-family:'JetBrains Mono','Fira Code',monospace;font-size:11px;
+  background:var(--s2);border:1px solid var(--br);padding:1px 5px;
+  border-radius:3px;color:var(--ac);
+}
+
+/* ── Callouts ── */
+.callout{
+  background:var(--ad);border-left:3px solid var(--ac);
+  padding:11px 15px;margin:14px 0;font-size:12px;
+  border-radius:0 4px 4px 0;line-height:1.6;
+}
+.callout.warn{background:var(--wd);border-left-color:var(--wn)}
+.callout.danger{background:var(--dd);border-left-color:var(--dn)}
+
+/* ── Tables ── */
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+thead tr{background:var(--s2)}
+thead th{
+  padding:7px 11px;text-align:left;font-weight:600;font-size:9.5px;
+  letter-spacing:.8px;text-transform:uppercase;color:var(--tb);
+  border-bottom:1px solid var(--br);white-space:nowrap;
+}
+tbody tr{border-bottom:1px solid var(--brd);transition:background .1s}
+tbody tr:hover{background:var(--s2)}
+tbody td{padding:7px 11px;vertical-align:top;color:var(--tx)}
+td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tr-hl{background:var(--ad)!important}
+.tr-hl td{color:var(--ac);font-weight:600}
+
+/* ── Tags ── */
+em.tag{font-style:normal;font-size:9.5px;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;font-weight:500}
+em.tg{background:var(--gd);color:var(--gn)}
+em.ta{background:var(--ad);color:var(--ac)}
+em.tm{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
+
+/* ── Hero meta ── */
+.hero-rule{height:1px;background:var(--br);margin:28px 0}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px}
+.hm strong{display:block;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--td);margin-bottom:3px;font-weight:500}
+.hm span{font-size:12px;color:var(--tb)}
+
+/* ── KH grid (at-a-glance slide) ── */
+.kh-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;margin-top:12px;
+}
+.kh-card{
+  background:var(--s1);border:1px solid var(--br);
+  border-top:3px solid var(--ac);padding:22px 18px;text-align:center;
+}
+.kh-v{font-family:var(--fd);font-size:36px;color:var(--ac);line-height:1;margin-bottom:6px}
+.kh-l{font-size:10.5px;color:var(--tb);line-height:1.4}
+
+/* ── Campaign strategy cards ── */
+.camp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:4px}
+.camp-card{background:var(--s1);border:1px solid var(--br);border-left:3px solid var(--ac);padding:14px 16px}
+.camp-card h4{font-size:12.5px;font-weight:600;color:var(--tx);margin-bottom:6px}
+.camp-card p{font-size:11.5px;color:var(--tb);margin:0;line-height:1.6}
+
+/* ── Phase cards ── */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.phase{background:var(--s1);border:1px solid var(--br);border-top:3px solid var(--ac);padding:14px 15px}
+.p-lbl{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tb);margin-bottom:6px}
+.p-ttl{font-family:var(--fd);font-size:14px;color:var(--tx);margin-bottom:8px}
+.p-bgt{font-size:15px;font-weight:600;color:var(--ac);margin-bottom:2px;font-variant-numeric:tabular-nums}
+.p-roas{font-size:10.5px;color:var(--tb);margin-bottom:8px}
+.phase ul{font-size:10.5px;color:var(--tb);margin-left:13px}
+.phase li{margin-bottom:2px}
+
+/* ── Deliverables grid ── */
+.dels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.del{background:var(--s1);border:1px solid var(--br);padding:12px 14px}
+.del-t{font-size:11px;font-weight:600;color:var(--tx);margin-bottom:4px}
+.del p{font-size:11px;color:var(--tb);margin:0;line-height:1.55}
+
+/* ── UE grid ── */
+.ue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.ue-card{background:var(--s1);border:1px solid var(--br);padding:14px}
+.ue-lbl{font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tb);margin-bottom:4px}
+.ue-form{font-size:10.5px;color:var(--tb);font-style:italic;margin-bottom:6px}
+.ue-val{font-family:var(--fd);font-size:17px;color:var(--tx)}
+.ph{
+  display:inline-block;min-width:80px;border-bottom:1.5px dashed var(--ac);
+  background:rgba(201,165,90,.07);padding:1px 5px;color:var(--ac);
+  font-style:italic;font-size:10.5px;border-radius:2px;
+}
+.input-badge{
+  display:inline-flex;align-items:center;gap:5px;font-size:9px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--wn);background:var(--wd);padding:3px 10px;
+  border-radius:10px;font-weight:600;margin-bottom:12px;
+}
+.input-badge::before{content:'●';font-size:6px}
+
+/* ── Recovery ── */
+.rec-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.rec{background:var(--s1);border:1px solid var(--br);overflow:hidden}
+.rec-hdr{padding:10px 14px;font-size:11.5px;font-weight:600}
+.rl1 .rec-hdr{border-left:4px solid #b8941e;background:rgba(184,148,30,.08)}
+.rl2 .rec-hdr{border-left:4px solid var(--wn);background:var(--wd)}
+.rl3 .rec-hdr{border-left:4px solid var(--dn);background:var(--dd)}
+.rec-trigger{display:block;font-size:9.5px;color:var(--tb);font-weight:400;font-style:italic;margin-top:2px}
+.rec-body{padding:10px 14px;font-size:11px}
+.rec-body ul{margin-left:13px}
+.rec-body li{margin-bottom:4px;color:var(--tb)}
+.rec-body li strong{color:var(--tx)}
+
+/* ── Why list (2-col) ── */
+.why-list{columns:2;column-gap:28px;margin-top:4px}
+.why-list li{font-size:12.5px;margin-bottom:10px;break-inside:avoid}
+
+/* ── Next steps list ── */
+.next-list{counter-reset:ns;list-style:none;margin:0 0 14px}
+.next-list li{
+  counter-increment:ns;display:flex;gap:14px;align-items:baseline;
+  font-size:13px;margin-bottom:10px;color:var(--tx);
+}
+.next-list li::before{
+  content:counter(ns);min-width:22px;height:22px;border-radius:50%;
+  background:var(--ad);border:1px solid var(--ac);color:var(--ac);
+  font-size:10px;font-weight:600;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;
+}
+
+/* ── Checklist ── */
+.chk-todo{color:var(--wn);font-weight:600;font-size:10.5px}
+
+/* ── Roadmap table ── */
+.roadmap-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:0}
+.rg-row{display:contents}
+.rg-cell{
+  padding:8px 12px;border-bottom:1px solid var(--brd);font-size:12px;
+  border-right:1px solid var(--brd);
+}
+.rg-cell:last-child{border-right:none}
+.rg-hdr{
+  background:var(--s2);padding:7px 12px;font-size:9.5px;font-weight:600;
+  letter-spacing:.8px;text-transform:uppercase;color:var(--tb);
+  border-bottom:1px solid var(--br);border-right:1px solid var(--brd);
+}
+.rg-hdr:last-child{border-right:none}
+
+/* ── Scroll hint ── */
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  font-size:10px;color:var(--td);letter-spacing:1.5px;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
+.scroll-hint::after{content:'↓';font-size:14px}
+
+/* ── Nav dots ── */
+#dots{
+  position:fixed;right:20px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:200;
+}
+.dot{
+  width:7px;height:7px;border-radius:50%;
+  border:1.5px solid var(--tb);background:transparent;
+  cursor:pointer;transition:all .2s;
+}
+.dot.active{background:var(--ac);border-color:var(--ac);transform:scale(1.25)}
+.dot:hover{border-color:var(--ac)}
+
+/* ── Counter ── */
+#counter{
+  position:fixed;bottom:24px;left:24px;
+  font-size:10.5px;color:var(--td);letter-spacing:1px;
+  font-variant-numeric:tabular-nums;z-index:200;
+}
+
+/* ── All Slides button ── */
+#all-btn{
+  position:fixed;bottom:20px;right:20px;z-index:200;
+  background:var(--s1);border:1px solid var(--br);
+  color:var(--tb);padding:7px 14px;font-family:var(--f);font-size:11.5px;
+  cursor:pointer;border-radius:20px;transition:all .15s;
+}
+#all-btn:hover{border-color:var(--ac);color:var(--ac)}
+
+/* ── All slides overlay (sheet) ── */
+#overlay{display:none;position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+#overlay.open{display:flex;align-items:flex-end}
+#sheet{
+  background:var(--s1);border-top:1px solid var(--br);border-radius:16px 16px 0 0;
+  width:100%;max-height:80vh;overflow-y:auto;padding:0 0 28px;
+}
+.sheet-handle{display:flex;justify-content:center;padding:12px 0 6px}
+.sheet-handle span{width:36px;height:4px;background:var(--br);border-radius:2px}
+.sheet-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--tb);padding:4px 20px 8px}
+.sg{font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--td);padding:12px 20px 3px}
+.sl{
+  display:flex;align-items:center;gap:10px;padding:9px 20px;font-size:13px;
+  color:var(--tb);text-decoration:none;border-bottom:1px solid var(--brd);
+  cursor:pointer;
+}
+.sl:active{background:var(--s2)}
+.sl-num{font-size:10px;color:var(--td);min-width:18px}
+.sl-badge{margin-left:auto;font-size:8px;padding:2px 7px;border-radius:10px;background:var(--wd);color:var(--wn);font-weight:600}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .slide{padding:32px 22px;justify-content:flex-start;padding-top:48px}
+  .slide-body{max-height:calc(100vh - 120px)}
+  .slide-num{font-size:40vw;opacity:.03}
+  h1.hero-title{font-size:28px}
+  h2.slide-title{font-size:22px}
+  .kh-grid{grid-template-columns:repeat(2,1fr)}
+  .kh-v{font-size:28px}
+  .camp-grid{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
+  .dels{grid-template-columns:repeat(2,1fr)}
+  .ue-grid{grid-template-columns:repeat(2,1fr)}
+  .rec-row{grid-template-columns:1fr}
+  .why-list{columns:1}
+  #dots{display:none}
+  .hero-meta{gap:16px}
+  .hm{min-width:45%}
+}
+@media(max-width:480px){
+  .dels{grid-template-columns:1fr}
+  .ue-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<div id="dots"></div>
+
+<!-- COUNTER -->
+<div id="counter">1 / 17</div>
+
+<!-- ALL SLIDES BTN -->
+<button id="all-btn" aria-label="All slides">≡ All Slides</button>
+
+<!-- OVERLAY SHEET -->
+<div id="overlay">
+  <div id="sheet">
+    <div class="sheet-handle"><span></span></div>
+    <div class="sheet-title">All Slides</div>
+    <div class="sg">Intro</div>
+    <div class="sl" data-slide="0"><span class="sl-num">—</span> Cover</div>
+    <div class="sl" data-slide="1"><span class="sl-num">—</span> At a Glance</div>
+    <div class="sg">Overview</div>
+    <div class="sl" data-slide="2"><span class="sl-num">01</span> The Brand</div>
+    <div class="sl" data-slide="3"><span class="sl-num">02</span> The Opportunity</div>
+    <div class="sl" data-slide="4"><span class="sl-num">03</span> Campaign Strategy</div>
+    <div class="sg">Commercial</div>
+    <div class="sl" data-slide="5"><span class="sl-num">04</span> Budget &amp; Projections</div>
+    <div class="sl" data-slide="6"><span class="sl-num">05</span> Scope of Work</div>
+    <div class="sl" data-slide="7"><span class="sl-num">06</span> Investment</div>
+    <div class="sg">Execution</div>
+    <div class="sl" data-slide="8"><span class="sl-num">07</span> 6-Month Roadmap</div>
+    <div class="sl" data-slide="9"><span class="sl-num">08</span> Why This Works</div>
+    <div class="sl" data-slide="10"><span class="sl-num">09</span> Next Steps</div>
+    <div class="sg">Operations</div>
+    <div class="sl" data-slide="11"><span class="sl-num">10</span> Integrations</div>
+    <div class="sl" data-slide="12"><span class="sl-num">11</span> Unit Economics — Inputs</div>
+    <div class="sl" data-slide="13"><span class="sl-num">11</span> Unit Economics — Outputs <span class="sl-badge">Input needed</span></div>
+    <div class="sl" data-slide="14"><span class="sl-num">12</span> KPIs</div>
+    <div class="sl" data-slide="15"><span class="sl-num">12</span> Reporting Cadence</div>
+    <div class="sl" data-slide="16"><span class="sl-num">13</span> Recovery Plan</div>
+  </div>
+</div>
+
+<!-- DECK -->
+<div id="deck">
+
+  <!-- ── SLIDE 0: COVER ── -->
+  <div class="slide" id="s0">
+    <div class="slide-num">V</div>
+    <div class="eyebrow">Google Ads Strategy Proposal</div>
+    <h1 class="hero-title">Growing <em>Vastara The Label</em><br>with Google Ads</h1>
+    <p style="font-size:14px;color:var(--tb);font-weight:300;max-width:500px;margin-bottom:32px">A phased strategy to profitably acquire customers across India — grounded in real benchmark data from a comparable Indian DTC clothing brand.</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <div class="hm"><strong>Prepared for</strong><span>Vastara The Label</span></div>
+      <div class="hm"><strong>Date</strong><span>August 2026</span></div>
+      <div class="hm"><strong>Market</strong><span>India (Pan-India)</span></div>
+      <div class="hm"><strong>Channels</strong><span>Search · PMax · YouTube · Demand Gen</span></div>
+    </div>
+    <div class="scroll-hint">Swipe or press ↓ to begin</div>
+  </div>
+
+  <!-- ── SLIDE 1: AT A GLANCE ── -->
+  <div class="slide" id="s1">
+    <div class="slide-num">✦</div>
+    <div class="eyebrow">Summary</div>
+    <h2 class="slide-title">At a Glance</h2>
+    <p style="color:var(--tb);font-size:13px;margin-bottom:4px">Four numbers that define this engagement before you read any further.</p>
+    <div class="kh-grid">
+      <div class="kh-card"><div class="kh-v">3–5×</div><div class="kh-l">Target ROAS<br>steady state</div></div>
+      <div class="kh-card"><div class="kh-v">₹50K</div><div class="kh-l">Minimum monthly<br>ad budget</div></div>
+      <div class="kh-card"><div class="kh-v">4–6 wk</div><div class="kh-l">PMax learning<br>period</div></div>
+      <div class="kh-card"><div class="kh-v">Sep</div><div class="kh-l">Ideal go-live<br>pre-Diwali</div></div>
+    </div>
+    <p style="margin-top:20px;font-size:12px;color:var(--td)">17 slides · 13 sections · Full strategy, integrations checklist, unit economics, KPIs &amp; recovery plan</p>
+  </div>
+
+  <!-- ── SLIDE 2: THE BRAND ── -->
+  <div class="slide" id="s2">
+    <div class="slide-num">01</div>
+    <div class="s-label">01 — Overview</div>
+    <h2 class="slide-title">The Brand</h2>
+    <div class="slide-body">
+      <p>Vastara The Label — women's handloom organic cotton clothing, DTC via Shopify, in business since 2018.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Category</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Product Range</td><td>Kaftan tops, embroidery shirts/dresses, crop tops, kurtis, skirt sets</td></tr>
+          <tr><td>Sale Price Range</td><td>Rs. 699 – Rs. 1,855</td></tr>
+          <tr><td>Estimated AOV</td><td>Rs. 900 – Rs. 1,500</td></tr>
+          <tr><td>USP</td><td>Handloom organic cotton, artisanal prints (ajrakh, ikkat, embroidery)</td></tr>
+          <tr><td>Social Proof</td><td>4.61 ★ from 1,100+ verified reviews (Judge.me)</td></tr>
+          <tr><td>Platform</td><td>Shopify — ready for Google Merchant Center integration</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><strong>Strong foundation.</strong> 1,100+ verified reviews is a critical asset for Google Shopping — star ratings under product listings directly improve CTR.</div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 3: OPPORTUNITY ── -->
+  <div class="slide" id="s3">
+    <div class="slide-num">02</div>
+    <div class="s-label">02 — Overview</div>
+    <h2 class="slide-title">The Opportunity</h2>
+    <div class="slide-body">
+      <p>Organic and handloom cotton clothing is a growing, underserved niche. Far less paid competition than mass-market fashion — meaning lower CPCs and a faster path to profitable ROAS.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Benchmark — India Fashion</th><th>Search</th><th>Performance Max</th><th>Demand Gen</th></tr></thead>
+        <tbody>
+          <tr><td>Avg. CPC</td><td>Rs. 10–25</td><td>Rs. 5–12</td><td>Rs. 50–100 CPM</td></tr>
+          <tr><td>Click-Through Rate</td><td>3–6%</td><td>1–2%</td><td>0.5–1.2%</td></tr>
+          <tr><td>Conversion Rate</td><td>5–10% (brand) / 1–3%</td><td>0.8–1.5%</td><td>0.5–1.5%</td></tr>
+          <tr><td>Target ROAS (steady state)</td><td>15–40× brand / 3–6×</td><td>3–5×</td><td>2.5–4×</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:11px;color:var(--tb);font-style:italic">India women's clothing category, 2025–2026.</p>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 4: STRATEGY ── -->
+  <div class="slide" id="s4">
+    <div class="slide-num">03</div>
+    <div class="s-label">03 — Overview</div>
+    <h2 class="slide-title">Campaign Strategy</h2>
+    <p style="color:var(--tb);font-size:13px">Two layers: <strong>capture</strong> (Search + PMax) for buyers actively searching, and <strong>awareness</strong> (Demand Gen) for the top of funnel.</p>
+    <div class="camp-grid">
+      <div class="camp-card">
+        <h4>Brand Search <em class="tag tg">Always On</em></h4>
+        <p>Protect brand name. Minimal cost, 15–40× ROAS. First thing to set up.</p>
+      </div>
+      <div class="camp-card">
+        <h4>Performance Max <em class="tag ta">Core Driver</em></h4>
+        <p>AI-driven — uses Shopify feed to show the right product across all Google surfaces. Majority of budget goes here. 4–6 week learning phase.</p>
+      </div>
+      <div class="camp-card">
+        <h4>Non-Brand Search <em class="tag tm">Month 3+</em></h4>
+        <p>"Handloom crop top online India", "organic cotton kurti" — once PMax has a stable conversion base.</p>
+      </div>
+      <div class="camp-card">
+        <h4>Demand Gen / YouTube <em class="tag tm">Month 3–4</em></h4>
+        <p>Remarket to site visitors and lookalike audiences. Supports brand recall, re-engages window shoppers.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:14px"><strong>Launch sequence:</strong> Brand Search + PMax (Month 1) → Non-Brand Search + Demand Gen (Month 3). Don't launch everything at once.</div>
+  </div>
+
+  <!-- ── SLIDE 5: BUDGET ── -->
+  <div class="slide" id="s5">
+    <div class="slide-num">04</div>
+    <div class="s-label">04 — Commercial</div>
+    <h2 class="slide-title">Budget &amp; Projections</h2>
+    <div class="slide-body">
+      <div class="phases">
+        <div class="phase">
+          <div class="p-lbl">Phase 1 · Month 1–2</div>
+          <div class="p-ttl">Test &amp; Learn</div>
+          <div class="p-bgt">₹50K–75K / mo</div>
+          <div class="p-roas">Expected ROAS: 3–8×</div>
+          <ul><li>Brand Search + PMax only</li><li>Goal: learning phase</li><li>Output: CPC &amp; CVR baseline</li></ul>
+        </div>
+        <div class="phase">
+          <div class="p-lbl">Phase 2 · Month 3–4</div>
+          <div class="p-ttl">Optimise</div>
+          <div class="p-bgt">₹80K–1.2L / mo</div>
+          <div class="p-roas">Expected ROAS: 3.5–5×</div>
+          <ul><li>Add Non-Brand Search</li><li>Add Demand Gen</li><li>Prune underperformers</li></ul>
+        </div>
+        <div class="phase">
+          <div class="p-lbl">Phase 3 · Month 5+</div>
+          <div class="p-ttl">Scale</div>
+          <div class="p-bgt">₹1.5L–3L / mo</div>
+          <div class="p-roas">Expected ROAS: 4–6×</div>
+          <ul><li>Scale on proven ROAS</li><li>Festive campaigns</li><li>Full funnel operating</li></ul>
+        </div>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Scenario</th><th>Budget / mo</th><th>ROAS</th><th>Revenue Generated</th></tr></thead>
+        <tbody>
+          <tr><td>Conservative</td><td class="r">₹50,000</td><td class="r">3×</td><td class="r">₹1,50,000</td></tr>
+          <tr><td>Base Case</td><td class="r">₹60,000</td><td class="r">4×</td><td class="r">₹2,40,000</td></tr>
+          <tr><td>Optimistic</td><td class="r">₹75,000</td><td class="r">5×</td><td class="r">₹3,75,000</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:10.5px;color:var(--tb);font-style:italic">* Assumes ~25% margin. Exact targets set after Unit Economics (slide 13) is completed.</p>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 6: SCOPE ── -->
+  <div class="slide" id="s6">
+    <div class="slide-num">05</div>
+    <div class="s-label">05 — Commercial</div>
+    <h2 class="slide-title">Scope of Work</h2>
+    <div class="dels">
+      <div class="del"><div class="del-t">Account &amp; Feed Setup</div><p>Google Ads, Merchant Center, Shopify feed, conversion tracking.</p></div>
+      <div class="del"><div class="del-t">Campaign Build</div><p>Campaign structure, assets, audience lists, bidding strategy.</p></div>
+      <div class="del"><div class="del-t">Keyword Research</div><p>Brand + non-brand keywords, negative keyword list, competitor analysis.</p></div>
+      <div class="del"><div class="del-t">Weekly Optimisation</div><p>Bid adjustments, search term review, asset performance, pacing checks.</p></div>
+      <div class="del"><div class="del-t">Monthly Reporting</div><p>Spend, ROAS, CPC, top products, conversions, next-month plan.</p></div>
+      <div class="del"><div class="del-t">Seasonal Campaigns</div><p>Navratri, Diwali, end-of-season, new arrivals — included in monthly fee.</p></div>
+    </div>
+    <p style="font-size:11.5px;color:var(--tb);margin-top:8px"><strong style="color:var(--tx)">Not included:</strong> Ad creative production, product copywriting, website CRO, social media advertising.</p>
+  </div>
+
+  <!-- ── SLIDE 7: INVESTMENT ── -->
+  <div class="slide" id="s7">
+    <div class="slide-num">06</div>
+    <div class="s-label">06 — Commercial</div>
+    <h2 class="slide-title">Investment</h2>
+    <div class="slide-body">
+      <p style="color:var(--tb);font-size:12.5px;margin-bottom:4px">One-time setup: <strong style="color:var(--ac)">Rs. 20,000 – 30,000</strong></p>
+      <h3>Monthly Management Fee — Tiered</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Monthly Ad Spend</th><th>Fee %</th><th>Approx. Fee at Midpoint</th></tr></thead>
+        <tbody>
+          <tr><td>Up to Rs. 50,000</td><td class="r">20%</td><td class="r">Rs. 10,000 <em style="color:var(--tb)">(min)</em></td></tr>
+          <tr><td>Rs. 50,001 – Rs. 1,00,000</td><td class="r">15%</td><td class="r">Rs. 11,250</td></tr>
+          <tr><td>Rs. 1,00,001 – Rs. 3,00,000</td><td class="r">12%</td><td class="r">Rs. 24,000</td></tr>
+          <tr><td>Rs. 3,00,001 – Rs. 5,00,000</td><td class="r">10%</td><td class="r">Rs. 40,000</td></tr>
+          <tr><td>Rs. 5,00,001 – Rs. 10,00,000</td><td class="r">8%</td><td class="r">Rs. 60,000</td></tr>
+          <tr class="tr-hl"><td>Above Rs. 10,00,000</td><td class="r">6%</td><td class="r">Negotiable</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tw"><table>
+        <thead><tr><th>Month 1 All-In</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Setup + Ad Spend + Management</td><td class="r">Rs. 80,000 – Rs. 1,16,250</td></tr>
+          <tr><td>Ongoing (Month 2+)</td><td class="r">Rs. 60,000 – Rs. 90,000 / month</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 8: ROADMAP ── -->
+  <div class="slide" id="s8">
+    <div class="slide-num">07</div>
+    <div class="s-label">07 — Execution</div>
+    <h2 class="slide-title">6-Month Roadmap</h2>
+    <div class="slide-body">
+      <div class="tw"><table>
+        <thead><tr><th>Month</th><th>Activity</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Month 1</strong></td><td>Account setup, feed, tracking, Brand Search + PMax launch</td><td>Campaigns live, data begins</td></tr>
+          <tr><td><strong>Month 2</strong></td><td>PMax learning, bid refinement, negative keyword build</td><td>First ROAS signal — target 3–4×</td></tr>
+          <tr><td><strong>Month 3</strong></td><td>Non-Brand Search + Demand Gen launch, budget increase</td><td>Full funnel, 4–5× ROAS target</td></tr>
+          <tr><td><strong>Month 4</strong></td><td>Product-level optimisation, top SKU identification</td><td>Top 20 products = 80% of revenue</td></tr>
+          <tr><td><strong>Month 5</strong></td><td>Scale proven campaigns, Navratri / Diwali prep</td><td>₹1.5L+ spend at target ROAS</td></tr>
+          <tr><td><strong>Month 6</strong></td><td>Festive campaigns, retargeting, performance review</td><td>Year-end review + next 6-month plan</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 9: WHY ── -->
+  <div class="slide" id="s9">
+    <div class="slide-num">08</div>
+    <div class="s-label">08 — Execution</div>
+    <h2 class="slide-title">Why This Works</h2>
+    <ul class="why-list">
+      <li><strong>Shopify-native integration</strong> — product feed syncs automatically to Google Merchant Center. No manual maintenance after setup.</li>
+      <li><strong>PMax is built for this catalogue</strong> — 100+ SKUs, strong visuals, clear price differentiation. Larger catalogues outperform consistently.</li>
+      <li><strong>Sale pricing is a hook</strong> — "From ₹699 | Organic Cotton" in ad copy drives higher CTR, lowering effective CPC over time.</li>
+      <li><strong>Brand search is unmonetised today</strong> — 1,100+ reviews means brand search volume exists. Capturing it is the cheapest, highest-ROI first win.</li>
+      <li><strong>Niche = lower CPCs</strong> — "handloom organic cotton top" has far fewer advertisers than "women's top online."</li>
+      <li><strong>Festive season timing</strong> — launching now gives 4–6 weeks of learning before Navratri and Diwali (2–3× normal traffic).</li>
+    </ul>
+  </div>
+
+  <!-- ── SLIDE 10: NEXT STEPS ── -->
+  <div class="slide" id="s10">
+    <div class="slide-num">09</div>
+    <div class="s-label">09 — Execution</div>
+    <h2 class="slide-title">Next Steps</h2>
+    <ol class="next-list">
+      <li><strong>Agree scope &amp; sign engagement letter</strong> — confirm budget and fee tier.</li>
+      <li><strong>Complete Unit Economics (slide 13)</strong> — fill in AOV, COGS, shipping. Unlocks precise KPI targets.</li>
+      <li><strong>Share Google Ads account access</strong> — new account or existing.</li>
+      <li><strong>Shopify integration</strong> — connect Google &amp; YouTube app, verify Merchant Center.</li>
+      <li><strong>Conversion tracking setup</strong> — tag purchase events; verify with a test transaction.</li>
+      <li><strong>Go live</strong> — Brand Search + PMax within 5–7 business days of kickoff.</li>
+    </ol>
+    <div class="callout warn"><strong>Time-sensitive:</strong> Go-live by mid-September to complete the PMax learning phase before Navratri and Diwali. Delaying past mid-September misses the festive season entirely.</div>
+  </div>
+
+  <!-- ── SLIDE 11: INTEGRATIONS ── -->
+  <div class="slide" id="s11">
+    <div class="slide-num">10</div>
+    <div class="s-label">10 — Operations</div>
+    <h2 class="slide-title">Integrations &amp; Tracking</h2>
+    <div class="slide-body">
+      <p style="color:var(--tb);font-size:12.5px">All must be verified before campaigns go live. Broken tracking = algorithm optimises toward the wrong signal.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Integration</th><th>Purpose</th><th>Pre-Launch Check</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Shopify ↔ Merchant Center</strong></td><td>Product feed for Shopping / PMax</td><td><span class="chk-todo">□ Feed live, zero disapprovals</span></td></tr>
+          <tr><td><strong>Purchase conversion event</strong></td><td>Fires on order confirmation with correct <code>value</code> — primary PMax signal</td><td><span class="chk-todo">□ Verified via Tag Assistant</span></td></tr>
+          <tr><td><strong>GA4 e-commerce events</strong></td><td><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code></td><td><span class="chk-todo">□ All 3 in GA4 DebugView</span></td></tr>
+          <tr><td><strong>Google Ads ↔ GA4 link</strong></td><td>Import goals; audience sharing</td><td><span class="chk-todo">□ Link active, goals imported</span></td></tr>
+          <tr><td><strong>Remarketing tag</strong></td><td>Site visitor lists for Demand Gen + PMax</td><td><span class="chk-todo">□ Fires on all pages</span></td></tr>
+          <tr><td><strong>Judge.me → Shopping ratings</strong></td><td>Star ratings under Shopping ads</td><td><span class="chk-todo">□ Google integration enabled</span></td></tr>
+          <tr><td><strong>Merchant Center approvals</strong></td><td>All products approved, no violations</td><td><span class="chk-todo">□ &lt; 5% disapproval rate</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout danger"><strong>Critical:</strong> purchase event must fire with correct <code>value</code>. Always verify with a real test transaction before spending.</div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 12: UNIT ECONOMICS (inputs) ── -->
+  <div class="slide" id="s12">
+    <div class="slide-num">11</div>
+    <div class="s-label">11 — Operations</div>
+    <h2 class="slide-title">Unit Economics</h2>
+    <div class="input-badge">Input required from Vastara team</div>
+    <div class="slide-body">
+      <p style="color:var(--tb);font-size:12.5px">KPI targets and bid floors are derived from these numbers — not set arbitrarily.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Metric</th><th>Source</th><th>Your Actual Figure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Average Order Value (AOV)</strong></td><td>Shopify Analytics → avg. order value (90 days)</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>COGS % per order</strong></td><td>Product cost + packaging ÷ AOV</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr><td><strong>Avg. outbound shipping</strong></td><td>Monthly shipping spend ÷ orders</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>Payment processing fee</strong></td><td>Razorpay / Shopify Payments rate × AOV</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>Return / exchange rate</strong></td><td>Returns ÷ orders (last 3 months)</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr><td><strong>Repeat purchase rate</strong></td><td>Returning customers ÷ total customers</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr class="tr-hl"><td><strong>Contribution margin / order</strong></td><td>AOV × (1 − COGS%) − Shipping − Payment fee</td><td>Rs. <span class="ph">calculated</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 13: UNIT ECONOMICS (outputs) ── -->
+  <div class="slide" id="s13">
+    <div class="slide-num">11</div>
+    <div class="s-label">11 — Operations (cont.)</div>
+    <h2 class="slide-title">Unit Economics — Outputs</h2>
+    <p style="color:var(--tb);font-size:12.5px;margin-bottom:4px">Once the inputs on the previous slide are filled in, these four numbers are calculated — and drive all KPI targets.</p>
+    <div class="ue-grid">
+      <div class="ue-card">
+        <div class="ue-lbl">Break-Even ROAS</div>
+        <div class="ue-form">AOV ÷ Contribution Margin</div>
+        <div class="ue-val"><span class="ph">calculated</span></div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-lbl">Max CPO Guardrail</div>
+        <div class="ue-form">= Contribution Margin per Order</div>
+        <div class="ue-val"><span class="ph">calculated</span></div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-lbl">Customer LTV</div>
+        <div class="ue-form">AOV × orders per customer / year</div>
+        <div class="ue-val"><span class="ph">calculated</span></div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-lbl">LTV-Adjusted Max CAC</div>
+        <div class="ue-form">LTV × target margin %</div>
+        <div class="ue-val"><span class="ph">calculated</span></div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px">Once confirmed, the break-even ROAS replaces estimates in Budget &amp; Projections (slide 5), and KPI targets on the next slide are set accordingly.</div>
+  </div>
+
+  <!-- ── SLIDE 14: KPIs ── -->
+  <div class="slide" id="s14">
+    <div class="slide-num">12</div>
+    <div class="s-label">12 — Operations</div>
+    <h2 class="slide-title">KPIs</h2>
+    <div class="slide-body">
+      <h3>Primary — What We Optimise Toward</h3>
+      <div class="tw"><table>
+        <thead><tr><th>KPI</th><th>How Target is Set</th><th>What It Signals</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ROAS</strong></td><td>Break-even ROAS + profit buffer (+0.5× Ph1, +1× Ph2+)</td><td>Primary profitability signal; drives PMax bid floor</td></tr>
+          <tr><td><strong>Cost per Order (CPO)</strong></td><td>Target ≤ Contribution margin per order</td><td>Absolute guardrail — if CPO &gt; margin, each sale loses money</td></tr>
+          <tr><td><strong>Orders from Ads</strong></td><td>Month-on-month growth target agreed at each review</td><td>Volume signal — scaling is working</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Secondary — Diagnostic Layer</h3>
+      <div class="tw"><table>
+        <thead><tr><th>KPI</th><th>Drop signals</th><th>First action</th></tr></thead>
+        <tbody>
+          <tr><td>Conversion Rate (CVR)</td><td>Traffic quality declining / site changed</td><td>Review targeting, check mobile page, add negatives</td></tr>
+          <tr><td>Avg. CPC</td><td>Auction competition rising / quality drop</td><td>Refresh creatives, review bid strategy</td></tr>
+          <tr><td>CTR</td><td>Ad fatigue</td><td>New headlines, use sale price in copy</td></tr>
+          <tr><td>Brand Impression Share</td><td>Competitors bidding on brand</td><td>Increase brand budget</td></tr>
+          <tr><td>Cart Abandonment (GA4)</td><td>Site / checkout issue (not ads)</td><td>Check mobile checkout, trigger remarketing</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 15: REPORTING ── -->
+  <div class="slide" id="s15">
+    <div class="slide-num">12</div>
+    <div class="s-label">12 — Operations (cont.)</div>
+    <h2 class="slide-title">Reporting Cadence</h2>
+    <div class="slide-body">
+      <div class="tw"><table>
+        <thead><tr><th>Frequency</th><th>Format</th><th>What's Covered</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Weekly</strong> (Monday)</td><td>WhatsApp / email</td><td>Spend pacing · ROAS vs target · CPO vs guardrail · Anomalies &amp; actions taken</td></tr>
+          <tr><td><strong>Monthly</strong></td><td>PDF report</td><td>Full KPI scorecard · Campaign breakdown · Top 10 products · ROAS trend · Next-month plan</td></tr>
+          <tr><td><strong>Quarterly</strong></td><td>Call / meeting</td><td>Unit economics review · LTV update · Budget scaling decision</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout" style="margin-top:20px"><strong>All KPI targets are derived from Unit Economics (slides 12–13) — not fixed in advance.</strong> Targets will be set once actual AOV, COGS, and margin figures are confirmed.</div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 16: RECOVERY ── -->
+  <div class="slide" id="s16">
+    <div class="slide-num">13</div>
+    <div class="s-label">13 — Operations</div>
+    <h2 class="slide-title">Recovery Plan</h2>
+    <div class="slide-body">
+      <p style="color:var(--tb);font-size:12.5px;margin-bottom:10px">Three severity levels. Defined in advance so response is fast regardless of who notices first.</p>
+      <div class="rec-row">
+        <div class="rec rl1">
+          <div class="rec-hdr">Level 1 — Watch<span class="rec-trigger">ROAS drops 15–25% for 1 week</span></div>
+          <div class="rec-body"><ul>
+            <li>Check feed for disapprovals / price mismatches</li>
+            <li>Review search terms — block low-intent queries</li>
+            <li>Check Brand impression share (competitor activity)</li>
+            <li>Pause PMax assets rated "Low"</li>
+            <li><strong>Budget: no change</strong></li>
+          </ul></div>
+        </div>
+        <div class="rec rl2">
+          <div class="rec-hdr">Level 2 — Act<span class="rec-trigger">ROAS below break-even, 2 weeks</span></div>
+          <div class="rec-body"><ul>
+            <li>Cut Demand Gen budget 50% immediately</li>
+            <li>Shift to Brand Search — highest ROAS</li>
+            <li>Reduce PMax 25–30%, hold 7 days</li>
+            <li>Verify purchase tag still firing</li>
+            <li>Check top products — out of stock / repriced?</li>
+          </ul></div>
+        </div>
+        <div class="rec rl3">
+          <div class="rec-hdr">Level 3 — Reset<span class="rec-trigger">ROAS below break-even, 1 month</span></div>
+          <div class="rec-body"><ul>
+            <li>Full account audit: feed, keywords, audiences, creatives</li>
+            <li>Reset PMax with fresh asset groups</li>
+            <li>Run Standard Shopping as parallel test</li>
+            <li>Pause non-brand Search entirely</li>
+            <li>Written findings report before resuming full budget</li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:10px"><strong>Day-one safeguards:</strong> Monthly budget cap · Target ROAS floor on PMax · Automated alert if 7-day CPO exceeds guardrail.</div>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<script>
+const deck = document.getElementById('deck');
+const slides = deck.querySelectorAll('.slide');
+const total = slides.length;
+const dotsEl = document.getElementById('dots');
+const counterEl = document.getElementById('counter');
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', `Slide ${i+1}`);
+  d.addEventListener('click', () => goTo(i));
+  dotsEl.appendChild(d);
+});
+const dots = dotsEl.querySelectorAll('.dot');
+
+let current = 0;
+let isScrolling = false;
+
+function goTo(n) {
+  if (n < 0 || n >= total) return;
+  current = n;
+  slides[n].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  updateUI(n);
+}
+
+function updateUI(n) {
+  dots.forEach((d, i) => d.classList.toggle('active', i === n));
+  counterEl.textContent = `${n + 1} / ${total}`;
+}
+
+// IntersectionObserver for scroll spy
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+      const idx = Array.from(slides).indexOf(e.target);
+      if (idx !== -1) { current = idx; updateUI(idx); }
+    }
+  });
+}, { threshold: 0.5 });
+slides.forEach(s => io.observe(s));
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (['ArrowDown','ArrowRight','PageDown'].includes(e.key)) { e.preventDefault(); goTo(current + 1); }
+  if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key))  { e.preventDefault(); goTo(current - 1); }
+});
+
+// Touch swipe
+let touchY = 0;
+deck.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+deck.addEventListener('touchend', e => {
+  const diff = touchY - e.changedTouches[0].clientY;
+  if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+}, { passive: true });
+
+// All Slides overlay
+const allBtn = document.getElementById('all-btn');
+const overlay = document.getElementById('overlay');
+const sheet = document.getElementById('sheet');
+allBtn.addEventListener('click', () => overlay.classList.add('open'));
+overlay.addEventListener('click', e => { if (!sheet.contains(e.target)) overlay.classList.remove('open'); });
+sheet.querySelectorAll('.sl').forEach(sl => {
+  sl.addEventListener('click', () => {
+    overlay.classList.remove('open');
+    goTo(parseInt(sl.dataset.slide));
+  });
+});
+</script>
+</body>
+</html>

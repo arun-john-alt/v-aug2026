@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Strategy Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0c0c0e;
+  --surface:    #131316;
+  --surface-2:  #1b1b1f;
+  --border:     #252529;
+  --border-dim: #1d1d21;
+  --text:       #e2e2dc;
+  --text-muted: #76767280;
+  --text-sub:   #767672;
+  --text-dim:   #3e3e3c;
+  --accent:     #c9a55a;
+  --accent-dim: rgba(201,165,90,0.10);
+  --accent-glow:rgba(201,165,90,0.05);
+  --warn:       #d97b3a;
+  --warn-dim:   rgba(217,123,58,0.12);
+  --danger:     #c94444;
+  --danger-dim: rgba(201,68,68,0.11);
+  --green:      #4ea87a;
+  --green-dim:  rgba(78,168,122,0.12);
+  --sidebar-w:  228px;
+  --font:       'Inter', system-ui, sans-serif;
+  --font-d:     'Playfair Display', Georgia, serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.sb-top {
+  padding: 26px 20px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.sb-eyebrow {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.sb-name {
+  font-family: var(--font-d);
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.sb-meta { font-size: 10px; color: var(--text-sub); }
+
+.nav-wrap { padding: 10px 0 24px; flex: 1; }
+.nav-group-label {
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 14px 20px 4px;
+}
+a.nl {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6.5px 20px;
+  font-size: 11.5px;
+  color: var(--text-sub);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  line-height: 1.3;
+}
+a.nl:hover { color: var(--text); background: var(--surface-2); }
+a.nl.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--accent-glow);
+}
+.nl-num {
+  font-size: 9.5px;
+  color: var(--text-dim);
+  min-width: 16px;
+  font-variant-numeric: tabular-nums;
+}
+a.nl.active .nl-num { color: var(--accent); opacity: 0.6; }
+.nl-badge {
+  margin-left: auto;
+  font-size: 8px;
+  padding: 1.5px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: var(--warn-dim);
+  color: var(--warn);
+  white-space: nowrap;
+}
+
+/* ── Progress bar ── */
+#pbar {
+  position: fixed;
+  top: 0; left: var(--sidebar-w); right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 200;
+}
+#pfill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #e8c078);
+  width: 0%;
+  transition: width 0.08s linear;
+}
+
+/* ── Main layout ── */
+#main { margin-left: var(--sidebar-w); flex: 1; min-width: 0; }
+
+/* ── Content column (consistent max-width for all direct children) ── */
+.col {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 72px 60px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -120px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,165,90,0.055) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 9.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+.hero h1 {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 14.5px;
+  color: var(--text-sub);
+  font-weight: 300;
+  max-width: 480px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+.hero-rule { height: 1px; background: var(--border); margin-bottom: 28px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 32px; }
+.hm-item strong {
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+.hm-item span { font-size: 12px; color: var(--text-sub); }
+
+/* ── Key highlights strip ── */
+.kh-strip {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  /* strip is inside .col so it aligns with content naturally */
+}
+.kh-cell {
+  background: var(--surface);
+  padding: 22px 20px;
+  text-align: center;
+}
+.kh-val {
+  font-family: var(--font-d);
+  font-size: 28px;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.kh-lbl { font-size: 10px; color: var(--text-sub); line-height: 1.3; }
+
+/* ── Content wrap ── */
+.cw { padding: 0 60px 80px; }
+
+/* ── Section ── */
+.sec {
+  padding-top: 62px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-dim);
+}
+.sec:last-of-type { border-bottom: none; }
+.sec-hdr {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.sec-num { font-size: 11px; color: var(--text-dim); min-width: 22px; font-variant-numeric: tabular-nums; }
+.sec-title { font-family: var(--font-d); font-size: 27px; font-weight: 400; color: var(--text); }
+
+h3 {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 26px 0 9px;
+  letter-spacing: 0.1px;
+}
+p { margin-bottom: 13px; }
+ul, ol { margin: 7px 0 13px 20px; }
+li { margin-bottom: 6px; }
+strong { font-weight: 600; color: var(--text); }
+em.tag {
+  font-style: normal;
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 10px;
+  margin-left: 7px;
+  vertical-align: middle;
+  font-weight: 500;
+}
+em.tag-green { background: var(--green-dim); color: var(--green); }
+em.tag-gold  { background: var(--accent-dim); color: var(--accent); }
+em.tag-muted { background: var(--surface-2); color: var(--text-sub); border: 1px solid var(--border); }
+
+code {
+  font-family: 'JetBrains Mono','Fira Code',monospace;
+  font-size: 11.5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+/* ── Callouts ── */
+.callout {
+  background: var(--accent-dim);
+  border-left: 3px solid var(--accent);
+  padding: 13px 17px;
+  margin: 18px 0;
+  font-size: 12.5px;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.65;
+}
+.callout.warn   { background: var(--warn-dim);   border-left-color: var(--warn); }
+.callout.danger { background: var(--danger-dim);  border-left-color: var(--danger); }
+
+/* ── Tables ── */
+.tw { overflow-x: auto; margin: 14px 0 22px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+thead tr { background: var(--surface-2); }
+thead th {
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 9.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border-dim); transition: background 0.1s; }
+tbody tr:hover { background: var(--surface-2); }
+tbody td { padding: 9px 13px; vertical-align: top; color: var(--text); }
+td.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tr-hl { background: var(--accent-dim) !important; }
+.tr-hl td { color: var(--accent); font-weight: 600; }
+.note { font-size: 11px; color: var(--text-sub); font-style: italic; margin-top: -12px; margin-bottom: 14px; }
+
+/* ── Phase cards ── */
+.phases { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 18px 0; }
+.phase {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  padding: 17px;
+}
+.p-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 8px; }
+.p-title { font-family: var(--font-d); font-size: 15px; color: var(--text); margin-bottom: 9px; }
+.p-budget { font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.p-roas { font-size: 11px; color: var(--text-sub); margin-bottom: 11px; }
+.phase ul { font-size: 11px; color: var(--text-sub); margin-left: 13px; }
+.phase li { margin-bottom: 3px; }
+
+/* ── Deliverables ── */
+.dels { display: grid; grid-template-columns: repeat(2,1fr); gap: 9px; margin: 14px 0; }
+.del {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 14px 15px;
+}
+.del-t { font-size: 11px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.del p { font-size: 11.5px; color: var(--text-sub); margin: 0; }
+
+/* ── Checklist ── */
+.chk-todo { color: var(--warn); font-weight: 600; font-size: 11px; }
+
+/* ── Unit economics ── */
+.input-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warn);
+  background: var(--warn-dim);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.input-badge::before { content: '●'; font-size: 6px; }
+.ph {
+  display: inline-block;
+  min-width: 130px;
+  border-bottom: 1.5px dashed var(--accent);
+  background: rgba(201,165,90,0.07);
+  padding: 1px 7px;
+  color: var(--accent);
+  font-style: italic;
+  font-size: 11px;
+  border-radius: 2px;
+}
+td .ph { min-width: 100px; }
+.ue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 14px 0; }
+.ue-card { background: var(--surface); border: 1px solid var(--border); padding: 14px 15px; }
+.ue-lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 4px; }
+.ue-form { font-size: 11px; color: var(--text-sub); font-style: italic; margin-bottom: 8px; }
+.ue-val { font-family: var(--font-d); font-size: 19px; color: var(--text); }
+
+/* ── Recovery plan ── */
+.rec-grid { margin: 14px 0; }
+.rec-level { border: 1px solid var(--border); background: var(--surface); margin-bottom: 9px; overflow: hidden; }
+.rec-hdr {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.rl1 .rec-hdr { border-left: 4px solid #b8941e; background: rgba(184,148,30,0.08); }
+.rl2 .rec-hdr { border-left: 4px solid var(--warn); background: var(--warn-dim); }
+.rl3 .rec-hdr { border-left: 4px solid var(--danger); background: var(--danger-dim); }
+.rec-trigger { font-size: 10.5px; color: var(--text-sub); font-weight: 400; font-style: italic; }
+.rec-body { padding: 11px 15px 13px; font-size: 12.5px; }
+.rec-body ul { margin-left: 15px; }
+.rec-body li { margin-bottom: 5px; color: var(--text-sub); }
+.rec-body li strong { color: var(--text); }
+
+/* ── Footer ── */
+.doc-ft {
+  margin-top: 60px;
+  padding: 18px 0 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--text-dim);
+}
+
+/* ── Responsive ── */
+/* ── Mobile nav ── */
+#mob-nav-btn {
+  display: none;
+  position: fixed;
+  bottom: 24px; right: 20px;
+  z-index: 300;
+  background: var(--accent);
+  color: #0c0c0e;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+#mob-nav-btn:active { opacity: 0.8; }
+
+#mob-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+}
+#mob-overlay.open { display: flex; align-items: flex-end; }
+#mob-sheet {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 0 0 32px;
+}
+.mob-sheet-handle {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 8px;
+}
+.mob-sheet-handle span {
+  width: 36px; height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+}
+.mob-sheet-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  padding: 4px 20px 10px;
+}
+#mob-sheet .mnl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: var(--text-sub);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-dim);
+}
+#mob-sheet .mnl:active { background: var(--surface-2); }
+#mob-sheet .mnl .mnl-num { font-size: 10px; color: var(--text-dim); min-width: 18px; }
+#mob-sheet .mnl .mnl-badge {
+  margin-left: auto;
+  font-size: 8px;
+  padding: 1.5px 6px;
+  border-radius: 10px;
+  background: var(--warn-dim);
+  color: var(--warn);
+  font-weight: 600;
+}
+.mob-group {
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 12px 20px 4px;
+}
+
+@media (max-width: 860px) {
+  :root { --sidebar-w: 0px; }
+  #sidebar { display: none; }
+  #mob-nav-btn { display: flex; align-items: center; gap: 7px; }
+  #pbar { left: 0; }
+  .hero { padding: 40px 22px 44px; }
+  .cw { padding-left: 22px; padding-right: 22px; }
+  .col { max-width: 100%; }
+  .kh-strip { grid-template-columns: repeat(2,1fr); }
+  .phases { grid-template-columns: 1fr; }
+  .dels { grid-template-columns: 1fr; }
+  .ue-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 30px; }
+  .hero-meta { gap: 20px; }
+  .hm-item { min-width: 40%; }
+}
+@media print {
+  #sidebar, #pbar { display: none; }
+  #main { margin-left: 0; }
+  body { background: #fff; color: #111; }
+  :root { --text: #111; --text-sub: #555; --surface: #f5f5f5; --surface-2: #eee; --border: #ddd; --border-dim: #e8e8e8; }
+}
+</style>
+</head>
+<body>
+
+<div id="pbar"><div id="pfill"></div></div>
+
+<!-- MOBILE NAV BUTTON -->
+<button id="mob-nav-btn" aria-label="Open navigation">☰ Contents</button>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mob-overlay" role="dialog" aria-modal="true">
+  <div id="mob-sheet">
+    <div class="mob-sheet-handle"><span></span></div>
+    <div class="mob-sheet-title">Sections</div>
+    <div class="mob-group">Overview</div>
+    <a class="mnl" href="#brand">    <span class="mnl-num">01</span> The Brand</a>
+    <a class="mnl" href="#opportunity"><span class="mnl-num">02</span> Opportunity</a>
+    <a class="mnl" href="#strategy">  <span class="mnl-num">03</span> Strategy</a>
+    <div class="mob-group">Commercial</div>
+    <a class="mnl" href="#budget">    <span class="mnl-num">04</span> Budget &amp; Projections</a>
+    <a class="mnl" href="#scope">     <span class="mnl-num">05</span> Scope of Work</a>
+    <a class="mnl" href="#investment"><span class="mnl-num">06</span> Investment</a>
+    <div class="mob-group">Execution</div>
+    <a class="mnl" href="#roadmap">   <span class="mnl-num">07</span> 6-Month Roadmap</a>
+    <a class="mnl" href="#why">       <span class="mnl-num">08</span> Why This Works</a>
+    <a class="mnl" href="#next">      <span class="mnl-num">09</span> Next Steps</a>
+    <div class="mob-group">Operations</div>
+    <a class="mnl" href="#integrations">   <span class="mnl-num">10</span> Integrations</a>
+    <a class="mnl" href="#uniteconomics">  <span class="mnl-num">11</span> Unit Economics <span class="mnl-badge">Input needed</span></a>
+    <a class="mnl" href="#kpis">           <span class="mnl-num">12</span> KPIs &amp; Reporting</a>
+    <a class="mnl" href="#recovery">       <span class="mnl-num">13</span> Recovery Plan</a>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sb-top">
+    <div class="sb-eyebrow">Proposal · Google Ads</div>
+    <div class="sb-name">Vastara<br>The Label</div>
+    <div class="sb-meta">August 2026 · Pan-India</div>
+  </div>
+  <div class="nav-wrap">
+    <div class="nav-group-label">Overview</div>
+    <a class="nl active" href="#brand">     <span class="nl-num">01</span> The Brand</a>
+    <a class="nl" href="#opportunity">      <span class="nl-num">02</span> Opportunity</a>
+    <a class="nl" href="#strategy">         <span class="nl-num">03</span> Strategy</a>
+    <div class="nav-group-label">Commercial</div>
+    <a class="nl" href="#budget">           <span class="nl-num">04</span> Budget &amp; Projections</a>
+    <a class="nl" href="#scope">            <span class="nl-num">05</span> Scope of Work</a>
+    <a class="nl" href="#investment">       <span class="nl-num">06</span> Investment</a>
+    <div class="nav-group-label">Execution</div>
+    <a class="nl" href="#roadmap">          <span class="nl-num">07</span> 6-Month Roadmap</a>
+    <a class="nl" href="#why">              <span class="nl-num">08</span> Why This Works</a>
+    <a class="nl" href="#next">             <span class="nl-num">09</span> Next Steps</a>
+    <div class="nav-group-label">Operations</div>
+    <a class="nl" href="#integrations">     <span class="nl-num">10</span> Integrations</a>
+    <a class="nl" href="#uniteconomics">    <span class="nl-num">11</span> Unit Economics <span class="nl-badge">Input needed</span></a>
+    <a class="nl" href="#kpis">             <span class="nl-num">12</span> KPIs &amp; Reporting</a>
+    <a class="nl" href="#recovery">         <span class="nl-num">13</span> Recovery Plan</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div id="main"><div class="col">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Google Ads Strategy Proposal</div>
+    <h1>Growing <em>Vastara The Label</em><br>with Google Ads</h1>
+    <p class="hero-sub">A phased strategy to profitably acquire customers across India — grounded in real benchmark data from a comparable Indian DTC clothing brand.</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <div class="hm-item"><strong>Prepared for</strong><span>Vastara The Label</span></div>
+      <div class="hm-item"><strong>Date</strong><span>August 2026</span></div>
+      <div class="hm-item"><strong>Market</strong><span>India (Pan-India)</span></div>
+      <div class="hm-item"><strong>Channels</strong><span>Search · PMax · YouTube · Demand Gen</span></div>
+    </div>
+  </div>
+
+  <!-- KEY HIGHLIGHTS STRIP -->
+  <div class="kh-strip">
+    <div class="kh-cell"><div class="kh-val">3–5×</div><div class="kh-lbl">Target ROAS<br>steady state</div></div>
+    <div class="kh-cell"><div class="kh-val">₹50K</div><div class="kh-lbl">Minimum monthly<br>ad budget</div></div>
+    <div class="kh-cell"><div class="kh-val">4–6 wk</div><div class="kh-lbl">PMax learning<br>period</div></div>
+    <div class="kh-cell"><div class="kh-val">Sep</div><div class="kh-lbl">Ideal go-live<br>pre-Diwali</div></div>
+  </div>
+
+  <div class="cw">
+
+    <!-- 01 -->
+    <div class="sec" id="brand">
+      <div class="sec-hdr"><span class="sec-num">01</span><h2 class="sec-title">The Brand</h2></div>
+      <p>Vastara The Label is a women's clothing brand selling handloom organic cotton apparel — crop tops, embroidery shirts, kurtis, dresses, and co-ord sets — direct to consumers across India through its Shopify store. In operation since 2018, with a mission to bring authentic artisanal fashion at accessible prices.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Category</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Product Range</td><td>Kaftan tops, embroidery shirts/dresses, crop tops, women's shirts, kurtis, skirt sets</td></tr>
+          <tr><td>Sale Price Range</td><td>Rs. 699 – Rs. 1,855</td></tr>
+          <tr><td>Estimated Avg. Order Value</td><td>Rs. 900 – Rs. 1,500</td></tr>
+          <tr><td>USP</td><td>Handloom organic cotton, artisanal prints (ajrakh, ikkat, embroidery), value pricing</td></tr>
+          <tr><td>Social Proof</td><td>4.61 ★ from 1,100+ verified reviews (Judge.me)</td></tr>
+          <tr><td>Platform</td><td>Shopify — ready for Google Merchant Center feed integration</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><strong>Strong foundation.</strong> 1,100+ verified reviews signals genuine purchase volume and customer trust — a critical asset for Google Shopping ads, where star ratings under product listings directly improve click-through rates.</div>
+    </div>
+
+    <!-- 02 -->
+    <div class="sec" id="opportunity">
+      <div class="sec-hdr"><span class="sec-num">02</span><h2 class="sec-title">The Opportunity</h2></div>
+      <p>Organic and handloom cotton clothing is a growing, underserved niche in Indian e-commerce. Consumers are actively searching for terms like <em style="color:var(--text-sub)">"handloom crop top online," "organic cotton kurti," "ajrakh printed shirt"</em> — with far less paid competition than mass-market fashion, which means lower CPCs and a faster path to profitable ROAS.</p>
+      <p>Google Ads offers three structural advantages for Vastara right now:</p>
+      <ul>
+        <li><strong>Intent-led traffic:</strong> Shoppers on Google are further along the purchase journey than on social media — they are searching with intent to buy.</li>
+        <li><strong>Product feed-driven discovery:</strong> Performance Max surfaces Vastara's products across Search, Shopping, YouTube, Gmail, Display, and Maps in a single campaign — ideal for a brand with 100+ SKUs.</li>
+        <li><strong>Measurable returns from day one:</strong> Unlike brand awareness spends, every rupee on Google is traceable to an actual Shopify purchase.</li>
+      </ul>
+      <div class="tw"><table>
+        <thead><tr><th>India Fashion E-Commerce Benchmark</th><th>Search</th><th>Performance Max</th><th>Demand Gen</th></tr></thead>
+        <tbody>
+          <tr><td>Avg. CPC</td><td>Rs. 10–25</td><td>Rs. 5–12</td><td>Rs. 50–100 CPM</td></tr>
+          <tr><td>Click-Through Rate</td><td>3–6%</td><td>1–2%</td><td>0.5–1.2%</td></tr>
+          <tr><td>Conversion Rate</td><td>5–10% (brand) / 1–3% (generic)</td><td>0.8–1.5%</td><td>0.5–1.5%</td></tr>
+          <tr><td>Target ROAS (steady state)</td><td>15–40× (brand) / 3–6× (generic)</td><td>3–5×</td><td>2.5–4×</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Benchmarks based on India women's clothing category, 2025–2026.</p>
+    </div>
+
+    <!-- 03 -->
+    <div class="sec" id="strategy">
+      <div class="sec-hdr"><span class="sec-num">03</span><h2 class="sec-title">Proposed Campaign Strategy</h2></div>
+      <p>The strategy runs in two layers: a <strong>capture layer</strong> (Search + PMax) for in-market buyers actively searching, and an <strong>awareness layer</strong> (Demand Gen / YouTube) to build the top of funnel and re-engage site visitors.</p>
+
+      <h3>Campaign 1 — Brand Search <em class="tag tag-green">Always On</em></h3>
+      <p>Protect the brand name. When someone searches "Vastara" or "Vastara The Label," this campaign ensures the brand appears at the top — not a competitor or aggregator. Cost is minimal; ROAS is very high (15–40× is typical for brand search in this niche).</p>
+
+      <h3>Campaign 2 — Performance Max <em class="tag tag-gold">Core Revenue Driver</em></h3>
+      <p>PMax is Google's AI-driven campaign type that uses the Shopify product feed to automatically show the right product to the right person across all Google surfaces. The majority of budget goes here. PMax requires a 4–6 week learning period; conversions accelerate meaningfully once the algorithm has sufficient data.</p>
+
+      <h3>Campaign 3 — Non-Brand Search <em class="tag tag-muted">Month 3+</em></h3>
+      <p>Targeting high-intent keywords like "handloom crop top online India," "organic cotton women's shirt," "ajrakh printed top buy." Introduced once PMax has a stable conversion base to avoid cannibalising its learning signal.</p>
+
+      <h3>Campaign 4 — Demand Gen / YouTube <em class="tag tag-muted">Month 3–4</em></h3>
+      <p>Remarketing to site visitors and lookalike audiences using product and brand creative on YouTube and Google's discovery surfaces. Supports brand recall and re-engages window shoppers who didn't convert on first visit.</p>
+
+      <div class="callout"><strong>Recommended launch sequence:</strong> Brand Search + PMax in Month 1 → Non-Brand Search in Month 3 → Demand Gen in Month 3–4. Launching all campaigns simultaneously dilutes budget and interrupts the PMax learning phase.</div>
+    </div>
+
+    <!-- 04 -->
+    <div class="sec" id="budget">
+      <div class="sec-hdr"><span class="sec-num">04</span><h2 class="sec-title">Budget &amp; Projections</h2></div>
+      <p>The phased plan builds data before scaling spend. Projections are anchored in benchmark data from a comparable profitable Indian DTC clothing brand running identical campaign types.</p>
+      <div class="phases">
+        <div class="phase">
+          <div class="p-label">Phase 1 · Month 1–2</div>
+          <div class="p-title">Test &amp; Learn</div>
+          <div class="p-budget">Rs. 50,000 – 75,000 / mo</div>
+          <div class="p-roas">Expected ROAS: 3–8×</div>
+          <ul><li>Brand Search: Rs. 8K–12K</li><li>Performance Max: Rs. 40K–60K</li><li>Goal: PMax learning phase</li><li>Output: Baseline CPC &amp; CVR data</li></ul>
+        </div>
+        <div class="phase">
+          <div class="p-label">Phase 2 · Month 3–4</div>
+          <div class="p-title">Optimise</div>
+          <div class="p-budget">Rs. 80,000 – 1,20,000 / mo</div>
+          <div class="p-roas">Expected ROAS: 3.5–5×</div>
+          <ul><li>Brand Search + PMax continues</li><li>Add Non-Brand Search</li><li>Add Demand Gen</li><li>Prune underperforming products</li></ul>
+        </div>
+        <div class="phase">
+          <div class="p-label">Phase 3 · Month 5+</div>
+          <div class="p-title">Scale</div>
+          <div class="p-budget">Rs. 1,50,000 – 3,00,000 / mo</div>
+          <div class="p-roas">Expected ROAS: 4–6×</div>
+          <ul><li>Scale on proven ROAS</li><li>Seasonal campaign bursts</li><li>Expand to new audiences</li><li>Full funnel operating</li></ul>
+        </div>
+      </div>
+      <h3>Projected Returns — Phase 1 Scenarios</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Scenario</th><th>Monthly Budget</th><th>ROAS</th><th>Est. Revenue Generated</th><th>Net Margin on Ad Spend*</th></tr></thead>
+        <tbody>
+          <tr><td>Conservative</td><td class="r">Rs. 50,000</td><td class="r">3×</td><td class="r">Rs. 1,50,000</td><td class="r">Rs. 25,000</td></tr>
+          <tr><td>Base Case</td><td class="r">Rs. 60,000</td><td class="r">4×</td><td class="r">Rs. 2,40,000</td><td class="r">Rs. 60,000</td></tr>
+          <tr><td>Optimistic</td><td class="r">Rs. 75,000</td><td class="r">5×</td><td class="r">Rs. 3,75,000</td><td class="r">Rs. 1,12,500</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">* Assumes ~25% product margin after COGS, shipping, and fulfilment. Actual targets will be set once Section 11 (Unit Economics) is completed.</p>
+      <div class="callout">Once actual unit economics are confirmed in Section 11, the break-even ROAS and bid strategy floor will be set precisely — and the scenario projections above updated accordingly.</div>
+    </div>
+
+    <!-- 05 -->
+    <div class="sec" id="scope">
+      <div class="sec-hdr"><span class="sec-num">05</span><h2 class="sec-title">Scope of Work</h2></div>
+      <div class="dels">
+        <div class="del"><div class="del-t">Account &amp; Feed Setup</div><p>Google Ads account structure, Google Merchant Center setup, Shopify product feed configuration, conversion tracking via Google tag.</p></div>
+        <div class="del"><div class="del-t">Campaign Build</div><p>Campaign creation, ad group structure, asset uploads (images, headlines, descriptions), audience lists, bidding strategy configuration.</p></div>
+        <div class="del"><div class="del-t">Keyword Research</div><p>Brand and non-brand keyword list, negative keyword setup to block irrelevant traffic, competitor term analysis.</p></div>
+        <div class="del"><div class="del-t">Weekly Optimisation</div><p>Bid adjustments, search term review, negative keywords, asset performance review, budget pacing checks every week.</p></div>
+        <div class="del"><div class="del-t">Monthly Reporting</div><p>Performance report covering spend, ROAS, CPC, top-performing products, conversions, and next-month recommendations.</p></div>
+        <div class="del"><div class="del-t">Seasonal Campaigns</div><p>Setup and management of Navratri, Diwali, end-of-season, and new arrivals campaigns — included in monthly fee.</p></div>
+      </div>
+      <p><strong>Not included:</strong> Ad creative production (photos/videos), product description copywriting, website CRO, or social media advertising.</p>
+    </div>
+
+    <!-- 06 -->
+    <div class="sec" id="investment">
+      <div class="sec-hdr"><span class="sec-num">06</span><h2 class="sec-title">Investment</h2></div>
+      <h3>One-Time Setup Fee</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Scope</th><th>Fee</th></tr></thead>
+        <tbody><tr><td>Account setup, Merchant Center, product feed, conversion tracking, initial campaign build</td><td class="r">Rs. 20,000 – Rs. 30,000</td></tr></tbody>
+      </table></div>
+      <h3>Monthly Management Fee — Tiered by Ad Spend</h3>
+      <p>Fee is charged as a percentage of actual monthly ad spend for the tier the total falls into. Non-cumulative — one rate applies to the full spend amount.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Monthly Ad Spend</th><th>Management Fee</th><th>Approx. Fee at Band Midpoint</th></tr></thead>
+        <tbody>
+          <tr><td>Up to Rs. 50,000</td><td class="r">20%</td><td class="r">Rs. 10,000 <em style="color:var(--text-sub)">(minimum)</em></td></tr>
+          <tr><td>Rs. 50,001 – Rs. 1,00,000</td><td class="r">15%</td><td class="r">Rs. 11,250</td></tr>
+          <tr><td>Rs. 1,00,001 – Rs. 3,00,000</td><td class="r">12%</td><td class="r">Rs. 24,000</td></tr>
+          <tr><td>Rs. 3,00,001 – Rs. 5,00,000</td><td class="r">10%</td><td class="r">Rs. 40,000</td></tr>
+          <tr><td>Rs. 5,00,001 – Rs. 10,00,000</td><td class="r">8%</td><td class="r">Rs. 60,000</td></tr>
+          <tr class="tr-hl"><td>Above Rs. 10,00,000</td><td class="r">6%</td><td class="r">Negotiable</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Management fee billed monthly in advance. Ad spend billed directly to client's Google Ads account or invoiced separately.</p>
+      <h3>Estimated All-In Cost — Month 1</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>One-time setup</td><td class="r">Rs. 20,000 – Rs. 30,000</td></tr>
+          <tr><td>Ad spend (Month 1)</td><td class="r">Rs. 50,000 – Rs. 75,000</td></tr>
+          <tr><td>Management fee (Month 1)</td><td class="r">Rs. 10,000 – Rs. 11,250</td></tr>
+          <tr class="tr-hl"><td><strong>Total Month 1</strong></td><td class="r"><strong>Rs. 80,000 – Rs. 1,16,250</strong></td></tr>
+          <tr><td>Ongoing (Month 2+)</td><td class="r">Rs. 60,000 – Rs. 90,000 / month</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 07 -->
+    <div class="sec" id="roadmap">
+      <div class="sec-hdr"><span class="sec-num">07</span><h2 class="sec-title">6-Month Roadmap</h2></div>
+      <div class="tw"><table>
+        <thead><tr><th>Month</th><th>Activity</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Month 1</strong></td><td>Account setup, feed, tracking, Brand Search + PMax launch</td><td>Campaigns live, data collection begins</td></tr>
+          <tr><td><strong>Month 2</strong></td><td>PMax learning phase, bid strategy refinement, negative keyword build</td><td>First ROAS signal — target 3–4×</td></tr>
+          <tr><td><strong>Month 3</strong></td><td>Non-Brand Search launch, Demand Gen launch, budget increase</td><td>Full funnel active, 4–5× ROAS target</td></tr>
+          <tr><td><strong>Month 4</strong></td><td>Product-level optimisation, top SKU identification, audience expansion</td><td>Top 20 products driving 80% of ad revenue</td></tr>
+          <tr><td><strong>Month 5</strong></td><td>Scale budget on proven campaigns, Navratri / Diwali campaign prep</td><td>Rs. 1.5L+ monthly spend at target ROAS</td></tr>
+          <tr><td><strong>Month 6</strong></td><td>Festive season campaigns, retargeting intensity, performance review</td><td>End-of-year review + next 6-month strategy</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 08 -->
+    <div class="sec" id="why">
+      <div class="sec-hdr"><span class="sec-num">08</span><h2 class="sec-title">Why This Approach Works</h2></div>
+      <ul>
+        <li><strong>Shopify-native integration:</strong> The store connects directly to Google Merchant Center — product images, prices, and inventory sync automatically with no manual feed management after initial setup.</li>
+        <li><strong>PMax is built for this catalogue:</strong> 100+ SKUs, strong product visuals, clear price differentiation — all the signals PMax needs to perform well. Brands with larger catalogues consistently outperform smaller ones in PMax.</li>
+        <li><strong>Sale pricing is a paid ad asset:</strong> The brand runs 63–82% discounts. In ad copy, "From Rs. 699 | Organic Cotton" is a powerful hook — higher CTR means lower effective CPC, which compounds over time.</li>
+        <li><strong>Brand search ROI is disproportionate:</strong> With 1,100+ reviews and growing organic presence, brand search volume already exists and is currently unmonetised. Capturing it is the fastest, cheapest win.</li>
+        <li><strong>Niche = lower CPCs:</strong> "Handloom organic cotton top" has far fewer advertisers than "women's top online" — a meaningful CPC advantage despite pan-India targeting.</li>
+        <li><strong>Festive season timing:</strong> Launching now gives campaigns 4–6 weeks of learning before Navratri and Diwali — typically 2–3× normal e-commerce traffic in India.</li>
+      </ul>
+    </div>
+
+    <!-- 09 -->
+    <div class="sec" id="next">
+      <div class="sec-hdr"><span class="sec-num">09</span><h2 class="sec-title">Next Steps</h2></div>
+      <ol>
+        <li><strong>Agree scope and sign engagement letter</strong> — confirm budget range and fee structure.</li>
+        <li><strong>Complete Section 11 (Unit Economics)</strong> — fill in actual AOV, COGS, shipping cost, and margin. This unlocks precise KPI targets.</li>
+        <li><strong>Share Google Ads account access</strong> — new account setup or access to existing account.</li>
+        <li><strong>Shopify integration</strong> — connect Google &amp; YouTube app in Shopify, verify Google Merchant Center account.</li>
+        <li><strong>Conversion tracking setup</strong> — tag purchase events from Shopify checkout; verify with a real test transaction.</li>
+        <li><strong>Campaign go-live</strong> — Brand Search + PMax live within 5–7 business days of kickoff.</li>
+      </ol>
+      <div class="callout warn">
+        <strong>Time-sensitive:</strong> The ideal go-live window is <strong>August–September 2026.</strong> Campaigns need 4–6 weeks of learning before Navratri and Diwali — the highest-traffic, highest-conversion months for Indian fashion e-commerce. Delaying past mid-September means missing this window entirely.
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="sec" id="integrations">
+      <div class="sec-hdr"><span class="sec-num">10</span><h2 class="sec-title">Integrations &amp; Tracking Checklist</h2></div>
+      <p>All integrations must be confirmed working <strong>before campaigns go live.</strong> Broken tracking means the algorithm optimises toward the wrong signal — this is the single most common reason campaigns underperform despite adequate budget.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Integration</th><th>Tool</th><th>Purpose</th><th>Pre-Launch Check</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Shopify ↔ Google Merchant Center</strong></td><td>Google &amp; YouTube app (Shopify)</td><td>Product feed for Shopping / PMax — syncs titles, prices, images, inventory</td><td><span class="chk-todo">□ Feed live, zero disapprovals</span></td></tr>
+          <tr><td><strong>Purchase conversion event</strong></td><td>Google Tag → Google Ads</td><td>Fires on order confirmation with correct <code>value</code> and <code>currency</code> — primary PMax signal</td><td><span class="chk-todo">□ Test order placed, verified in Tag Assistant</span></td></tr>
+          <tr><td><strong>GA4 e-commerce events</strong></td><td>GA4 + Shopify</td><td><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code> — funnel analysis and audience building</td><td><span class="chk-todo">□ All 3 firing with correct revenue values in GA4 DebugView</span></td></tr>
+          <tr><td><strong>Google Ads ↔ GA4 link</strong></td><td>Google Ads Admin → Linked accounts</td><td>Import GA4 goals into Google Ads; enables cross-platform audience sharing</td><td><span class="chk-todo">□ Link active, goals imported</span></td></tr>
+          <tr><td><strong>Remarketing audience tag</strong></td><td>Google Tag (all pages)</td><td>Builds site visitor lists for Demand Gen and PMax audience signals</td><td><span class="chk-todo">□ Tag fires on all pages; lists accumulating</span></td></tr>
+          <tr><td><strong>Judge.me → Google Shopping ratings</strong></td><td>Judge.me → Integrations</td><td>Surfaces star ratings under Shopping ads — improves CTR at zero cost</td><td><span class="chk-todo">□ Google integration enabled; ratings feed submitted</span></td></tr>
+          <tr><td><strong>Merchant Center product approvals</strong></td><td>Google Merchant Center → Products</td><td>All active products approved, no policy violations, GTIN attributes complete</td><td><span class="chk-todo">□ &lt; 5% disapproval rate before launch</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout danger"><strong>Most critical:</strong> the purchase event must fire with the correct <code>value</code> parameter matching the actual order total. If wrong or missing, PMax optimises toward the wrong signal and ROAS data will be unreliable from day one. Always verify with a real test transaction before going live.</div>
+    </div>
+
+    <!-- 11 -->
+    <div class="sec" id="uniteconomics">
+      <div class="sec-hdr"><span class="sec-num">11</span><h2 class="sec-title">Unit Economics</h2></div>
+      <div class="input-badge">Input required from Vastara team</div>
+      <p>KPI targets and bid strategy floors are derived from unit economics — not set arbitrarily. Please fill in the actual figures below. These numbers will be used to calculate the break-even ROAS and Cost per Order guardrail that governs every bidding decision.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Metric</th><th>Formula / Source</th><th>Your Actual Figure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Average Order Value (AOV)</strong></td><td>Shopify Analytics → Average order value (last 90 days)</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>COGS % per order</strong></td><td>Product cost + packaging ÷ AOV</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr><td><strong>Avg. outbound shipping cost</strong></td><td>Monthly shipping spend ÷ orders shipped</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>Payment processing fee</strong></td><td>Gateway rate (Razorpay / Shopify Payments) × AOV</td><td>Rs. <span class="ph">fill in</span></td></tr>
+          <tr><td><strong>Return / exchange rate</strong></td><td>Returns ÷ total orders (last 3 months)</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr><td><strong>Repeat purchase rate</strong></td><td>Returning customers ÷ total customers (Shopify)</td><td><span class="ph">fill in</span> %</td></tr>
+          <tr class="tr-hl"><td><strong>Contribution margin per order</strong></td><td>AOV × (1 − COGS%) − Shipping − Payment fee</td><td>Rs. <span class="ph">calculated once above is filled</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="ue-grid">
+        <div class="ue-card"><div class="ue-lbl">Break-Even ROAS</div><div class="ue-form">AOV ÷ Contribution Margin per Order</div><div class="ue-val"><span class="ph">calculated</span></div></div>
+        <div class="ue-card"><div class="ue-lbl">Max Cost per Order (CPO guardrail)</div><div class="ue-form">= Contribution Margin per Order</div><div class="ue-val"><span class="ph">calculated</span></div></div>
+        <div class="ue-card"><div class="ue-lbl">Customer Lifetime Value (LTV)</div><div class="ue-form">AOV × Avg. orders per customer per year</div><div class="ue-val"><span class="ph">calculated</span></div></div>
+        <div class="ue-card"><div class="ue-lbl">LTV-Adjusted Max CAC</div><div class="ue-form">LTV × target margin % — permits higher CPO if repeat rate is strong</div><div class="ue-val"><span class="ph">calculated</span></div></div>
+      </div>
+      <p class="note">Once confirmed, the break-even ROAS replaces the estimates in Section 04, and KPI targets in Section 12 are set accordingly.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="sec" id="kpis">
+      <div class="sec-hdr"><span class="sec-num">12</span><h2 class="sec-title">KPIs &amp; Reporting Plan</h2></div>
+      <p>All KPI targets are derived from the unit economics in Section 11 — not fixed in advance. The framework below defines what each KPI measures, what it signals, and how the target is calculated once actual numbers are available.</p>
+      <h3>Primary KPIs — What We Optimise Toward</h3>
+      <div class="tw"><table>
+        <thead><tr><th>KPI</th><th>Definition</th><th>How Target is Set</th><th>What It Signals</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ROAS</strong></td><td>Revenue attributed ÷ ad spend</td><td>Break-even ROAS + agreed profit buffer (e.g. +0.5× in Phase 1, +1× in Phase 2+)</td><td>Primary profitability signal; drives the PMax bid strategy floor</td></tr>
+          <tr><td><strong>Cost per Order (CPO)</strong></td><td>Ad spend ÷ orders attributed to ads</td><td>Target ≤ Contribution margin per order (Section 11)</td><td>Absolute guardrail — if CPO exceeds contribution margin, each ad-driven sale loses money</td></tr>
+          <tr><td><strong>Orders from Ads</strong></td><td>Purchases attributed to Google Ads in period</td><td>Month-on-month growth target agreed at each phase review</td><td>Volume signal — confirms scaling is working alongside ROAS</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Secondary KPIs — Diagnostic Layer</h3>
+      <div class="tw"><table>
+        <thead><tr><th>KPI</th><th>What a drop tells you</th><th>First action</th></tr></thead>
+        <tbody>
+          <tr><td>Conversion Rate (CVR)</td><td>Traffic quality declining or site experience has changed</td><td>Review audience targeting, check mobile landing page, add negative keywords</td></tr>
+          <tr><td>Avg. CPC</td><td>Auction competition increasing or ad quality declining</td><td>Refresh creatives, review bid strategy, check Quality Score on Search</td></tr>
+          <tr><td>Click-Through Rate (CTR)</td><td>Ads losing relevance or creative fatigue setting in</td><td>New headlines, use current sale price in copy, upload fresh images</td></tr>
+          <tr><td>Brand Search Impression Share</td><td>Brand name being captured by competitors or aggregators</td><td>Increase brand search budget; add competitor names as negatives if needed</td></tr>
+          <tr><td>Cart Abandonment Rate (GA4)</td><td>Post-click site or checkout issue — not an ads problem</td><td>Check mobile checkout, trigger remarketing for cart abandoners</td></tr>
+          <tr><td>Revenue per Session (GA4)</td><td>Blended site-level conversion health</td><td>Low = traffic quality or site issue; investigate in GA4 funnel report</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Reporting Cadence</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Frequency</th><th>Format</th><th>What's Covered</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Weekly</strong> (every Monday)</td><td>WhatsApp / email summary</td><td>Spend pacing vs budget · ROAS vs target · CPO vs guardrail · Anomalies &amp; actions taken</td></tr>
+          <tr><td><strong>Monthly</strong></td><td>PDF report</td><td>Full KPI scorecard · Campaign-level breakdown · Top 10 products by revenue · ROAS trend · Next-month budget recommendation</td></tr>
+          <tr><td><strong>Quarterly</strong></td><td>Call / meeting</td><td>Unit economics review · LTV update · Strategy and budget scaling decision for next quarter</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 13 -->
+    <div class="sec" id="recovery">
+      <div class="sec-hdr"><span class="sec-num">13</span><h2 class="sec-title">Performance Recovery Plan</h2></div>
+      <p>Campaigns can dip due to algorithm changes, feed issues, creative fatigue, seasonality, or competitor activity. This plan defines the response at each severity level so action is fast and consistent — regardless of who notices the drop first.</p>
+      <div class="rec-grid">
+        <div class="rec-level rl1">
+          <div class="rec-hdr">Level 1 — Watch <span class="rec-trigger">Trigger: ROAS drops 15–25% vs prior 2-week average, for 1 week</span></div>
+          <div class="rec-body"><ul>
+            <li>Check Merchant Center for new feed disapprovals or price mismatches</li>
+            <li>Review search terms report — block irrelevant or low-intent queries</li>
+            <li>Check if Brand Search impression share has dropped (competitor activity)</li>
+            <li>Review PMax asset performance — pause assets rated "Low"</li>
+            <li><strong>Budget: no change.</strong> One week of dip is within normal algorithmic fluctuation.</li>
+          </ul></div>
+        </div>
+        <div class="rec-level rl2">
+          <div class="rec-hdr">Level 2 — Act <span class="rec-trigger">Trigger: ROAS below break-even for 2 consecutive weeks</span></div>
+          <div class="rec-body"><ul>
+            <li>Reduce Demand Gen budget by 50% immediately — highest risk, lowest direct ROAS</li>
+            <li>Shift freed budget to Brand Search — most reliable, highest ROAS campaign</li>
+            <li>Reduce PMax budget by 25–30% and hold for 7 days to allow re-optimisation</li>
+            <li>Verify purchase conversion tag is still firing correctly (GA4 real-time + Tag Assistant)</li>
+            <li>Check if top-selling products are out of stock, removed from feed, or repriced</li>
+            <li>Review site: sale expired, checkout broken on mobile, new delivery issues</li>
+          </ul></div>
+        </div>
+        <div class="rec-level rl3">
+          <div class="rec-hdr">Level 3 — Reset <span class="rec-trigger">Trigger: ROAS below break-even for a full calendar month</span></div>
+          <div class="rec-body"><ul>
+            <li>Full account audit: feed quality, keyword coverage, audience signal quality, creative fatigue</li>
+            <li>Reset PMax with fresh asset groups, tighter audience signals, updated product exclusions</li>
+            <li>Run a Standard Shopping campaign in parallel as a controlled test against PMax</li>
+            <li>Pause non-brand Search entirely until PMax stabilises</li>
+            <li>Revisit unit economics — has AOV dropped? Have COGS or shipping costs risen?</li>
+            <li>Present a written findings report and revised 60-day plan before resuming full budget</li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="callout"><strong>Structural safeguards set on day one —</strong> Monthly budget cap in Google Ads so spend never exceeds the approved amount · Target ROAS floor on PMax bid strategy to prevent buying low-quality traffic · Automated Google Ads alert if 7-day CPO exceeds the agreed guardrail threshold.</div>
+    </div>
+
+    <div class="doc-ft">
+      <span>Prepared: August 2026 · Confidential</span>
+      <span>Vastara The Label — Google Ads Proposal</span>
+    </div>
+
+  </div><!-- /cw -->
+</div><!-- /col -->
+</div><!-- /main -->
+
+<script>
+// Mobile nav
+const mobBtn = document.getElementById('mob-nav-btn');
+const mobOverlay = document.getElementById('mob-overlay');
+const mobSheet = document.getElementById('mob-sheet');
+mobBtn.addEventListener('click', () => mobOverlay.classList.add('open'));
+mobOverlay.addEventListener('click', e => { if (!mobSheet.contains(e.target)) mobOverlay.classList.remove('open'); });
+mobOverlay.querySelectorAll('a.mnl').forEach(a => {
+  a.addEventListener('click', () => {
+    mobOverlay.classList.remove('open');
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) setTimeout(() => window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 28, behavior: 'smooth' }), 50);
+  });
+});
+
+// Scroll spy via IntersectionObserver
+const navLinks = document.querySelectorAll('a.nl');
+const pfill = document.getElementById('pfill');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-15% 0px -65% 0px' });
+
+document.querySelectorAll('.sec[id]').forEach(s => observer.observe(s));
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  pfill.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+}, { passive: true });
+
+// Smooth scroll with offset
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 28, behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>

@@ -214,8 +214,20 @@ em.tm{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
   justify-content:center;flex-shrink:0;
 }
 
-/* ── Checklist ── */
-.chk-todo{color:var(--wn);font-weight:600;font-size:10.5px}
+/* ── Checklist cards ── */
+.chk-cards{display:flex;flex-direction:column;gap:7px;margin:10px 0}
+.chk-card{
+  background:var(--s1);border:1px solid var(--br);
+  border-left:3px solid var(--br);padding:10px 13px;
+  transition:border-color .15s;
+}
+.chk-card:hover{border-left-color:var(--wn)}
+.chk-name{font-size:12px;font-weight:600;color:var(--tx);margin-bottom:2px}
+.chk-desc{font-size:11px;color:var(--tb);line-height:1.5;margin-bottom:6px}
+.chk-todo{
+  display:inline-block;font-size:10px;color:var(--wn);font-weight:600;
+  background:var(--wd);padding:3px 8px;border-radius:4px;
+}
 
 /* ── Roadmap table ── */
 .roadmap-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:0}
@@ -604,18 +616,36 @@ em.tm{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
     <h2 class="slide-title">Integrations &amp; Tracking</h2>
     <div class="slide-body">
       <p style="color:var(--tb);font-size:12.5px">All must be verified before campaigns go live. Broken tracking = algorithm optimises toward the wrong signal.</p>
-      <div class="tw"><table>
-        <thead><tr><th>Integration</th><th>Purpose</th><th>Pre-Launch Check</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Shopify ↔ Merchant Center</strong></td><td>Product feed for Shopping / PMax</td><td><span class="chk-todo">□ Feed live, zero disapprovals</span></td></tr>
-          <tr><td><strong>Purchase conversion event</strong></td><td>Fires on order confirmation with correct <code>value</code> — primary PMax signal</td><td><span class="chk-todo">□ Verified via Tag Assistant</span></td></tr>
-          <tr><td><strong>GA4 e-commerce events</strong></td><td><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code></td><td><span class="chk-todo">□ All 3 in GA4 DebugView</span></td></tr>
-          <tr><td><strong>Google Ads ↔ GA4 link</strong></td><td>Import goals; audience sharing</td><td><span class="chk-todo">□ Link active, goals imported</span></td></tr>
-          <tr><td><strong>Remarketing tag</strong></td><td>Site visitor lists for Demand Gen + PMax</td><td><span class="chk-todo">□ Fires on all pages</span></td></tr>
-          <tr><td><strong>Judge.me → Shopping ratings</strong></td><td>Star ratings under Shopping ads</td><td><span class="chk-todo">□ Google integration enabled</span></td></tr>
-          <tr><td><strong>Merchant Center approvals</strong></td><td>All products approved, no violations</td><td><span class="chk-todo">□ &lt; 5% disapproval rate</span></td></tr>
-        </tbody>
-      </table></div>
+      <div class="chk-cards">
+        <div class="chk-card">
+          <div><div class="chk-name">Shopify ↔ Google Merchant Center</div><div class="chk-desc">Product feed for Shopping / PMax — syncs titles, prices, images, inventory</div></div>
+          <span class="chk-todo">□ Feed live, zero disapprovals</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">Purchase conversion event</div><div class="chk-desc">Fires on order confirmation with correct <code>value</code> — primary PMax optimisation signal</div></div>
+          <span class="chk-todo">□ Verified in Tag Assistant</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">GA4 e-commerce events</div><div class="chk-desc"><code>purchase</code>, <code>add_to_cart</code>, <code>begin_checkout</code> — funnel &amp; audience building</div></div>
+          <span class="chk-todo">□ All 3 in GA4 DebugView</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">Google Ads ↔ GA4 link</div><div class="chk-desc">Import GA4 goals into Google Ads; enables audience sharing</div></div>
+          <span class="chk-todo">□ Link active, goals imported</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">Remarketing audience tag</div><div class="chk-desc">Site visitor lists for Demand Gen retargeting and PMax audience signals</div></div>
+          <span class="chk-todo">□ Fires on all pages</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">Judge.me → Google Shopping ratings</div><div class="chk-desc">Star ratings under Shopping ads — improves CTR at zero extra cost</div></div>
+          <span class="chk-todo">□ Integration enabled in Judge.me</span>
+        </div>
+        <div class="chk-card">
+          <div><div class="chk-name">Merchant Center product approvals</div><div class="chk-desc">All active products approved, no policy violations, GTIN attributes complete</div></div>
+          <span class="chk-todo">□ &lt; 5% disapproval rate</span>
+        </div>
+      </div>
       <div class="callout danger"><strong>Critical:</strong> purchase event must fire with correct <code>value</code>. Always verify with a real test transaction before spending.</div>
     </div>
   </div>

@@ -10,14 +10,24 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
+  --bg:#f5f4f1;--s1:#ffffff;--s2:#edece8;--br:#ddddd8;--brd:#e6e6e2;
+  --tx:#1a1a18;--ts:rgba(70,70,65,.5);--tb:#5a5a56;--td:#aaaaaa;
+  --ac:#b8922a;--ad:rgba(184,146,42,.11);--ag:rgba(184,146,42,.05);
+  --wn:#c05c18;--wd:rgba(192,92,24,.10);
+  --dn:#bf2e2e;--dd:rgba(191,46,46,.10);
+  --gn:#2a7a56;--gd:rgba(42,122,86,.10);
+  --f:'Inter',system-ui,sans-serif;
+  --fd:'Playfair Display',Georgia,serif;
+  --num-color:rgba(0,0,0,.05);
+}
+[data-theme="dark"]{
   --bg:#0c0c0e;--s1:#131316;--s2:#1b1b1f;--br:#252529;--brd:#1d1d21;
-  --tx:#e2e2dc;--ts:#76767280;--tb:#767672;--td:#3e3e3c;
+  --tx:#e2e2dc;--ts:rgba(118,118,114,.5);--tb:#767672;--td:#3e3e3c;
   --ac:#c9a55a;--ad:rgba(201,165,90,.10);--ag:rgba(201,165,90,.04);
   --wn:#d97b3a;--wd:rgba(217,123,58,.12);
   --dn:#c94444;--dd:rgba(201,68,68,.11);
   --gn:#4ea87a;--gd:rgba(78,168,122,.12);
-  --f:'Inter',system-ui,sans-serif;
-  --fd:'Playfair Display',Georgia,serif;
+  --num-color:rgba(201,165,90,.035);
 }
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:var(--f)}
 
@@ -35,11 +45,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-
   scroll-snap-align:start;scroll-snap-stop:always;
   display:flex;flex-direction:column;justify-content:center;
   padding:52px 80px;position:relative;overflow:hidden;
+  background:var(--bg);
 }
 .slide-num{
   position:absolute;font-family:var(--fd);
   font-size:clamp(160px,22vw,320px);
-  color:rgba(201,165,90,.035);
+  color:var(--num-color);
   right:-20px;top:50%;transform:translateY(-50%);
   line-height:1;pointer-events:none;user-select:none;
 }
@@ -159,6 +170,17 @@ em.tg-m{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
 .rec-body li{margin-bottom:4px;color:var(--tb)}
 .rec-body li strong{color:var(--tx)}
 
+/* ── THEME TOGGLE ── */
+#theme-btn{
+  position:fixed;top:20px;right:20px;z-index:201;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--s1);border:1px solid var(--br);
+  color:var(--tb);font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+#theme-btn:hover{border-color:var(--ac);color:var(--ac)}
+
 /* ── NAV DOTS ── */
 #dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px;z-index:200}
 .dot{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--tb);background:transparent;cursor:pointer;transition:all .2s}
@@ -214,15 +236,16 @@ em.tg-m{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
   .p-bgt{font-size:15px}
 }
 @media print{
-  #dots,#pbar,#all-btn,#overlay{display:none}
-  #main{margin-left:0}
+  #dots,#pbar,#all-btn,#overlay,#theme-btn{display:none}
   body{background:#fff;color:#111}
+  .slide{background:#fff}
 }
 </style>
 </head>
 <body>
 
 <div id="pbar"><div id="pfill"></div></div>
+<button id="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">☾</button>
 <div id="dots"></div>
 <div id="counter">1 / 17</div>
 <button id="all-btn">≡ All Slides</button>
@@ -665,7 +688,27 @@ em.tg-m{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
 </div><!-- /deck -->
 
 <script>
-const deck = document.getElementById('deck');
+// Theme toggle
+const themeBtn = document.getElementById('theme-btn');
+const html = document.documentElement;
+if (localStorage.getItem('theme') === 'dark') {
+  html.setAttribute('data-theme', 'dark');
+  themeBtn.textContent = '☀';
+}
+themeBtn.addEventListener('click', () => {
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    html.removeAttribute('data-theme');
+    themeBtn.textContent = '☾';
+    localStorage.setItem('theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    themeBtn.textContent = '☀';
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// Deck init
 const slides = deck.querySelectorAll('.slide');
 const total = slides.length;
 const dotsEl = document.getElementById('dots');

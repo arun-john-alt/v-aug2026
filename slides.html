@@ -10,15 +10,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f4f1;--s1:#ffffff;--s2:#edece8;--br:#ddddd8;--brd:#e6e6e2;
-  --tx:#1a1a18;--ts:rgba(70,70,65,.5);--tb:#5a5a56;--td:#aaaaaa;
-  --ac:#b8922a;--ad:rgba(184,146,42,.11);--ag:rgba(184,146,42,.05);
-  --wn:#c05c18;--wd:rgba(192,92,24,.10);
-  --dn:#bf2e2e;--dd:rgba(191,46,46,.10);
-  --gn:#2a7a56;--gd:rgba(42,122,86,.10);
+  --bg:#f7f7f5;--s1:#ffffff;--s2:#f0f0ed;--br:#e0e0dc;--brd:#e8e8e5;
+  --tx:#1c1c1a;--ts:rgba(60,60,56,.5);--tb:#5e5e5a;--td:#b4b4b0;
+  --ac:#c0861e;--ad:rgba(192,134,30,.09);--ag:rgba(192,134,30,.04);
+  --wn:#c55810;--wd:rgba(197,88,16,.09);
+  --dn:#c22424;--dd:rgba(194,36,36,.09);
+  --gn:#1c7848;--gd:rgba(28,120,72,.09);
   --f:'Inter',system-ui,sans-serif;
   --fd:'Playfair Display',Georgia,serif;
-  --num-color:rgba(0,0,0,.05);
+  --num-color:rgba(0,0,0,.055);
 }
 [data-theme="dark"]{
   --bg:#0c0c0e;--s1:#131316;--s2:#1b1b1f;--br:#252529;--brd:#1d1d21;
@@ -75,6 +75,7 @@ ul,ol{margin:6px 0 10px 18px}
 li{font-size:13px;margin-bottom:5px;color:var(--tx);line-height:1.6}
 strong{font-weight:600;color:var(--tx)}
 code{font-family:'JetBrains Mono','Fira Code',monospace;font-size:11px;background:var(--s2);border:1px solid var(--br);padding:1px 5px;border-radius:3px;color:var(--ac)}
+[data-theme="dark"] code{background:var(--s2);border-color:var(--br);color:var(--ac)}
 
 /* ── CALLOUTS ── */
 .callout{background:var(--ad);border-left:3px solid var(--ac);padding:12px 16px;margin:14px 0;font-size:12.5px;border-radius:0 4px 4px 0;line-height:1.6}
@@ -427,15 +428,20 @@ em.tg-m{background:var(--s2);color:var(--tb);border:1px solid var(--br)}
   <div class="slide-num">05</div>
   <div class="s-label">05 — Commercial</div>
   <h2 class="stitle">Scope of Work</h2>
-  <div class="dels">
-    <div class="del"><div class="del-t">Account &amp; Feed Setup</div><p>Google Ads, Merchant Center, Shopify feed, conversion tracking.</p></div>
-    <div class="del"><div class="del-t">Campaign Build</div><p>Campaign structure, creatives, audience lists, bid strategy.</p></div>
-    <div class="del"><div class="del-t">Keyword Research</div><p>Brand + non-brand keywords, negatives, competitor analysis.</p></div>
-    <div class="del"><div class="del-t">Weekly Optimisation</div><p>Bid adjustments, search term review, asset performance, pacing.</p></div>
-    <div class="del"><div class="del-t">Monthly Reporting</div><p>Spend, ROAS, CPC, top products, conversions, next-month plan.</p></div>
-    <div class="del"><div class="del-t">Seasonal Campaigns</div><p>Navratri, Diwali, end-of-season, new arrivals — included.</p></div>
+  <div class="slide-body">
+    <div class="tw"><table>
+      <thead><tr><th style="width:28%">Deliverable</th><th>What's included</th><th style="white-space:nowrap;width:22%">When</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Account &amp; Feed Setup</strong></td><td>Google Ads account structure, Merchant Center, Shopify feed, conversion tracking</td><td>Week 1</td></tr>
+        <tr><td><strong>Campaign Build</strong></td><td>Campaign structure, ad creatives, audience lists, bidding strategy configuration</td><td>Week 1–2</td></tr>
+        <tr><td><strong>Keyword Research</strong></td><td>Brand + non-brand keyword list, negative keywords, competitor term analysis</td><td>Week 1</td></tr>
+        <tr><td><strong>Weekly Optimisation</strong></td><td>Bid adjustments, search term review, asset performance review, budget pacing</td><td>Every Monday</td></tr>
+        <tr><td><strong>Monthly Reporting</strong></td><td>Spend, ROAS, CPC, top products, conversions, next-month recommendation</td><td>1st of month</td></tr>
+        <tr><td><strong>Seasonal Campaigns</strong></td><td>Navratri, Diwali, end-of-season, new arrivals — setup and management</td><td>As scheduled</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12px;color:var(--td);margin-top:8px"><strong style="color:var(--tb)">Not included:</strong> Ad creative production &nbsp;·&nbsp; Product copywriting &nbsp;·&nbsp; Website CRO &nbsp;·&nbsp; Social media</p>
   </div>
-  <p style="font-size:12px;color:var(--td);margin-top:14px"><strong style="color:var(--tb)">Not included:</strong> Ad creative production · Product copywriting · Website CRO · Social media</p>
 </div>
 
 <!-- ── 7: INVESTMENT ── -->

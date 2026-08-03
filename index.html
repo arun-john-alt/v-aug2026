@@ -726,31 +726,29 @@ td .ph { min-width: 100px; }
       <h3>One-Time Setup Fee</h3>
       <div class="tw"><table>
         <thead><tr><th>Scope</th><th>Fee</th></tr></thead>
-        <tbody><tr><td>Account setup, Merchant Center, product feed, conversion tracking, initial campaign build</td><td class="r">Rs. 20,000 – Rs. 30,000</td></tr></tbody>
+        <tbody><tr><td>Account setup, Merchant Center, product feed, conversion tracking, initial campaign build</td><td class="r">Rs. 10,000</td></tr></tbody>
       </table></div>
-      <h3>Monthly Management Fee — Tiered by Ad Spend</h3>
-      <p>Fee is charged as a percentage of actual monthly ad spend for the tier the total falls into. Non-cumulative — one rate applies to the full spend amount.</p>
+      <h3>Monthly Management Fee — Progressive Model</h3>
+      <p>Fee is charged progressively across spend bands — like a tax bracket. Higher spend results in a lower blended effective rate.</p>
       <div class="tw"><table>
-        <thead><tr><th>Monthly Ad Spend</th><th>Management Fee</th><th>Approx. Fee at Band Midpoint</th></tr></thead>
+        <thead><tr><th>Monthly Ad Spend</th><th>Rate Structure</th><th class="r">Max Monthly Fee</th></tr></thead>
         <tbody>
-          <tr><td>Up to Rs. 50,000</td><td class="r">20%</td><td class="r">Rs. 10,000 <em style="color:var(--text-sub)">(minimum)</em></td></tr>
-          <tr><td>Rs. 50,001 – Rs. 1,00,000</td><td class="r">15%</td><td class="r">Rs. 11,250</td></tr>
-          <tr><td>Rs. 1,00,001 – Rs. 3,00,000</td><td class="r">12%</td><td class="r">Rs. 24,000</td></tr>
-          <tr><td>Rs. 3,00,001 – Rs. 5,00,000</td><td class="r">10%</td><td class="r">Rs. 40,000</td></tr>
-          <tr><td>Rs. 5,00,001 – Rs. 10,00,000</td><td class="r">8%</td><td class="r">Rs. 60,000</td></tr>
-          <tr class="tr-hl"><td>Above Rs. 10,00,000</td><td class="r">6%</td><td class="r">Negotiable</td></tr>
+          <tr><td>Up to Rs. 1,00,000</td><td>10% of total spend</td><td class="r">Rs. 10,000</td></tr>
+          <tr><td>Rs. 1,00,001 – Rs. 5,00,000</td><td>10% on first Rs. 1L + 5% on remaining</td><td class="r">Rs. 30,000</td></tr>
+          <tr><td>Rs. 5,00,001 – Rs. 10,00,000</td><td>10% on first Rs. 1L + 5% on next Rs. 4L + 3% on remaining</td><td class="r">Rs. 45,000</td></tr>
+          <tr class="tr-hl"><td>Above Rs. 10,00,000</td><td>Negotiable</td><td class="r">—</td></tr>
         </tbody>
       </table></div>
       <p class="note">Management fee billed monthly in advance. Ad spend billed directly to client's Google Ads account or invoiced separately.</p>
       <h3>Estimated All-In Cost — Month 1</h3>
       <div class="tw"><table>
-        <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+        <thead><tr><th>Item</th><th class="r">Amount</th></tr></thead>
         <tbody>
-          <tr><td>One-time setup</td><td class="r">Rs. 20,000 – Rs. 30,000</td></tr>
+          <tr><td>One-time setup</td><td class="r">Rs. 10,000</td></tr>
           <tr><td>Ad spend (Month 1)</td><td class="r">Rs. 50,000 – Rs. 75,000</td></tr>
-          <tr><td>Management fee (Month 1)</td><td class="r">Rs. 10,000 – Rs. 11,250</td></tr>
-          <tr class="tr-hl"><td><strong>Total Month 1</strong></td><td class="r"><strong>Rs. 80,000 – Rs. 1,16,250</strong></td></tr>
-          <tr><td>Ongoing (Month 2+)</td><td class="r">Rs. 60,000 – Rs. 90,000 / month</td></tr>
+          <tr><td>Management fee (Month 1 @ 10%)</td><td class="r">Rs. 5,000 – Rs. 7,500</td></tr>
+          <tr class="tr-hl"><td><strong>Total Month 1</strong></td><td class="r"><strong>Rs. 65,000 – Rs. 92,500</strong></td></tr>
+          <tr><td>Ongoing (Month 2+)</td><td class="r">Rs. 55,000 – Rs. 82,500 / month</td></tr>
         </tbody>
       </table></div>
     </div>
@@ -853,9 +851,9 @@ td .ph { min-width: 100px; }
       <div class="tw"><table>
         <thead><tr><th>KPI</th><th>Definition</th><th>How Target is Set</th><th>What It Signals</th></tr></thead>
         <tbody>
-          <tr><td><strong>ROAS</strong></td><td>Revenue attributed ÷ ad spend</td><td>Break-even ROAS + agreed profit buffer (e.g. +0.5× in Phase 1, +1× in Phase 2+)</td><td>Primary profitability signal; drives the PMax bid strategy floor</td></tr>
-          <tr><td><strong>Cost per Order (CPO)</strong></td><td>Ad spend ÷ orders attributed to ads</td><td>Target ≤ Contribution margin per order (Section 11)</td><td>Absolute guardrail — if CPO exceeds contribution margin, each ad-driven sale loses money</td></tr>
-          <tr><td><strong>Orders from Ads</strong></td><td>Purchases attributed to Google Ads in period</td><td>Month-on-month growth target agreed at each phase review</td><td>Volume signal — confirms scaling is working alongside ROAS</td></tr>
+          <tr><td><strong>ROAS</strong></td><td>Revenue attributed ÷ ad spend</td><td>Break-even + a profit cushion</td><td>Measures if each rupee spent comes back with profit</td></tr>
+          <tr><td><strong>Cost per Order (CPO)</strong></td><td>Ad spend ÷ orders attributed to ads</td><td>Below your margin per order</td><td>If you spend more per sale than you earn, you lose money</td></tr>
+          <tr><td><strong>Orders from Ads</strong></td><td>Purchases attributed to Google Ads in period</td><td>Grows month on month</td><td>Confirms the campaign is actually driving sales volume</td></tr>
         </tbody>
       </table></div>
       <h3>Secondary KPIs — Diagnostic Layer</h3>

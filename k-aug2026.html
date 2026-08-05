@@ -24,20 +24,33 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: var(--dark);
+    background: #0D0A08;
     color: var(--ink);
     font-family: 'Segoe UI', system-ui, sans-serif;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Deck container */
-  #deck { width: 100%; height: 100vh; position: relative; overflow: hidden; }
+  /* Deck container — fixed at 1440×810 (16:9), scaled to fit viewport */
+  #deck {
+    width: 1440px;
+    height: 810px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    transform-origin: center center;
+  }
 
   .slide {
     position: absolute;
     inset: 0;
+    width: 1440px;
+    height: 810px;
     display: flex;
     flex-direction: column;
     padding: 56px 72px;
@@ -882,6 +895,17 @@
 
   // Init progress
   document.getElementById('progress').style.width = `${(1 / total) * 100}%`;
+
+  // Scale deck to fit viewport (maintain 1440×810 aspect)
+  function scaleDeck() {
+    const deck = document.getElementById('deck');
+    const scaleX = window.innerWidth  / 1440;
+    const scaleY = window.innerHeight / 810;
+    const scale  = Math.min(scaleX, scaleY);
+    deck.style.transform = `scale(${scale})`;
+  }
+  scaleDeck();
+  window.addEventListener('resize', scaleDeck);
 </script>
 </body>
 </html>

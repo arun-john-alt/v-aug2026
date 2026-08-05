@@ -442,6 +442,158 @@
   .col { display: flex; flex-direction: column; flex: 1; }
   .col--wide { flex: 1.4; }
 
+  /* ── Data table (unit economics, KPIs, reporting) ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .data-table th {
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--ink2);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--dark3);
+    font-weight: 500;
+  }
+  .data-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #1E1812;
+    vertical-align: top;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .ph-cell { color: var(--gold); font-style: italic; }
+  .ue-derived td { background: #1E1812 !important; }
+  .ue-derived .ph-cell { color: var(--gold-light); font-weight: 700; }
+  .ue-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--ink2);
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── Unit economics output cards ── */
+  .ue-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    align-content: start;
+    margin-bottom: 20px;
+  }
+  .ue-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ue-card__label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .ue-card__formula {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.4;
+  }
+  .ue-card__val {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--gold-light);
+    margin-top: auto;
+    font-style: italic;
+    opacity: 0.5;
+  }
+
+  /* ── Callout box ── */
+  .ue-callout {
+    background: #1A1410;
+    border: 1px solid var(--dark3);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+
+  /* ── KPI slide ── */
+  .kpi-section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  /* ── Recovery plan ── */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    flex: 1;
+    align-content: start;
+  }
+  .rec-tier {
+    border-radius: 12px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid transparent;
+  }
+  .rec-tier--l1 { background: #0A1820; border-color: #0E2A40; }
+  .rec-tier--l2 { background: #201400; border-color: #3D2800; }
+  .rec-tier--l3 { background: #200808; border-color: #3D1010; }
+  .rec-tier__header {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .rec-tier--l1 .rec-tier__header { color: #4A90D9; }
+  .rec-tier--l2 .rec-tier__header { color: #F5A623; }
+  .rec-tier--l3 .rec-tier__header { color: #E84040; }
+  .rec-tier__trigger {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--ink2);
+    line-height: 1.4;
+  }
+  .rec-tier__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 0;
+    margin: 0;
+  }
+  .rec-tier__list li {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+  .rec-tier__list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .rec-tier__list li strong { color: var(--ink); }
+
   /* Nav */
   #nav {
     position: fixed;
@@ -779,7 +931,7 @@
         <div class="check-item__icon">🔴</div>
         <div>
           <div class="check-item__title">BLOCKER: Inventory Availability — Nearly 0 products in-stock</div>
-          <div class="check-item__desc">Of 300+ products sampled via Shopify API, only 1 confirmed <code>available: true</code> (N1065, Emerald Gold Necklace, ₹880). Google Shopping requires <code>in_stock</code> status to serve ads. Pre-launch action: run full availability count; if &lt;100 in-stock SKUs, delay Shopping/PMax and pivot to Search-only.</div>
+          <div class="check-item__desc">Live Shopify API audit confirms <strong>7,458+ products all showing <code>available: false</code></strong> — only 1 exception (N1065, Emerald Gold Necklace, ₹880). More critically, a <strong>daily automated batch job is running at ~20:00 IST and re-zeroing all inventory</strong> — confirmed on two consecutive days (4 Aug &amp; 5 Aug 2026). This is a recurring system process, not a one-off reset. Google Merchant Center will disapprove all products; Shopping &amp; PMax cannot serve. <strong>Three resolution paths:</strong><br>(1) Switch products to <code>inventory_policy: continue</code> (sell when out of stock);<br>(2) Fix the inventory sync so actual stock quantities are written back after each batch run;<br>(3) Confirm make-to-order model and set Merchant Center feed <code>availability: preorder</code>.</div>
         </div>
       </div>
       <div class="check-item check-item--block">
@@ -793,7 +945,7 @@
         <div class="check-item__icon">🟡</div>
         <div>
           <div class="check-item__title">WARNING: Bulk inventory update happened today (5 Aug 2026)</div>
-          <div class="check-item__desc">All 7,458+ products were touched in a single batch operation today at 20:50 IST. This may be a temporary inventory reset — confirm with client whether this is a planned restocking workflow or a system issue.</div>
+          <div class="check-item__desc">A daily automated batch job is confirmed zeroing all inventory — <strong>4 Aug at 20:50 IST</strong> and <strong>5 Aug at 19:57 IST</strong> (two consecutive days, not a one-off). Likely causes: (a) an ERP/OMS syncing zero quantities nightly from an offline stock system, (b) a Shopify inventory import app resetting counts, or (c) intentional make-to-order setup without correct feed configuration. Root cause must be identified before any Google campaign can launch.</div>
         </div>
       </div>
       <div class="check-item check-item--ok">
@@ -935,12 +1087,148 @@
     <div class="footnote">All timelines conditional on inventory blocker being resolved in Week 1.</div>
   </div>
 
+  <!-- SLIDE 10: Unit Economics — Inputs -->
+  <div class="slide slide--content" data-index="9">
+    <div class="slide-num">09 / Economics</div>
+    <div class="slide-title">Unit Economics — Inputs<small>Fill in actuals before launch — these numbers set all bid floors and ROAS targets. Not guesses.</small></div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Metric</th><th>How to find it</th><th style="width:200px">Your Figure</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Average Order Value (AOV)</strong></td><td>Shopify Analytics → Orders → Avg. order value, last 90 days</td><td class="ph-cell">₹ ___</td></tr>
+        <tr><td><strong>COGS % per order</strong></td><td>Product cost + packaging ÷ AOV</td><td class="ph-cell">___ %</td></tr>
+        <tr><td><strong>Avg. outbound shipping</strong></td><td>Monthly shipping spend ÷ orders shipped</td><td class="ph-cell">₹ ___</td></tr>
+        <tr><td><strong>Payment processing fee</strong></td><td>Razorpay / Shopify Payments rate × AOV</td><td class="ph-cell">₹ ___</td></tr>
+        <tr><td><strong>Return / exchange rate</strong></td><td>Returns ÷ total orders, last 3 months</td><td class="ph-cell">___ %</td></tr>
+        <tr><td><strong>Repeat purchase rate</strong></td><td>Returning customers ÷ total customers, Shopify Analytics</td><td class="ph-cell">___ %</td></tr>
+        <tr class="ue-derived"><td><strong>Contribution margin / order</strong></td><td>AOV × (1 − COGS%) − Shipping − Payment fee</td><td class="ph-cell">₹ calculated</td></tr>
+      </tbody>
+    </table>
+    <div class="ue-note">KPI targets and bid floors on the next two slides derive from these numbers — not set arbitrarily. Share these figures and we configure everything from actuals.</div>
+  </div>
+
+  <!-- SLIDE 11: Unit Economics — Derived Targets -->
+  <div class="slide slide--content" data-index="10">
+    <div class="slide-num">10 / Economics</div>
+    <div class="slide-title">Unit Economics — Derived Targets<small>Once inputs are filled in, these four numbers drive every bidding decision</small></div>
+    <div class="ue-grid">
+      <div class="ue-card">
+        <div class="ue-card__label">Break-Even ROAS</div>
+        <div class="ue-card__formula">AOV ÷ Contribution Margin per Order</div>
+        <div class="ue-card__val">calculated</div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-card__label">Max CPO Guardrail</div>
+        <div class="ue-card__formula">= Contribution Margin per Order</div>
+        <div class="ue-card__val">calculated</div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-card__label">Customer LTV</div>
+        <div class="ue-card__formula">AOV × avg. orders per customer per year</div>
+        <div class="ue-card__val">calculated</div>
+      </div>
+      <div class="ue-card">
+        <div class="ue-card__label">LTV-Adjusted Max CAC</div>
+        <div class="ue-card__formula">LTV × target profit margin %</div>
+        <div class="ue-card__val">calculated</div>
+      </div>
+    </div>
+    <div class="ue-callout">Break-even ROAS replaces the estimates in Budget Roadmap (slide 5). KPIs on the next slide are set from these numbers — not fixed in advance. A campaign that looks unprofitable at 2× ROAS might be fine at a 1.6× break-even; the only way to know is to calculate it.</div>
+  </div>
+
+  <!-- SLIDE 12: KPIs -->
+  <div class="slide slide--content" data-index="11">
+    <div class="slide-num">11 / KPIs</div>
+    <div class="slide-title">KPI Framework<small>Targets set from Unit Economics — not arbitrary benchmarks</small></div>
+    <div style="display:flex;flex-direction:column;gap:20px;flex:1;">
+      <div>
+        <div class="kpi-section-label">Primary — What We Optimise Toward</div>
+        <table class="data-table">
+          <thead><tr><th>KPI</th><th>Target</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ROAS</strong></td><td>Break-even ROAS + profit cushion</td><td>Measures if each rupee spent comes back with profit attached</td></tr>
+            <tr><td><strong>Cost per Order (CPO)</strong></td><td>Below contribution margin per order</td><td>If CPO exceeds margin, every sale loses money regardless of ROAS</td></tr>
+            <tr><td><strong>Orders from Ads</strong></td><td>Grows month on month</td><td>Confirms campaigns are driving actual sales volume, not just clicks</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="kpi-section-label">Secondary — Diagnostic Layer</div>
+        <table class="data-table">
+          <thead><tr><th>KPI</th><th>A drop signals</th><th>First action</th></tr></thead>
+          <tbody>
+            <tr><td>Conversion Rate (CVR)</td><td>Traffic quality drop or site change</td><td>Review targeting · check mobile page speed</td></tr>
+            <tr><td>Avg. CPC</td><td>Auction competition rising</td><td>Refresh creatives · review bid strategy</td></tr>
+            <tr><td>CTR</td><td>Ad fatigue or weak copy</td><td>New headlines · use B2G1 offer &amp; price in copy</td></tr>
+            <tr><td>Brand Impression Share</td><td>Competitor bidding on Kattam brand</td><td>Increase brand budget · add brand defence campaign</td></tr>
+            <tr><td>Cart Abandonment (GA4)</td><td>Checkout friction — not an ads problem</td><td>Check mobile checkout · trigger remarketing audience</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 13: Reporting Cadence -->
+  <div class="slide slide--content" data-index="12">
+    <div class="slide-num">12 / Reporting</div>
+    <div class="slide-title">Reporting Cadence<small>You always know what's happening — no surprises, no chasing for updates</small></div>
+    <table class="data-table" style="margin-bottom:24px">
+      <thead><tr><th>Frequency</th><th>Format</th><th>What's Covered</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Weekly</strong> (Monday)</td><td>WhatsApp / email</td><td>Spend pacing · ROAS vs target · CPO vs guardrail · Actions taken last 7 days</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>PDF report</td><td>Full KPI scorecard · Campaign breakdown · Top 10 products by sales · ROAS trend · Next-month plan</td></tr>
+        <tr><td><strong>Quarterly</strong></td><td>Call / meeting</td><td>Unit economics review · LTV update · Budget scaling decision · Seasonal calendar plan (Navarathri, Diwali, etc.)</td></tr>
+      </tbody>
+    </table>
+    <div class="ue-callout"><strong>All KPI targets derive from Unit Economics — not fixed in advance.</strong> Targets are confirmed once actual AOV, COGS, and margin figures are shared by the Kattam team.</div>
+  </div>
+
+  <!-- SLIDE 14: Recovery Plan -->
+  <div class="slide slide--content" data-index="13">
+    <div class="slide-num">13 / Safety Net</div>
+    <div class="slide-title">Recovery Plan<small>Three severity levels defined before launch — fast response regardless of who notices first</small></div>
+    <div class="rec-grid">
+      <div class="rec-tier rec-tier--l1">
+        <div class="rec-tier__header">Level 1 — Watch<span class="rec-tier__trigger">ROAS drops 15–25% vs prior 2-week avg · sustained 1 week</span></div>
+        <ul class="rec-tier__list">
+          <li>Check Merchant Center feed for disapprovals or price errors</li>
+          <li>Block low-intent search terms from Search Terms report</li>
+          <li>Check Brand impression share</li>
+          <li>Pause PMax asset groups rated "Low"</li>
+          <li><strong>Budget: no change.</strong> Normal weekly fluctuation.</li>
+        </ul>
+      </div>
+      <div class="rec-tier rec-tier--l2">
+        <div class="rec-tier__header">Level 2 — Act<span class="rec-tier__trigger">ROAS below break-even · 2 consecutive weeks</span></div>
+        <ul class="rec-tier__list">
+          <li>Cut Demand Gen / Display budget 50% immediately</li>
+          <li>Shift freed budget to Brand Search</li>
+          <li>Reduce PMax 25–30% · hold 7 days before evaluating</li>
+          <li>Verify purchase conversion tag still firing (GA4 + Google Ads)</li>
+          <li>Check top 10 products: stock status or price changes?</li>
+        </ul>
+      </div>
+      <div class="rec-tier rec-tier--l3">
+        <div class="rec-tier__header">Level 3 — Reset<span class="rec-tier__trigger">ROAS below break-even · full calendar month</span></div>
+        <ul class="rec-tier__list">
+          <li>Full account audit: feed · keywords · audiences · creatives</li>
+          <li>Reset PMax with fresh asset groups and signals</li>
+          <li>Run Standard Shopping as parallel test campaign</li>
+          <li>Pause non-brand Search entirely</li>
+          <li>Written findings report before resuming full budget</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ue-callout" style="margin-top:16px"><strong>Day-one safeguards:</strong> Monthly budget cap · Target ROAS floor on PMax · Automated alert if 7-day CPO exceeds guardrail.</div>
+  </div>
+
 </div><!-- /deck -->
 
 <!-- Navigation -->
 <nav id="nav">
   <button class="nav-btn" id="btn-prev" onclick="go(-1)" disabled>←</button>
-  <span id="slide-counter">1 / 8</span>
+  <span id="slide-counter">1 / 14</span>
   <button class="nav-btn" id="btn-next" onclick="go(1)">→</button>
 </nav>
 

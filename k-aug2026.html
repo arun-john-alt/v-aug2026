@@ -876,8 +876,9 @@
     const next = cur + dir;
     if (next < 0 || next >= total) return;
 
-    slides[cur].classList.add('exit');
-    setTimeout(() => slides[cur].classList.remove('active', 'exit'), 350);
+    const prev = cur; // snapshot before cur advances
+    slides[prev].classList.add('exit');
+    setTimeout(() => slides[prev].classList.remove('active', 'exit'), 350);
 
     cur = next;
     slides[cur].classList.add('active');

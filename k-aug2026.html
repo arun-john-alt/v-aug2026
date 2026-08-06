@@ -372,6 +372,34 @@
   .dot-list li::before { content: "\25C6"; color: var(--accent); font-size: 7px; margin-top: 7px; flex-shrink: 0; }
   .dot-list li strong { color: var(--text); }
 
+  /* ── Thank You slide ── */
+  .slide-ty {
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 55%, #1E40AF 100%);
+    color: #F8FAFC;
+    overflow: hidden;
+  }
+  .ty-eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: #93C5FD; margin-bottom: 24px;
+  }
+  .ty-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 800; color: #FFFFFF; line-height: 1; margin-bottom: 24px;
+  }
+  .ty-rule { width: 64px; height: 4px; background: #3B82F6; border-radius: 2px; margin-bottom: 28px; }
+  .ty-sub {
+    font-size: clamp(15px, 2vw, 20px);
+    color: #CBD5E1; margin-bottom: 40px; max-width: 560px; line-height: 1.5;
+  }
+  .ty-meta { display: flex; flex-direction: column; gap: 14px; }
+  .ty-item {
+    display: flex; gap: 20px; align-items: baseline;
+    font-size: clamp(13px, 1.4vw, 15px); color: #94A3B8;
+  }
+  .ty-item strong { color: #FFFFFF; min-width: 130px; display: inline-block; }
+
   /* ── Mobile responsive ──────────────────────────── */
   @media (max-width: 767px) {
     .slide { padding: 22px 16px 76px; }
@@ -949,13 +977,27 @@
     <div class="ue-callout" style="margin-top:16px"><strong>Day-one safeguards:</strong> Monthly budget cap · Target ROAS floor on PMax · Automated alert if 7-day CPO exceeds guardrail.</div>
   </div>
 
+  <!-- SLIDE 15: Thank You -->
+  <div class="slide slide-ty" data-index="14">
+    <div class="ty-eyebrow">Google Ads Strategy Proposal · August 2026</div>
+    <div class="ty-title">Thank You</div>
+    <div class="ty-rule"></div>
+    <p class="ty-sub">Ready to grow Kattam Jewellery with Google Ads? Let's fix the blockers and launch.</p>
+    <div class="ty-meta">
+      <div class="ty-item"><strong>Immediate next step</strong>Resolve inventory availability (Slide 7 — choose resolution path)</div>
+      <div class="ty-item"><strong>Go-live target</strong>Week 3–4 (Search) · Week 4–5 (PMax, post Merchant Center)</div>
+      <div class="ty-item"><strong>Unit economics</strong>Share AOV + COGS → we set all bid targets from actuals (Slide 9)</div>
+      <div class="ty-item"><strong>Prepared on</strong>August 2026</div>
+    </div>
+  </div>
+
 
 </div><!-- /deck -->
 
 <!-- Navigation -->
 <nav id="nav">
   <button class="nav-btn" id="btn-prev" onclick="go(-1)" disabled>&#8592;</button>
-  <span id="slide-counter">1 / 14</span>
+  <span id="slide-counter">1 / 15</span>
   <button class="nav-btn" id="btn-next" onclick="go(1)">&#8594;</button>
 </nav>
 

@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10X Healthy Skin — Google Ads Strategy 2026</title>
-<style>
+<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>10X Healthy Skin \u2014 Google Ads Strategy 2026</title>\n<style>
   :root {
-    --bg:           #FFFFFF;
-    --bg2:          #FAF8F5;
-    --bg3:          #F2EDE6;
-    --border:       #E8DDD2;
-    --text:         #1A1614;
-    --text2:        #6B5744;
-    --text3:        #A89280;
-    --accent:       #8B6B4A;
-    --accent2:      #F5EDE0;
-    --gold:         #C9A96E;
-    --red:          #9B1D20;
-    --red-pale:     #FDF2F2;
-    --red-border:   #F2C4C4;
-    --green:        #2D6A4F;
-    --green-pale:   #F0F7F4;
-    --green-border: #A8D5BF;
-    --amber:        #B5622C;
-    --amber-pale:   #FDF5EF;
-    --amber-border: #E8C4A0;
-    --blue:         #2C5282;
-    --blue-pale:    #EBF4FF;
-    --blue-border:  #BEE3F8;
+    --bg:     #FFFFFF;
+    --bg2:    #FAF8F6;
+    --bg3:    #F3EDE7;
+    --border: #EAE3DB;
+    --text:   #0C0C0C;
+    --text2:  #5A4E46;
+    --text3:  #9C8C82;
+    --accent: #C4674A;
+    --accent2:#FBF0EB;
+    --red:    #B91C1C;
+    --red-pale:   #FEF2F2;
+    --red-border: #FECACA;
+    --green:  #166534;
+    --green-pale:   #F0FDF4;
+    --green-border: #86EFAC;
+    --amber:  #92400E;
+    --amber-pale:   #FFFBEB;
+    --amber-border: #FDE68A;
+    --blue:   #1E3A5F;
+    --blue-pale:    #EFF6FF;
+    --blue-border:  #BFDBFE;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,243 +52,329 @@
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    padding: clamp(28px, 4.5vw, 64px) clamp(22px, 6vw, 96px) 80px;
+    padding: clamp(32px, 5vw, 72px) clamp(24px, 6vw, 96px) 80px;
     background: var(--bg);
   }
   .slide::-webkit-scrollbar { width: 3px; }
   .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-  /* ── Slide variants ── */
   .slide--cover {
     justify-content: center;
     align-items: flex-start;
-    background: linear-gradient(150deg, #1A1614 0%, #2D1F14 55%, #3D2910 100%);
-    color: #F5EDE0;
+    background: #0A0A0A;
+    color: #FAF8F6;
     overflow: hidden;
     position: relative;
   }
-  .slide--content  { background: var(--bg); }
-  .slide--warm     { background: var(--bg2); }
-  .slide--checklist{ background: var(--bg2); }
+  .slide--content   { background: var(--bg); }
+  .slide--warm      { background: var(--bg2); }
+  .slide--checklist { background: var(--bg2); }
 
-  /* ── Cover ── */
+  /* Cover */
   .cover-eyebrow {
-    font-size: clamp(10px, 1.3vw, 12px);
-    letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 18px; opacity: 0.85;
+    font-size: clamp(10px, 1.2vw, 12px);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    font-weight: 600;
   }
   .cover-title {
-    font-size: clamp(42px, 6.5vw, 80px);
-    font-weight: 800; line-height: 1.0;
-    color: #FFFFFF; margin-bottom: 14px; letter-spacing: -1px;
+    font-size: clamp(52px, 9vw, 108px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: #FFFFFF;
+    margin-bottom: 28px;
+    letter-spacing: -2px;
   }
-  .cover-rule { width: 56px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 20px; }
+  .cover-rule { width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 24px; }
   .cover-sub {
-    font-size: clamp(13px, 1.7vw, 18px);
-    color: #C8BAA8; margin-bottom: 40px; line-height: 1.5;
+    font-size: clamp(13px, 1.6vw, 17px);
+    color: #9C8C82;
+    margin-bottom: 36px;
+    line-height: 1.6;
+    max-width: 520px;
   }
-  .cover-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cover-meta { display: flex; gap: 8px; flex-wrap: wrap; }
   .cover-chip {
-    font-size: clamp(10px, 1.1vw, 12px);
-    padding: 5px 12px; border-radius: 20px;
-    border: 1px solid rgba(201,169,110,0.3);
-    color: #C8BAA8; background: rgba(201,169,110,0.08);
+    font-size: clamp(10px, 1vw, 12px);
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: 1px solid #2A2520;
+    color: #6A5E56;
+    background: transparent;
   }
+  /* Skin drop circle as cover ornament */
   .cover-ornament {
-    position: absolute; right: 4%; bottom: 5%;
-    font-size: clamp(120px, 22vw, 280px);
-    opacity: 0.035; line-height: 1; color: var(--gold);
-    pointer-events: none; font-style: italic;
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(200px, 28vw, 380px);
+    height: clamp(200px, 28vw, 380px);
+    border-radius: 50% 50% 50% 35% / 50% 50% 35% 50%;
+    background: var(--accent);
+    opacity: 0.07;
+    pointer-events: none;
   }
 
-  /* ── Headings ── */
+  /* Headings */
   .slide-num {
-    font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 6px; font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 700;
   }
   .slide-title {
-    font-size: clamp(21px, 2.8vw, 36px);
-    font-weight: 700; color: var(--text);
-    margin-bottom: clamp(16px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.3px;
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: clamp(20px, 2.5vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
   }
   .slide-title small {
-    display: block; font-size: clamp(11px, 1.2vw, 14px);
-    font-weight: 400; color: var(--text3); margin-top: 5px; letter-spacing: 0;
+    display: block;
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: 400;
+    color: var(--text3);
+    margin-top: 5px;
+    letter-spacing: 0;
   }
   .section-label {
-    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 9px; font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 700;
   }
 
-  /* ── Stat cards ── */
+  /* Stat cards */
   .stat-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 14px; margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
   }
   .stat-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px 18px;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 18px;
   }
-  .stat-card--accent { background: var(--accent); border-color: var(--accent); }
-  .stat-card--accent .stat-card__label { color: rgba(245,237,224,.7); }
-  .stat-card--accent .stat-card__value { color: #FFFFFF; }
-  .stat-card--accent .stat-card__sub   { color: rgba(245,237,224,.8); }
+  .stat-card--dark {
+    background: var(--text);
+    border-color: var(--text);
+  }
+  .stat-card--dark .stat-card__label { color: #6A5E56; }
+  .stat-card--dark .stat-card__value { color: #FFFFFF; }
+  .stat-card--dark .stat-card__sub   { color: #8A7E76; }
   .stat-card__label {
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--text3); margin-bottom: 8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 10px;
+    font-weight: 600;
   }
   .stat-card__value {
-    font-size: clamp(22px, 3vw, 34px);
-    font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 5px;
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
   }
-  .stat-card__sub { font-size: 12px; color: var(--text2); line-height: 1.4; }
+  .stat-card__sub { font-size: 12px; color: var(--text2); line-height: 1.45; }
 
-  /* ── Info rows ── */
+  /* Info rows */
   .info-row {
-    display: flex; align-items: flex-start; gap: 16px;
-    padding: 12px 0; border-bottom: 1px solid var(--border);
-    font-size: 13.5px; line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    line-height: 1.55;
   }
   .info-row:last-child { border-bottom: none; }
   .info-row__label {
-    flex: 0 0 130px; color: var(--text3);
-    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-    padding-top: 3px; font-weight: 500;
+    flex: 0 0 128px;
+    color: var(--text3);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding-top: 3px;
+    font-weight: 600;
   }
   .info-row__value { color: var(--text); flex: 1; }
+
+  /* Badges */
   .badge {
-    font-size: 10px; padding: 2px 8px; border-radius: 10px;
-    margin-left: 7px; vertical-align: middle; font-weight: 600; letter-spacing: 0.5px;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    font-weight: 700;
+    letter-spacing: 0.3px;
   }
   .badge--green  { background: var(--green-pale);  color: var(--green);  border: 1px solid var(--green-border); }
   .badge--amber  { background: var(--amber-pale);  color: var(--amber);  border: 1px solid var(--amber-border); }
   .badge--red    { background: var(--red-pale);    color: var(--red);    border: 1px solid var(--red-border); }
-  .badge--gold   { background: #FAF3E0; color: #7A5C1E; border: 1px solid #E8D8A0; }
-  .badge--blue   { background: var(--blue-pale);   color: var(--blue);   border: 1px solid var(--blue-border); }
+  .badge--accent { background: var(--accent2); color: var(--accent); border: 1px solid #E8C8B8; }
+  .badge--blue   { background: var(--blue-pale); color: var(--blue); border: 1px solid var(--blue-border); }
+  .badge--dark   { background: var(--text); color: #FAF8F6; border: 1px solid var(--text); }
 
-  /* ── Service bars ── */
-  .svc-bar-list { display: flex; flex-direction: column; gap: 13px; }
+  /* Service bars */
+  .svc-bar-list { display: flex; flex-direction: column; gap: 14px; }
   .svc-bar {
-    display: grid; grid-template-columns: 160px 1fr 120px;
-    align-items: center; gap: 12px; font-size: 13px;
+    display: grid;
+    grid-template-columns: 160px 1fr 120px;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
   }
   .svc-bar__name  { color: var(--text2); font-weight: 500; }
-  .svc-bar__track { height: 7px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
-  .svc-bar__fill  { height: 100%; background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%); border-radius: 4px; }
+  .svc-bar__track { height: 6px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .svc-bar__fill  { height: 100%; background: var(--accent); border-radius: 2px; }
   .svc-bar__val   { color: var(--text3); text-align: right; font-size: 11.5px; }
 
-  /* ── Competitor table ── */
-  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+  /* Competitor table */
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
   .comp-table th {
-    font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--text3); padding: 9px 12px; text-align: left;
-    border-bottom: 2px solid var(--border); font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--text);
+    font-weight: 700;
   }
   .comp-table td {
-    padding: 11px 12px; border-bottom: 1px solid var(--border);
-    color: var(--text); vertical-align: middle; line-height: 1.4;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+    line-height: 1.4;
   }
   .comp-table tr:last-child td { border-bottom: none; }
-  .comp-table tr:hover td { background: var(--bg2); }
-  .comp-table .highlight td { background: var(--accent2); }
-  .comp-table .highlight td:first-child { border-left: 3px solid var(--accent); }
-  .star-bar { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); }
-  .star-fill { color: #C9A96E; font-size: 11px; }
+  .comp-table tr:nth-child(even) td { background: var(--bg2); }
+  .comp-table .you td { background: var(--accent2); }
+  .comp-table .you td:first-child { border-left: 3px solid var(--accent); }
+  .star-txt { font-size: 12px; color: var(--text2); }
+  .star-txt strong { color: var(--accent); }
   .pill {
-    display: inline-flex; align-items: center; gap: 4px;
-    font-size: 10.5px; padding: 2px 8px; border-radius: 10px;
-    font-weight: 600; white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    white-space: nowrap;
   }
-  .pill--yes { background: var(--green-pale); color: var(--green); border: 1px solid var(--green-border); }
-  .pill--no  { background: var(--red-pale);   color: var(--red);   border: 1px solid var(--red-border); }
-  .pill--you { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+  .pill--yes  { background: var(--green-pale); color: var(--green);  border: 1px solid var(--green-border); }
+  .pill--no   { background: var(--red-pale);   color: var(--red);    border: 1px solid var(--red-border); }
+  .pill--you  { background: var(--accent); color: #fff; }
+  .table-note { font-size: 11px; color: var(--text3); margin-top: 10px; line-height: 1.5; padding-left: 4px; border-left: 2px solid var(--border); padding-left: 10px; }
 
-  /* ── Budget timeline ── */
+  /* Budget rows */
   .budget-timeline { display: flex; flex-direction: column; }
   .budget-row {
-    display: grid; grid-template-columns: 110px 180px 1fr 160px;
-    align-items: center; gap: 16px;
-    padding: 15px 0; border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 110px 180px 1fr 160px;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
   }
   .budget-row:last-child { border-bottom: none; }
-  .budget-row__phase  { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text3); }
-  .budget-row__amount { font-size: clamp(17px, 2vw, 23px); font-weight: 800; color: var(--text); }
-  .budget-row__bar-track { height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
-  .budget-row__bar-fill  { height: 100%; border-radius: 4px; }
+  .budget-row__phase  { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text3); font-weight: 700; }
+  .budget-row__amount { font-size: clamp(18px, 2vw, 24px); font-weight: 900; color: var(--text); letter-spacing: -0.5px; }
+  .budget-row__bar-track { height: 6px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .budget-row__bar-fill  { height: 100%; background: var(--accent); border-radius: 2px; }
   .budget-row__roas { font-size: 12.5px; color: var(--text2); text-align: right; }
-  .budget-row__roas span { display: block; font-size: clamp(15px, 1.8vw, 20px); font-weight: 800; color: var(--accent); }
+  .budget-row__roas span { display: block; font-size: clamp(16px, 1.8vw, 20px); font-weight: 900; color: var(--accent); letter-spacing: -0.5px; }
 
-  /* ── Audience split ── */
+  /* Audience */
   .audience-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
   .aud-panel {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
-  .aud-panel__header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
-  .aud-panel__icon  { font-size: 28px; }
-  .aud-panel__pct   { font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--accent); line-height: 1; }
-  .aud-panel__label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text3); margin-top: 3px; }
-  .aud-panel__title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .aud-panel__pct   { font-size: clamp(36px, 5vw, 54px); font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -2px; }
+  .aud-panel__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); margin-top: 2px; font-weight: 600; }
+  .aud-panel__title { font-size: 16px; font-weight: 700; color: var(--text); }
   .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
-    font-size: 11px; padding: 4px 10px;
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 20px; color: var(--text2); white-space: nowrap;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text2);
   }
-  .tag--accent { background: var(--accent2); border-color: var(--border); color: var(--accent); }
+  .tag--accent { background: var(--accent2); border-color: #E8C8B8; color: var(--accent); font-weight: 600; }
 
-  /* ── Campaign architecture ── */
+  /* Campaign cards */
   .camp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .camp-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     border-top: 3px solid var(--accent);
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
   }
-  .camp-card--call   { border-top-color: var(--green); }
-  .camp-card--maps   { border-top-color: var(--gold); }
-  .camp-card--pmax   { border-top-color: var(--blue); }
-  .camp-card--dgen   { border-top-color: var(--amber); }
-  .camp-card__type   { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-  .camp-card--call .camp-card__type   { color: var(--green); }
-  .camp-card--maps .camp-card__type   { color: #92621A; }
-  .camp-card--pmax .camp-card__type   { color: var(--blue); }
-  .camp-card--dgen .camp-card__type   { color: var(--amber); }
-  .camp-card__title  { font-size: 15px; font-weight: 700; color: var(--text); }
-  .camp-card__desc   { font-size: 12.5px; color: var(--text2); line-height: 1.55; }
-  .camp-card__badge  { margin-top: auto; }
+  .camp-card--call { border-top-color: var(--green); }
+  .camp-card--maps { border-top-color: #B5821A; }
+  .camp-card--pmax { border-top-color: var(--blue); }
+  .camp-card--dgen { border-top-color: var(--amber); }
+  .camp-card__type  { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .camp-card--call .camp-card__type { color: var(--green); }
+  .camp-card--maps .camp-card__type { color: #B5821A; }
+  .camp-card--pmax .camp-card__type { color: var(--blue); }
+  .camp-card--dgen .camp-card__type { color: var(--amber); }
+  .camp-card__title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .camp-card__desc  { font-size: 12.5px; color: var(--text2); line-height: 1.55; }
+  .camp-card__badge { margin-top: auto; }
 
-  /* ── Organic/AI playbook ── */
+  /* Playbook grid */
   .playbook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
-  .playbook-col { display: flex; flex-direction: column; gap: 12px; }
+  .playbook-col  { display: flex; flex-direction: column; gap: 12px; }
   .playbook-section {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 18px;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
   }
-  .playbook-section__title {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--accent); font-weight: 600; margin-bottom: 11px;
-  }
-  .topic-list { display: flex; flex-direction: column; gap: 5px; }
-  .topic-item {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 12px; color: var(--text2); line-height: 1.45;
-  }
-  .topic-item__num {
-    font-size: 10px; font-weight: 700; color: var(--accent);
-    width: 16px; flex-shrink: 0; padding-top: 1px;
-  }
-  .topic-item__kw { color: var(--text); font-weight: 600; }
+  .playbook-section__title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
+  .topic-list  { display: flex; flex-direction: column; gap: 6px; }
+  .topic-item  { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; color: var(--text2); line-height: 1.5; }
+  .topic-item__num { font-size: 10px; font-weight: 700; color: var(--accent); width: 16px; flex-shrink: 0; padding-top: 1px; }
+  .topic-item__kw  { color: var(--text); font-weight: 600; }
 
-  /* ── Checklist ── */
+  /* Checklist */
   .check-list { display: flex; flex-direction: column; gap: 6px; }
   .check-item {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 13px 16px; border-radius: 12px; border: 1px solid transparent;
-    box-shadow: 0 1px 4px rgba(26,22,20,.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
   }
   .check-item--ok    { background: var(--green-pale);  border-color: var(--green-border); }
   .check-item--warn  { background: var(--amber-pale);  border-color: var(--amber-border); }
@@ -304,128 +383,128 @@
   .check-item__title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
   .check-item--ok    .check-item__title { color: var(--green); }
   .check-item--warn  .check-item__title { color: var(--amber); }
-  .check-item--block .check-item__title { color: var(--red);   }
+  .check-item--block .check-item__title { color: var(--red); }
   .check-item__desc  { font-size: 12px; color: var(--text2); line-height: 1.55; }
 
-  /* ── Next steps ── */
-  .next-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+  /* Next steps */
+  .next-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .next-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px;
-    display: flex; flex-direction: column; gap: 8px;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
   .next-card__step {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: var(--accent); color: #fff;
-    font-size: 12px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--text);
+    color: #fff;
+    font-size: 12px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
   }
   .next-card__title { font-size: 13.5px; font-weight: 700; color: var(--text); }
   .next-card__desc  { font-size: 12px; color: var(--text2); line-height: 1.5; }
   .next-card__time  { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-top: auto; font-weight: 600; }
 
-  /* ── Data table ── */
+  /* Data tables */
   .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
   .data-table th {
-    font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--text3); padding: 9px 14px; text-align: left;
-    border-bottom: 2px solid var(--border); font-weight: 600;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text3); padding: 10px 14px; text-align: left;
+    border-bottom: 2px solid var(--text); font-weight: 700;
   }
   .data-table td {
     padding: 12px 14px; border-bottom: 1px solid var(--border);
     vertical-align: top; color: var(--text); line-height: 1.55;
   }
-  .data-table tr:last-child td { border-bottom: none; }
   .data-table tr:nth-child(even) td { background: var(--bg2); }
-  .ph-cell { color: var(--accent); font-style: italic; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .ph-cell { color: var(--accent); font-style: italic; font-weight: 600; }
   .ue-derived td { background: var(--accent2) !important; }
-  .ue-derived .ph-cell { color: var(--accent); font-weight: 700; }
   .ue-note {
     margin-top: 14px; font-size: 12px; color: var(--text2);
     border-left: 3px solid var(--accent); padding-left: 12px; line-height: 1.55;
   }
 
-  /* ── UE cards ── */
+  /* UE cards */
   .ue-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 13px; align-content: start; margin-bottom: 16px;
+    gap: 12px; align-content: start; margin-bottom: 16px;
   }
   .ue-card {
     background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px 16px;
+    border-radius: 8px; padding: 20px 16px;
     display: flex; flex-direction: column; gap: 9px;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
   }
-  .ue-card__label   { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .ue-card__label   { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
   .ue-card__formula { font-size: 12px; color: var(--text2); line-height: 1.4; }
-  .ue-card__val     { font-size: 22px; font-weight: 800; color: var(--text3); margin-top: auto; font-style: italic; }
+  .ue-card__val     { font-size: 22px; font-weight: 900; color: var(--border); margin-top: auto; letter-spacing: -0.5px; }
 
-  /* ── Callout ── */
+  /* Callout */
   .callout {
-    background: var(--accent2); border: 1px solid var(--border);
-    border-left: 4px solid var(--accent); border-radius: 10px;
-    padding: 14px 18px; font-size: 13px; color: var(--text); line-height: 1.65;
-    box-shadow: 0 1px 4px rgba(26,22,20,.04);
+    background: var(--accent2);
+    border: 1px solid #E8C8B8;
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.65;
   }
-  .callout--green {
-    background: var(--green-pale); border-left-color: var(--green);
-  }
-  .callout--blue {
-    background: var(--blue-pale); border-left-color: var(--blue);
-  }
+  .callout--green { background: var(--green-pale); border-left-color: var(--green); border-color: var(--green-border); }
+  .callout--blue  { background: var(--blue-pale);  border-left-color: var(--blue);  border-color: var(--blue-border); }
+  .callout--dark  { background: var(--text); border-left-color: var(--accent); border-color: var(--text); color: #FAF8F6; }
 
-  /* ── KPI ── */
-  .kpi-section-label {
-    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 8px; font-weight: 600;
-  }
+  /* KPI labels */
+  .kpi-section-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 700; }
 
-  /* ── Recovery ── */
-  .rec-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 13px; flex: 1; align-content: start;
-  }
+  /* Recovery plan */
+  .rec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; align-content: start; }
   .rec-tier {
-    border-radius: 14px; padding: 18px;
-    display: flex; flex-direction: column; gap: 10px; border: 1px solid transparent;
-    box-shadow: 0 2px 8px rgba(26,22,20,.04);
+    border-radius: 8px; padding: 18px;
+    display: flex; flex-direction: column; gap: 10px;
+    border: 1px solid transparent;
   }
   .rec-tier--l1 { background: var(--blue-pale);  border-color: var(--blue-border); }
   .rec-tier--l2 { background: var(--amber-pale); border-color: var(--amber-border); }
-  .rec-tier--l3 { background: var(--red-pale);   border-color: var(--red-border);   }
-  .rec-tier__header { font-size: 14px; font-weight: 700; display: flex; flex-direction: column; gap: 4px; }
+  .rec-tier--l3 { background: var(--red-pale);   border-color: var(--red-border); }
+  .rec-tier__header { font-size: 14px; font-weight: 800; display: flex; flex-direction: column; gap: 4px; }
   .rec-tier--l1 .rec-tier__header { color: var(--blue); }
   .rec-tier--l2 .rec-tier__header { color: var(--amber); }
-  .rec-tier--l3 .rec-tier__header { color: var(--red);   }
+  .rec-tier--l3 .rec-tier__header { color: var(--red); }
   .rec-tier__trigger { font-size: 10.5px; font-weight: 400; color: var(--text2); line-height: 1.4; }
   .rec-tier__list { list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0; margin: 0; }
-  .rec-tier__list li {
-    font-size: 12.5px; color: var(--text2); line-height: 1.5;
-    padding-left: 14px; position: relative;
-  }
-  .rec-tier__list li::before { content: "\00B7"; position: absolute; left: 0; color: var(--accent); font-size: 20px; line-height: 1; top: -2px; }
-  .rec-tier__list li strong  { color: var(--text); }
+  .rec-tier__list li { font-size: 12.5px; color: var(--text2); line-height: 1.5; padding-left: 14px; position: relative; }
+  .rec-tier__list li::before { content: "\00B7"; position: absolute; left: 0; color: var(--accent); font-size: 22px; line-height: 0.9; top: 0; }
+  .rec-tier__list li strong { color: var(--text); }
 
-  /* ── Investment ── */
+  /* Investment */
   .invest-cols { display: flex; gap: 36px; flex: 1; }
 
-  /* ── Thank you ── */
+  /* Thank you */
   .slide-ty {
     justify-content: center; align-items: flex-start;
-    background: linear-gradient(150deg, #1A1614 0%, #2D1F14 55%, #3D2910 100%);
-    overflow: hidden; position: relative;
+    background: #0A0A0A; overflow: hidden; position: relative;
   }
-  .ty-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; opacity: 0.85; }
-  .ty-title { font-size: clamp(52px, 9vw, 104px); font-weight: 800; color: #FFFFFF; line-height: 1; margin-bottom: 22px; letter-spacing: -2px; }
-  .ty-rule { width: 60px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 28px; }
-  .ty-sub { font-size: clamp(14px, 1.8vw, 20px); color: #C8BAA8; margin-bottom: 40px; max-width: 580px; line-height: 1.55; }
-  .ty-meta { display: flex; flex-direction: column; gap: 13px; }
-  .ty-item { display: flex; gap: 20px; align-items: baseline; font-size: clamp(12px, 1.3vw, 14px); color: #8B7B6A; }
-  .ty-item strong { color: #F5EDE0; min-width: 150px; display: inline-block; }
-  .ty-ornament { position: absolute; right: 4%; bottom: 5%; font-size: clamp(100px, 20vw, 260px); opacity: 0.03; color: var(--gold); pointer-events: none; font-style: italic; line-height: 1; }
+  .ty-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 700; }
+  .ty-title   { font-size: clamp(56px, 10vw, 110px); font-weight: 900; color: #FFFFFF; line-height: 0.95; margin-bottom: 24px; letter-spacing: -3px; }
+  .ty-rule    { width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 28px; }
+  .ty-sub     { font-size: clamp(14px, 1.8vw, 19px); color: #6A5E56; margin-bottom: 40px; max-width: 560px; line-height: 1.6; }
+  .ty-meta    { display: flex; flex-direction: column; gap: 12px; }
+  .ty-item    { display: flex; gap: 20px; align-items: baseline; font-size: clamp(12px, 1.3vw, 14px); color: #4A4440; }
+  .ty-item strong { color: #FAF8F6; min-width: 150px; display: inline-block; }
+  .ty-ornament {
+    position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+    width: clamp(200px, 28vw, 380px); height: clamp(200px, 28vw, 380px);
+    border-radius: 50% 50% 50% 35% / 50% 50% 35% 50%;
+    background: var(--accent); opacity: 0.06; pointer-events: none;
+  }
 
-  /* ── Nav ── */
+  /* Nav */
   #nav {
     position: fixed; bottom: 20px; right: 22px;
     display: flex; align-items: center; gap: 10px; z-index: 100;
@@ -435,128 +514,108 @@
     background: var(--bg); border: 1px solid var(--border);
     color: var(--text2); font-size: 15px; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    transition: all .15s; box-shadow: 0 2px 10px rgba(26,22,20,.1);
+    transition: all .15s; box-shadow: 0 2px 8px rgba(0,0,0,.1);
   }
-  .nav-btn:hover:not(:disabled) { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .nav-btn:hover:not(:disabled) { background: var(--text); color: #fff; border-color: var(--text); }
   .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   #slide-counter { font-size: 11.5px; color: var(--text3); min-width: 50px; text-align: center; letter-spacing: 1px; }
-
-  /* ── Progress ── */
-  #progress {
-    position: fixed; top: 0; left: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%);
-    transition: width .3s ease; z-index: 100;
-  }
+  #progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); transition: width .3s ease; z-index: 100; }
 
   .divider  { height: 1px; background: var(--border); margin: 14px 0; }
-  .footnote {
-    font-size: 11px; color: var(--text3); margin-top: auto;
-    padding-top: 12px; border-top: 1px solid var(--border);
-  }
-
-  .hl       { color: var(--accent); font-weight: 600; }
-  .hl-green { color: var(--green); }
-  .hl-red   { color: var(--red); }
-  .hl-amber { color: var(--amber); }
+  .footnote { font-size: 11px; color: var(--text3); margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
 
   .dot-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .dot-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.55; color: var(--text2); }
-  .dot-list li::before { content: "\25C6"; color: var(--gold); font-size: 7px; margin-top: 7px; flex-shrink: 0; }
+  .dot-list li::before { content: "\25C6"; color: var(--accent); font-size: 7px; margin-top: 7px; flex-shrink: 0; }
   .dot-list li strong { color: var(--text); }
 
   .fee-table-wrap { overflow-x: auto; }
   .table-scroll-wrap { overflow-x: auto; }
   .table-scroll-wrap .data-table { min-width: 500px; }
 
-  /* ── Mobile ── */
+  /* Mobile */
   @media (max-width: 767px) {
-    .slide { padding: 22px 16px 76px; }
-    .stat-grid      { grid-template-columns: 1fr 1fr; gap: 9px; }
-    .audience-split { grid-template-columns: 1fr; }
-    .camp-grid      { grid-template-columns: 1fr; }
-    .next-grid      { grid-template-columns: 1fr; }
-    .ue-grid        { grid-template-columns: 1fr 1fr; }
-    .rec-grid       { grid-template-columns: 1fr; }
-    .playbook-grid  { grid-template-columns: 1fr; }
-    .slide-title    { margin-bottom: 14px; }
-    .svc-bar        { grid-template-columns: 100px 1fr 80px; }
-    .info-row       { flex-direction: column; gap: 3px; }
-    .info-row__label{ flex: unset; }
+    .slide { padding: 24px 16px 76px; }
+    .stat-grid     { grid-template-columns: 1fr 1fr; gap: 9px; }
+    .audience-split{ grid-template-columns: 1fr; }
+    .camp-grid     { grid-template-columns: 1fr; }
+    .next-grid     { grid-template-columns: 1fr; }
+    .ue-grid       { grid-template-columns: 1fr 1fr; }
+    .rec-grid      { grid-template-columns: 1fr; }
+    .playbook-grid { grid-template-columns: 1fr; }
+    .slide-title   { margin-bottom: 16px; }
+    .svc-bar       { grid-template-columns: 110px 1fr 80px; }
+    .info-row      { flex-direction: column; gap: 3px; }
+    .info-row__label { flex: unset; }
     .budget-row {
       grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto auto; row-gap: 8px;
+      grid-template-rows: auto auto auto;
+      row-gap: 8px;
     }
     .budget-row__phase    { grid-column: 1; grid-row: 1; }
-    .budget-row__amount   { grid-column: 2; grid-row: 1; font-size: 16px; }
-    .budget-row__bar-wrap { grid-column: 1 / -1; grid-row: 2; }
-    .budget-row__roas     { grid-column: 1 / -1; grid-row: 3; text-align: left; display: flex; align-items: center; gap: 6px; }
-    .budget-row__roas span{ display: inline; font-size: 15px; }
-    .invest-cols    { flex-direction: column !important; gap: 20px !important; }
+    .budget-row__amount   { grid-column: 2; grid-row: 1; font-size: 17px; }
+    .budget-row__bar-wrap { grid-column: 1/-1; grid-row: 2; }
+    .budget-row__roas     { grid-column: 1/-1; grid-row: 3; text-align: left; display: flex; align-items: center; gap: 6px; }
+    .budget-row__roas span{ display: inline; }
+    .invest-cols   { flex-direction: column !important; gap: 20px !important; }
     .fee-table-wrap table { min-width: 460px; }
-    .slide--split   { flex-direction: column !important; gap: 18px !important; }
+    .slide--split  { flex-direction: column !important; gap: 18px !important; }
   }
-</style>
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="deck">
-
+</style>\n</head>\n<body>\n\n<div id="progress"></div>\n<div id="deck">\n
   <!-- SLIDE 1: Cover -->
   <div class="slide slide--cover" data-index="0">
-    <div class="cover-eyebrow">Google Ads &amp; Digital Visibility Strategy &middot; 2026</div>
+    <div class="cover-eyebrow">Google Ads Strategy &middot; August 2026</div>
     <div class="cover-title">10X<br>Healthy<br>Skin</div>
     <div class="cover-rule"></div>
-    <div class="cover-sub">A complete growth strategy for Coimbatore&rsquo;s rising aesthetic clinic &mdash; Search, Call Ads, Maps, Organic &amp; AI Visibility.</div>
+    <div class="cover-sub">A complete paid and organic growth plan for 10X Healthy Skin, Coimbatore. Search, Call Ads, Maps, and AI visibility covered in full.</div>
     <div class="cover-meta">
       <span class="cover-chip">10xhealthyskin.com</span>
       <span class="cover-chip">Race Course Road, Coimbatore</span>
       <span class="cover-chip">Laser &middot; Aesthetics &middot; Dermocosmetology</span>
-      <span class="cover-chip">@10x_healthyskin</span>
-      <span class="cover-chip">Prepared: August 2026</span>
+      <span class="cover-chip">Prepared August 2026</span>
     </div>
-    <div class="cover-ornament">&#10022;</div>
+    <div class="cover-ornament"></div>
   </div>
 
-  <!-- SLIDE 2: The Opportunity -->
+  <!-- SLIDE 2: Opportunity -->
   <div class="slide slide--content" data-index="1">
-    <div class="slide-num">00 / Context</div>
-    <div class="slide-title">The Window Is Open<small>Coimbatore&rsquo;s skin clinic market is growing &mdash; but most clinics are digitally invisible</small></div>
+    <div class="slide-num">00 / Opportunity</div>
+    <div class="slide-title">The Market Is There. No One Is Capturing It.</div>
     <div class="stat-grid">
-      <div class="stat-card stat-card--accent">
-        <div class="stat-card__label">&ldquo;Skin Clinic Coimbatore&rdquo;</div>
+      <div class="stat-card stat-card--dark">
+        <div class="stat-card__label">Skin Clinic Coimbatore</div>
         <div class="stat-card__value">2,400</div>
-        <div class="stat-card__sub">Avg. monthly searches &mdash; Google Keyword Planner, Aug 2026</div>
+        <div class="stat-card__sub">Avg. monthly searches. Source: Google Keyword Planner, Aug 2026</div>
       </div>
       <div class="stat-card">
-        <div class="stat-card__label">Competitors on Google Ads</div>
+        <div class="stat-card__label">Laser Hair Removal CBE</div>
+        <div class="stat-card__value">260</div>
+        <div class="stat-card__sub">Monthly searches. High buying intent. Few ads competing.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Clinics Running Google Ads</div>
         <div class="stat-card__value">~10%</div>
-        <div class="stat-card__sub">9 in 10 clinics have zero paid search presence</div>
+        <div class="stat-card__sub">9 in 10 CBE skin clinics have no paid search presence at all</div>
       </div>
       <div class="stat-card">
-        <div class="stat-card__label">Clinics With Content</div>
+        <div class="stat-card__label">Clinics With Blog Content</div>
         <div class="stat-card__value">~30%</div>
-        <div class="stat-card__sub">70% have no blog or FAQ — AI Overviews wide open</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__label">CBE City Population</div>
-        <div class="stat-card__value">2.1M</div>
-        <div class="stat-card__sub">Coimbatore metro — Tier-2 but premium-seeking</div>
+        <div class="stat-card__sub">70% have no FAQ or blog. AI Overview slots are open.</div>
       </div>
     </div>
     <div class="dot-list">
-      <li><strong>&ldquo;skin clinic coimbatore&rdquo; &mdash; 2,400 searches/month</strong> (Google Keyword Planner, Aug 2026) &mdash; the dominant local term; patients actively comparing clinics before booking</li>
-      <li><strong>&ldquo;laser hair removal coimbatore&rdquo; &mdash; 260 searches/month</strong> &mdash; lower volume but extremely high commercial intent; someone searching this is ready to book a consultation</li>
-      <li><strong>&ldquo;acne treatment coimbatore&rdquo; &mdash; below threshold</strong> in Keyword Planner &mdash; volume too low to measure individually; these patients search broader terms (&ldquo;skin clinic&rdquo;, &ldquo;dermatologist coimbatore&rdquo;) instead</li>
-      <li><strong>13 named competitors</strong> identified in CBE &mdash; most have strong ratings but weak digital strategy. First clinic to run ads <em>owns</em> the 2,400 monthly searches.</li>
-      <li><strong>Google AI Overviews</strong> are pulling from skin treatment content &mdash; clinic with published FAQs/blogs wins free visibility without paying per click</li>
+      <li><strong>2,400 searches a month for "skin clinic coimbatore"</strong> and none of the top-rated clinics are bidding on it. The first clinic to run ads takes the top 3 positions.</li>
+      <li><strong>"Laser hair removal coimbatore" gets 260 searches a month.</strong> Lower volume, but these are patients who are ready to book. Very few competitors are showing ads here.</li>
+      <li><strong>"Acne treatment coimbatore" falls below the measurable threshold</strong> in Keyword Planner. Patients searching for acne help use broader terms like "skin clinic" or "dermatologist" instead.</li>
+      <li><strong>13 competing clinics found in Coimbatore.</strong> Most have strong reviews on Google Maps. None appear to be running paid search campaigns.</li>
+      <li><strong>Google AI Overviews are answering skin treatment questions</strong> but no local CBE clinic is publishing the content that would put them in those answers. That gap is wide open.</li>
     </div>
   </div>
 
   <!-- SLIDE 3: Brand Snapshot -->
   <div class="slide slide--content" data-index="2">
     <div class="slide-num">01 / Brand</div>
-    <div class="slide-title">Brand Snapshot</div>
+    <div class="slide-title">10X Healthy Skin at a Glance</div>
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-card__label">Experience</div>
@@ -570,7 +629,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-card__label">Location</div>
-        <div class="stat-card__value">Race Course</div>
+        <div class="stat-card__value">Race Course Rd</div>
         <div class="stat-card__sub">Premium CBE address</div>
       </div>
       <div class="stat-card">
@@ -581,7 +640,7 @@
     </div>
     <div class="info-row">
       <span class="info-row__label">Founder</span>
-      <span class="info-row__value">Padma Priya &mdash; Board-certified Dermocosmetologist, 13 years of clinical practice in skin &amp; laser aesthetics</span>
+      <span class="info-row__value">Padma Priya. Board-certified Dermocosmetologist with 13 years of clinical experience in skin and laser aesthetics.</span>
     </div>
     <div class="info-row">
       <span class="info-row__label">Core Services</span>
@@ -589,128 +648,80 @@
     </div>
     <div class="info-row">
       <span class="info-row__label">Proprietary</span>
-      <span class="info-row__value">10x Glow &middot; 10x Miracle White &middot; 10x Eye Brows Growth &middot; 10x Healthy Eye Lash &middot; 10x Hair Growth <span class="badge badge--gold">Exclusive USP</span></span>
+      <span class="info-row__value">10x Glow &middot; 10x Miracle White &middot; 10x Eye Brows Growth &middot; 10x Healthy Eye Lash &middot; 10x Hair Growth <span class="badge badge--accent">Exclusive USP</span></span>
     </div>
     <div class="info-row">
       <span class="info-row__label">Positioning</span>
-      <span class="info-row__value">&ldquo;Science Trust Result&rdquo; &mdash; clinical protocols with guaranteed visible outcomes in a serene, professional environment</span>
+      <span class="info-row__value">"Science Trust Result." Clinical methods, board-certified care, visible results guaranteed.</span>
     </div>
     <div class="info-row">
-      <span class="info-row__label">Strengths</span>
-      <span class="info-row__value">13 years expertise &middot; Proprietary treatment names &middot; Race Course Rd premium location &middot; Instagram-active brand &middot; Call-ready CTA on site</span>
+      <span class="info-row__label">Contact</span>
+      <span class="info-row__value">+(91) 95141 43576 &middot; doctor@10xhealthyskin.com &middot; Rajanarayan Towers, Race Course Road</span>
     </div>
   </div>
 
   <!-- SLIDE 4: Service Portfolio -->
   <div class="slide slide--content" data-index="3">
     <div class="slide-num">02 / Services</div>
-    <div class="slide-title">Service Portfolio<small>Treatment range covers all major skin concerns &mdash; entry &#8377;500 to premium &#8377;15,000+</small></div>
+    <div class="slide-title">Service Portfolio<small>Entry level from Rs.500. Premium treatments up to Rs.15,000 per session.</small></div>
     <div style="display:flex; gap:40px; flex:1;" class="slide--split">
       <div style="flex:1;display:flex;flex-direction:column;">
-        <div class="section-label">Price Range by Service (Est. CBE Market Rates)</div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;flex:1;box-shadow:0 2px 8px rgba(26,22,20,.04);">
+        <div class="section-label">Estimated Price Range by Service (CBE Market Rates)</div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:22px;flex:1;">
           <div class="svc-bar-list">
-            <div class="svc-bar">
-              <span class="svc-bar__name">Laser Hair Removal</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:80%"></div></div>
-              <span class="svc-bar__val">&#8377;800 &ndash; &#8377;15,000</span>
-            </div>
-            <div class="svc-bar">
-              <span class="svc-bar__name">Anti-Aging Therapy</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:75%"></div></div>
-              <span class="svc-bar__val">&#8377;3,000 &ndash; &#8377;12,000</span>
-            </div>
-            <div class="svc-bar">
-              <span class="svc-bar__name">Laser Skin Rejuvenation</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:65%"></div></div>
-              <span class="svc-bar__val">&#8377;2,000 &ndash; &#8377;8,000</span>
-            </div>
-            <div class="svc-bar">
-              <span class="svc-bar__name">Pigmentation Removal</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:60%"></div></div>
-              <span class="svc-bar__val">&#8377;1,500 &ndash; &#8377;6,000</span>
-            </div>
-            <div class="svc-bar">
-              <span class="svc-bar__name">Hydrafacial</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:50%"></div></div>
-              <span class="svc-bar__val">&#8377;2,000 &ndash; &#8377;5,000</span>
-            </div>
-            <div class="svc-bar">
-              <span class="svc-bar__name">Acne Treatment</span>
-              <div class="svc-bar__track"><div class="svc-bar__fill" style="width:35%"></div></div>
-              <span class="svc-bar__val">&#8377;500 &ndash; &#8377;3,500</span>
-            </div>
+            <div class="svc-bar"><span class="svc-bar__name">Laser Hair Removal</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:80%"></div></div><span class="svc-bar__val">Rs.800 to Rs.15,000</span></div>
+            <div class="svc-bar"><span class="svc-bar__name">Anti-Aging Therapy</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:75%"></div></div><span class="svc-bar__val">Rs.3,000 to Rs.12,000</span></div>
+            <div class="svc-bar"><span class="svc-bar__name">Laser Skin Rejuvenation</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:65%"></div></div><span class="svc-bar__val">Rs.2,000 to Rs.8,000</span></div>
+            <div class="svc-bar"><span class="svc-bar__name">Pigmentation Removal</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:60%"></div></div><span class="svc-bar__val">Rs.1,500 to Rs.6,000</span></div>
+            <div class="svc-bar"><span class="svc-bar__name">Hydrafacial</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:50%"></div></div><span class="svc-bar__val">Rs.2,000 to Rs.5,000</span></div>
+            <div class="svc-bar"><span class="svc-bar__name">Acne Treatment</span><div class="svc-bar__track"><div class="svc-bar__fill" style="width:35%"></div></div><span class="svc-bar__val">Rs.500 to Rs.3,500</span></div>
           </div>
         </div>
       </div>
       <div style="flex:0.8;display:flex;flex-direction:column;gap:0;">
         <div class="section-label">Key Insights</div>
-        <div class="info-row">
-          <span class="info-row__label">Highest Value</span>
-          <span class="info-row__value">Laser Hair Removal (package of 6&ndash;8 sessions) &mdash; lifetime value &#8377;10,000&ndash;70,000+ per patient</span>
-        </div>
-        <div class="info-row">
-          <span class="info-row__label">Est. Avg Appt</span>
-          <span class="info-row__value">&#8377;2,500 &ndash; &#8377;4,500 per session <span class="badge badge--amber">Confirm actuals</span></span>
-        </div>
-        <div class="info-row">
-          <span class="info-row__label">Entry Point</span>
-          <span class="info-row__value">Acne from &#8377;500 &mdash; low-friction first visit, strong upsell to Hydrafacial / Pigmentation</span>
-        </div>
-        <div class="info-row">
-          <span class="info-row__label">Men&rsquo;s Entry</span>
-          <span class="info-row__value">Body hair removal / beard cleanup from &#8377;800 &mdash; fastest growing male segment in CBE</span>
-        </div>
-        <div class="info-row">
-          <span class="info-row__label">Pricing Gap</span>
-          <span class="info-row__value">No pricing on website &mdash; 60% of CBE competitors also hide pricing, creating opportunity to be the <em>transparent</em> clinic</span>
-        </div>
+        <div class="info-row"><span class="info-row__label">Highest Value</span><span class="info-row__value">Laser Hair Removal. A full course is 6 to 8 sessions. Patient lifetime value can reach Rs.10,000 to Rs.70,000+.</span></div>
+        <div class="info-row"><span class="info-row__label">Avg. Appointment</span><span class="info-row__value">Rs.2,500 to Rs.4,500 per session <span class="badge badge--amber">Confirm with actuals</span></span></div>
+        <div class="info-row"><span class="info-row__label">Entry Point</span><span class="info-row__value">Acne from Rs.500. Low barrier to first visit. Strong upsell path to Hydrafacial and Pigmentation treatment.</span></div>
+        <div class="info-row"><span class="info-row__label">Men Segment</span><span class="info-row__value">Body and beard hair removal from Rs.800. Fast-growing segment in CBE. Most clinics do not advertise to men directly.</span></div>
+        <div class="info-row"><span class="info-row__label">Pricing Gap</span><span class="info-row__value">No pricing on the website. 60% of CBE competitors also hide pricing. Being the transparent clinic is a real differentiator.</span></div>
       </div>
     </div>
   </div>
 
   <!-- SLIDE 5: Competitor Landscape -->
   <div class="slide slide--warm" data-index="4">
-    <div class="slide-num">03 / Market Intelligence</div>
-    <div class="slide-title">Competitor Landscape<small>13 named clinics in CBE &mdash; most have strong ratings but weak digital strategy</small></div>
+    <div class="slide-num">03 / Competitors</div>
+    <div class="slide-title">Who You Are Competing With<small>All clinics below have verified Google Maps listings. Maps 3-pack position varies by query. Verify independently from a CBE network.</small></div>
     <table class="comp-table">
       <thead>
-        <tr>
-          <th>Clinic</th>
-          <th>Location</th>
-          <th>Rating</th>
-          <th>Google Ads</th>
-          <th>Online Booking</th>
-          <th>Pricing Visible</th>
-        </tr>
+        <tr><th>Clinic</th><th>Location</th><th>Google Maps</th><th>Ads Running</th><th>Online Booking</th><th>Price Shown</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Dr. Thaj Laser Clinic</strong></td><td>100 Feet Rd, Gandhipuram</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 4.6 &middot; 485 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--yes">&#10003; Yes</span></td><td><span class="pill pill--no">&#10005; No</span></td></tr>
-        <tr><td><strong>Keva Clinic</strong></td><td>RS Puram</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 5.0 &middot; 332 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--no">&#10005; WhatsApp only</span></td><td><span class="pill pill--no">&#10005; No</span></td></tr>
-        <tr><td><strong>Signature 18 Clinic</strong></td><td>Gandhipuram + Grey Town</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 4.6 &middot; 325 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--yes">&#10003; Yes</span></td><td><span class="pill pill--no">&#10005; No</span></td></tr>
-        <tr><td><strong>Rejuvya Aesthetik</strong></td><td>Papanaickenpalayam</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 4.6 &middot; 300 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--no">&#10005; Phone only</span></td><td><span class="pill pill--no">&#10005; No</span></td></tr>
-        <tr><td><strong>Hair Leaf Clinic</strong></td><td>Sidhapudur</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 4.9 &middot; 238 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--no">&#10005; WhatsApp only</span></td><td><span class="pill pill--no">&#10005; No</span></td></tr>
-        <tr><td><strong>DermaVue</strong></td><td>Cross Cut Rd, Gandhipuram</td><td><span class="star-bar"><span class="star-fill">&#9733;</span> 4.6 &middot; 288 reviews</span></td><td><span class="pill pill--no">&#10005; None</span></td><td><span class="pill pill--yes">&#10003; Yes (Practo)</span></td><td><span class="pill pill--yes">&#10003; &#8377;300</span></td></tr>
-        <tr class="highlight"><td><strong>10X Healthy Skin</strong></td><td>Race Course Road <span class="badge badge--gold">Premium Location</span></td><td><span class="star-bar"><span class="star-fill">&#9733;</span> Strong potential</span></td><td><span class="pill pill--you">&#8594; To Launch</span></td><td><span class="pill pill--you">&#8594; To Build</span></td><td><span class="pill pill--you">&#8594; Opportunity</span></td></tr>
+        <tr><td><strong>Dr. Thaj Laser Clinic</strong></td><td>100 Feet Rd, Gandhipuram</td><td><span class="star-txt"><strong>4.6</strong> &middot; 485 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--yes">Yes</span></td><td><span class="pill pill--no">No</span></td></tr>
+        <tr><td><strong>Keva Clinic</strong></td><td>RS Puram</td><td><span class="star-txt"><strong>5.0</strong> &middot; 332 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--no">WhatsApp only</span></td><td><span class="pill pill--no">No</span></td></tr>
+        <tr><td><strong>Signature 18 Clinic</strong></td><td>Gandhipuram (2 locations)</td><td><span class="star-txt"><strong>4.6</strong> &middot; 325 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--yes">Yes</span></td><td><span class="pill pill--no">No</span></td></tr>
+        <tr><td><strong>Rejuvya Aesthetik</strong></td><td>Papanaickenpalayam</td><td><span class="star-txt"><strong>4.6</strong> &middot; 300 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--no">Phone only</span></td><td><span class="pill pill--no">No</span></td></tr>
+        <tr><td><strong>Hair Leaf Clinic</strong></td><td>Sidhapudur</td><td><span class="star-txt"><strong>4.9</strong> &middot; 238 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--no">WhatsApp only</span></td><td><span class="pill pill--no">No</span></td></tr>
+        <tr><td><strong>DermaVue</strong></td><td>Cross Cut Rd, Gandhipuram</td><td><span class="star-txt"><strong>4.6</strong> &middot; 288 reviews</span></td><td><span class="pill pill--no">No</span></td><td><span class="pill pill--yes">Yes (Practo)</span></td><td><span class="pill pill--yes">Rs.300</span></td></tr>
+        <tr class="you"><td><strong>10X Healthy Skin</strong> <span class="badge badge--accent">You</span></td><td>Race Course Road</td><td><span class="star-txt">Listed on Maps</span></td><td><span class="pill pill--you">To Launch</span></td><td><span class="pill pill--you">To Build</span></td><td><span class="pill pill--you">Opportunity</span></td></tr>
       </tbody>
     </table>
-    <div class="callout callout--green" style="margin-top:2px"><strong>Key takeaway:</strong> Zero major competitors are running Google Ads. The first clinic to activate Search + Call Ads captures 100% of the paid placement and attracts patients who are actively comparing. This window will not stay open long.</div>
+    <div class="table-note">Source: Google Maps and Practo research, August 2026. All listed clinics have a Google Maps listing with 4.6 or higher rating. Ratings and review counts are as found during research and may have changed. The "Ads Running" column is based on observed search results and may not capture all activity. Recommend verifying Maps 3-pack position by searching "skin clinic coimbatore" from a Coimbatore device or VPN.</div>
+    <div class="callout callout--green" style="margin-top:12px"><strong>Key finding:</strong> No major competitor is running Google Search Ads. The first clinic to go live takes all paid placements on 2,400 monthly searches for "skin clinic coimbatore".</div>
   </div>
 
-  <!-- SLIDE 6: Target Audience -->
+  <!-- SLIDE 6: Audience -->
   <div class="slide slide--content" data-index="5">
     <div class="slide-num">04 / Audience</div>
-    <div class="slide-title">Who Is Coming Through the Door<small>Two distinct audiences &mdash; different search behaviour, different triggers, different ad copy</small></div>
+    <div class="slide-title">Two Audiences. Two Sets of Ads.<small>Same clinic. Different messaging per audience for better click rates and lower cost per booking.</small></div>
     <div class="audience-split">
       <div class="aud-panel">
-        <div class="aud-panel__header">
-          <div class="aud-panel__icon">&#128105;</div>
-          <div>
-            <div class="aud-panel__pct">65%</div>
-            <div class="aud-panel__label">Women &middot; Primary</div>
-          </div>
+        <div>
+          <div class="aud-panel__pct">65%</div>
+          <div class="aud-panel__label">Women &middot; Primary Audience</div>
         </div>
-        <div class="aud-panel__title">Women, 20&ndash;45 &middot; Appearance &amp; Confidence</div>
+        <div class="aud-panel__title">Women, 20 to 45. Appearance and confidence.</div>
         <div class="tag-cloud">
           <span class="tag tag--accent">Laser hair removal</span>
           <span class="tag tag--accent">Skin whitening</span>
@@ -723,7 +734,7 @@
         </div>
         <div class="info-row" style="border:none;padding:6px 0 0;">
           <span class="info-row__label">Triggers</span>
-          <span class="info-row__value" style="font-size:12px;">Wedding season prep (Oct&ndash;Feb) &middot; Navarathri glow &middot; Summer skin care (Apr&ndash;Jun) &middot; Instagram influencer discovery</span>
+          <span class="info-row__value" style="font-size:12px;">Wedding season prep (Oct to Feb). Navarathri glow. Summer skin care (Apr to Jun). Instagram before-and-after browsing.</span>
         </div>
         <div class="info-row" style="border:none;padding:4px 0 0;">
           <span class="info-row__label">Books via</span>
@@ -731,209 +742,207 @@
         </div>
       </div>
       <div class="aud-panel">
-        <div class="aud-panel__header">
-          <div class="aud-panel__icon">&#128104;</div>
-          <div>
-            <div class="aud-panel__pct">35%</div>
-            <div class="aud-panel__label">Men &middot; Fast-growing</div>
-          </div>
+        <div>
+          <div class="aud-panel__pct">35%</div>
+          <div class="aud-panel__label">Men &middot; Fast-Growing Segment</div>
         </div>
-        <div class="aud-panel__title">Men, 22&ndash;40 &middot; Grooming &amp; Confidence</div>
+        <div class="aud-panel__title">Men, 22 to 40. Grooming and confidence.</div>
         <div class="tag-cloud">
           <span class="tag tag--accent">Body hair removal</span>
-          <span class="tag tag--accent">Back &amp; chest laser</span>
+          <span class="tag tag--accent">Back and chest laser</span>
           <span class="tag">Acne treatment</span>
           <span class="tag">Beard cleanup</span>
           <span class="tag">Hair loss PRP</span>
-          <span class="tag">Acne scar removal</span>
+          <span class="tag">Scar removal</span>
           <span class="tag">Skin brightening</span>
           <span class="tag">Anti-aging</span>
         </div>
         <div class="info-row" style="border:none;padding:6px 0 0;">
           <span class="info-row__label">Triggers</span>
-          <span class="info-row__value" style="font-size:12px;">Job interviews &middot; Weddings &middot; Summer heat &middot; Self-confidence &middot; Gym culture influence</span>
+          <span class="info-row__value" style="font-size:12px;">Job interviews. Weddings. Gym culture. Wanting clearer skin without telling anyone.</span>
         </div>
         <div class="info-row" style="border:none;padding:4px 0 0;">
           <span class="info-row__label">Books via</span>
-          <span class="info-row__value" style="font-size:12px;">Phone call (preferred &mdash; privacy) &middot; WhatsApp &middot; Walk-in after nearby search</span>
+          <span class="info-row__value" style="font-size:12px;">Phone call preferred (more private). WhatsApp. Walk-in after a "near me" search.</span>
         </div>
       </div>
     </div>
-    <div class="callout" style="margin-top:14px"><strong>Ad copy strategy:</strong> Use gender-specific ad groups. Women&rsquo;s ads: lead with glow/skin health/bridal. Men&rsquo;s ads: lead with grooming/confidence/professional. Same clinic, same landing page &mdash; different creative messaging per audience.</div>
+    <div class="callout" style="margin-top:14px"><strong>Ad copy strategy:</strong> Women's ads lead with glow, skin health, and bridal. Men's ads lead with grooming, confidence, and fast results. Separate ad groups per audience. Same clinic, different tone.</div>
   </div>
 
   <!-- SLIDE 7: Campaign Architecture -->
   <div class="slide slide--content" data-index="6">
     <div class="slide-num">05 / Strategy</div>
-    <div class="slide-title">5-Channel Campaign Architecture<small>Service businesses need a fundamentally different approach than ecommerce &mdash; appointments, not checkouts</small></div>
+    <div class="slide-title">5 Campaigns. One Goal: More Bookings.<small>Service clinics need a different approach than online stores. No product feed. No shopping ads. Appointments only.</small></div>
     <div class="camp-grid">
       <div class="camp-card">
         <div class="camp-card__type">Search Ads</div>
-        <div class="camp-card__title">High-Intent Appointment Seekers</div>
-        <div class="camp-card__desc">Keyword-targeted ads for &ldquo;[service] + coimbatore&rdquo; queries. Separate ad groups per service (Hair Removal, Acne, Hydrafacial, Anti-aging). RSAs with clinic USPs + location. Call extension on every ad. <strong>Dayparting: clinic hours only (9am&ndash;7pm).</strong></div>
-        <div class="camp-card__badge"><span class="badge badge--green">Primary channel from Day 1</span></div>
+        <div class="camp-card__title">High-Intent Searches</div>
+        <div class="camp-card__desc">Extensive keyword research will be done before any campaign goes live. Each service gets its own ad group with specific keywords. Ads include location, USP, and a clear CTA. Dayparting: clinic hours only (9am to 7pm). Call extension on every ad.</div>
+        <div class="camp-card__badge"><span class="badge badge--green">Live from Day 1</span></div>
       </div>
       <div class="camp-card camp-card--call">
         <div class="camp-card__type">Call Ads</div>
-        <div class="camp-card__title">Direct Mobile Bookings</div>
-        <div class="camp-card__desc">Mobile-only ads that dial the clinic instantly &mdash; no website required. Conversion = phone call &#x2265;60 seconds. Captures patients who search on mobile and prefer to call. <strong>Typically 30&ndash;40% lower CPL</strong> than form-fill campaigns for local clinics.</div>
-        <div class="camp-card__badge"><span class="badge badge--green">Primary channel from Day 1</span></div>
+        <div class="camp-card__title">One Tap to Book</div>
+        <div class="camp-card__desc">Mobile-only ads that call the clinic directly. No website visit needed. Conversion is a phone call of 60 seconds or more. Call Ads typically give 30 to 40% lower cost per lead for local clinics compared to form-fill campaigns. Best channel for male audience.</div>
+        <div class="camp-card__badge"><span class="badge badge--green">Live from Day 1</span></div>
       </div>
       <div class="camp-card camp-card--maps">
-        <div class="camp-card__type">Local &amp; Maps Ads</div>
-        <div class="camp-card__title">&ldquo;Near Me&rdquo; Search Domination</div>
-        <div class="camp-card__desc">Google Maps placement for &ldquo;skin clinic near me&rdquo;, &ldquo;laser near me&rdquo;, &ldquo;dermatologist near me&rdquo; queries. Location extension amplifies organic map presence with paid prominence. <strong>Critical for walk-in traffic</strong> from nearby Race Course Rd, RS Puram &amp; Gandhipuram corridors.</div>
-        <div class="camp-card__badge"><span class="badge badge--amber">Phase 1 &mdash; alongside Search</span></div>
+        <div class="camp-card__type">Local and Maps Ads</div>
+        <div class="camp-card__title">Own "Near Me" Searches</div>
+        <div class="camp-card__desc">Paid placement on Google Maps for "skin clinic near me" and "laser near me" searches. Location extension pushes the clinic above organic Maps listings. Critical for walk-in traffic from the Race Course Rd, RS Puram, and Gandhipuram corridors.</div>
+        <div class="camp-card__badge"><span class="badge badge--amber">Phase 1 alongside Search</span></div>
       </div>
       <div class="camp-card camp-card--pmax">
         <div class="camp-card__type">Performance Max (Local)</div>
-        <div class="camp-card__title">Automated Appointment Conversions</div>
-        <div class="camp-card__desc">PMax optimised for local appointments &mdash; runs across Search, Maps, YouTube and Display simultaneously. Feed Instagram before/after images as creative assets. <strong>Only viable after 30+ tracked conversions</strong> (Smart Bidding needs data). Not Day 1.</div>
-        <div class="camp-card__badge"><span class="badge badge--blue">Phase 2 &mdash; Month 2&ndash;3</span></div>
+        <div class="camp-card__title">Automated Appointments</div>
+        <div class="camp-card__desc">PMax for local appointments runs across Search, Maps, YouTube, and Display at once. Before-and-after images from Instagram go in as creative assets. Only works well after 30 or more tracked conversions. Do not start on Day 1.</div>
+        <div class="camp-card__badge"><span class="badge badge--blue">Phase 2, Month 2 or 3</span></div>
       </div>
     </div>
-    <div class="camp-card camp-card--dgen" style="grid-column:auto;margin-top:12px;flex-direction:row;align-items:flex-start;gap:20px;">
+    <div class="camp-card camp-card--dgen" style="margin-top:12px;flex-direction:row;align-items:flex-start;gap:20px;">
       <div style="flex:1;">
         <div class="camp-card__type">Demand Generation</div>
-        <div class="camp-card__title">Awareness + Remarketing across YouTube, Instagram &amp; Discover</div>
-        <div class="camp-card__desc">Remarketing to website visitors. Lookalikes from @10x_healthyskin Instagram followers. Before/after video ads. Seasonal pushes for Navarathri, bridal season, summer skin care. <strong>Runs Phase 2 onwards</strong> from budget freed by maturing Search efficiency.</div>
+        <div class="camp-card__title">Remarketing and Awareness on YouTube, Instagram, and Discover</div>
+        <div class="camp-card__desc">Retargets website visitors who did not book. Uses @10x_healthyskin followers as a seed audience for lookalikes. Before-and-after video ads. Seasonal pushes for Navarathri, bridal season, and summer. Starts Phase 2 from budget freed up as Search efficiency improves.</div>
       </div>
-      <div><span class="badge badge--amber">Phase 2 &mdash; Month 3+</span></div>
+      <div><span class="badge badge--amber">Phase 2, Month 3 onwards</span></div>
     </div>
+    <div class="callout" style="margin-top:12px">Comprehensive keyword research will be completed for every service before any campaign goes live. Keywords will be grouped by service, intent level, and audience. Negative keyword lists will be built from Day 1 to prevent wasted spend.</div>
   </div>
 
-  <!-- SLIDE 8: Organic + AI Visibility Playbook -->
+  <!-- SLIDE 8: Organic and AI Visibility -->
   <div class="slide slide--warm" data-index="7">
-    <div class="slide-num">06 / Beyond Ads</div>
-    <div class="slide-title">Organic &amp; AI Visibility Playbook<small>Paid ads bring immediate bookings &mdash; this layer builds compounding visibility that doesn&rsquo;t cost per click</small></div>
+    <div class="slide-num">06 / Organic Visibility</div>
+    <div class="slide-title">Beyond Ads: Organic and AI Visibility<small>Paid ads bring bookings today. This layer builds traffic that costs nothing per click.</small></div>
     <div class="playbook-grid">
       <div class="playbook-col">
         <div class="playbook-section">
-          <div class="playbook-section__title">Google Business Profile (GBP) &mdash; Maps Ranking</div>
+          <div class="playbook-section__title">Google Business Profile (Maps Ranking)</div>
           <div class="topic-list">
-            <div class="topic-item"><span class="topic-item__num">&#10003;</span><span>Complete all 48 GBP fields: services, attributes, hours, Q&amp;A, photos (before/after + clinic interior + staff)</span></div>
-            <div class="topic-item"><span class="topic-item__num">&#10003;</span><span>Post weekly on GBP: offers, new treatments, patient education snippets</span></div>
-            <div class="topic-item"><span class="topic-item__num">&#10003;</span><span>Target 200+ reviews in 12 months via systematic post-visit SMS request</span></div>
-            <div class="topic-item"><span class="topic-item__num">&#10003;</span><span>Respond to every review within 24 hours (Google ranks responsive businesses higher)</span></div>
-            <div class="topic-item"><span class="topic-item__num">&#10003;</span><span>Enable &ldquo;Book Online&rdquo; via Google reservation link (direct Maps booking)</span></div>
+            <div class="topic-item"><span class="topic-item__num">1</span><span>Fill out all 48 GBP fields: services, hours, attributes, Q and A, booking link</span></div>
+            <div class="topic-item"><span class="topic-item__num">2</span><span>Upload 20 or more clinic photos: treatment rooms, staff, before-and-after results</span></div>
+            <div class="topic-item"><span class="topic-item__num">3</span><span>Post weekly on GBP with offers, new treatments, or quick skin tips</span></div>
+            <div class="topic-item"><span class="topic-item__num">4</span><span>Reply to every review within 24 hours. Google ranks responsive businesses higher.</span></div>
+            <div class="topic-item"><span class="topic-item__num">5</span><span>Target 200 or more reviews in 12 months. Set up a WhatsApp review request after each appointment.</span></div>
+            <div class="topic-item"><span class="topic-item__num">6</span><span>Enable Google Reserve booking link so patients can book directly from Maps</span></div>
           </div>
         </div>
         <div class="playbook-section">
-          <div class="playbook-section__title">Directory &amp; Listing Domination</div>
+          <div class="playbook-section__title">Directory Listings</div>
           <div class="topic-list">
-            <div class="topic-item"><span class="topic-item__num">1</span><span><span class="topic-item__kw">Practo:</span> Create clinic profile, list all services, enable booking, collect reviews</span></div>
-            <div class="topic-item"><span class="topic-item__num">2</span><span><span class="topic-item__kw">JustDial:</span> Verified listing with all services, pricing, photos, WhatsApp link</span></div>
-            <div class="topic-item"><span class="topic-item__num">3</span><span><span class="topic-item__kw">Sulekha:</span> Skin clinic + laser category listing with CBE location tags</span></div>
-            <div class="topic-item"><span class="topic-item__num">4</span><span><span class="topic-item__kw">Bing Places + Apple Maps:</span> Mirror GBP for full local search coverage</span></div>
+            <div class="topic-item"><span class="topic-item__num">1</span><span><span class="topic-item__kw">Practo:</span> Create clinic profile, list all services, enable online booking</span></div>
+            <div class="topic-item"><span class="topic-item__num">2</span><span><span class="topic-item__kw">JustDial:</span> Verified listing with services, photos, and WhatsApp link</span></div>
+            <div class="topic-item"><span class="topic-item__num">3</span><span><span class="topic-item__kw">Sulekha:</span> Skin care clinic listing with Coimbatore location tags</span></div>
+            <div class="topic-item"><span class="topic-item__num">4</span><span><span class="topic-item__kw">Bing Places + Apple Maps:</span> Mirror GBP for full local coverage</span></div>
           </div>
         </div>
       </div>
       <div class="playbook-col">
         <div class="playbook-section">
-          <div class="playbook-section__title">AI Overview &amp; Featured Snippet Targets (10 blog posts)</div>
+          <div class="playbook-section__title">10 Blog Posts for AI Overview and Featured Snippets</div>
           <div class="topic-list">
-            <div class="topic-item"><span class="topic-item__num">1</span><span><span class="topic-item__kw">&ldquo;Laser hair removal price in Coimbatore&rdquo;</span> &mdash; 250+ searches, zero local content</span></div>
-            <div class="topic-item"><span class="topic-item__num">2</span><span><span class="topic-item__kw">&ldquo;Best laser for Indian skin type&rdquo;</span> &mdash; high authority, appears in AI Overview</span></div>
-            <div class="topic-item"><span class="topic-item__num">3</span><span><span class="topic-item__kw">&ldquo;How many sessions for permanent hair removal?&rdquo;</span> &mdash; FAQ query, featured snippet eligible</span></div>
-            <div class="topic-item"><span class="topic-item__num">4</span><span><span class="topic-item__kw">&ldquo;Acne scar treatment options in Coimbatore&rdquo;</span> &mdash; zero local content competition</span></div>
-            <div class="topic-item"><span class="topic-item__num">5</span><span><span class="topic-item__kw">&ldquo;Is HydraFacial safe for Indian skin?&rdquo;</span> &mdash; high-trust query, clinic can answer authoritatively</span></div>
-            <div class="topic-item"><span class="topic-item__num">6</span><span><span class="topic-item__kw">&ldquo;Hair removal for men Coimbatore&rdquo;</span> &mdash; underserved male segment content gap</span></div>
-            <div class="topic-item"><span class="topic-item__num">7</span><span><span class="topic-item__kw">&ldquo;Pigmentation removal vs skin whitening &mdash; what works?&rdquo;</span> &mdash; comparison content</span></div>
-            <div class="topic-item"><span class="topic-item__num">8</span><span><span class="topic-item__kw">&ldquo;Pre-bridal skin treatment timeline&rdquo;</span> &mdash; Navarathri/wedding season traffic</span></div>
-            <div class="topic-item"><span class="topic-item__num">9</span><span><span class="topic-item__kw">&ldquo;Glass skin glow treatment &mdash; what is it?&rdquo;</span> &mdash; brand&rsquo;s own service, zero competition</span></div>
-            <div class="topic-item"><span class="topic-item__num">10</span><span><span class="topic-item__kw">&ldquo;Anti-aging treatments for 30s in India&rdquo;</span> &mdash; long-tail, high intent, AI Overview pull</span></div>
+            <div class="topic-item"><span class="topic-item__num">1</span><span><span class="topic-item__kw">"Laser hair removal price in Coimbatore"</span>: 250 or more searches, no local content exists</span></div>
+            <div class="topic-item"><span class="topic-item__num">2</span><span><span class="topic-item__kw">"Best laser for Indian skin type"</span>: appears in AI Overviews, no CBE clinic answers it</span></div>
+            <div class="topic-item"><span class="topic-item__num">3</span><span><span class="topic-item__kw">"How many sessions for permanent hair removal?"</span>: FAQ query, featured snippet eligible</span></div>
+            <div class="topic-item"><span class="topic-item__num">4</span><span><span class="topic-item__kw">"Acne scar treatment options in Coimbatore"</span>: zero local blog competition</span></div>
+            <div class="topic-item"><span class="topic-item__num">5</span><span><span class="topic-item__kw">"Is HydraFacial safe for Indian skin?"</span>: high trust query the clinic can answer with authority</span></div>
+            <div class="topic-item"><span class="topic-item__num">6</span><span><span class="topic-item__kw">"Hair removal for men Coimbatore"</span>: underserved men's segment, no local content</span></div>
+            <div class="topic-item"><span class="topic-item__num">7</span><span><span class="topic-item__kw">"Pigmentation removal vs skin whitening: which works?"</span>: comparison content, AI Overview bait</span></div>
+            <div class="topic-item"><span class="topic-item__num">8</span><span><span class="topic-item__kw">"Pre-bridal skin treatment timeline"</span>: seasonal traffic around Navarathri and wedding season</span></div>
+            <div class="topic-item"><span class="topic-item__num">9</span><span><span class="topic-item__kw">"Glass skin glow treatment: what is it?"</span>: 10X's own service. No competitor can rank for this.</span></div>
+            <div class="topic-item"><span class="topic-item__num">10</span><span><span class="topic-item__kw">"Anti-aging treatments for 30s in India"</span>: long-tail, high intent, AI Overview eligible</span></div>
           </div>
         </div>
-        <div class="callout callout--blue">
-          <strong>Why this matters for Ads:</strong> A blog post that ranks for &ldquo;laser hair removal price Coimbatore&rdquo; pre-qualifies visitors before they click an ad &mdash; driving higher appointment rates and lower wasted spend.
-        </div>
+        <div class="callout callout--blue"><strong>Why this helps paid ads too:</strong> A blog post ranking for "laser hair removal price Coimbatore" pre-qualifies visitors before they click an ad. This drives up appointment rates and reduces wasted spend.</div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 9: Budget Roadmap -->
+  <!-- SLIDE 9: Budget -->
   <div class="slide slide--content" data-index="8">
     <div class="slide-num">07 / Budget</div>
-    <div class="slide-title">Budget Roadmap<small>Phase-gated spend with CPL targets &mdash; scale only when efficiency is confirmed</small></div>
+    <div class="slide-title">Budget Roadmap<small>Spend goes up only when cost per lead is confirmed and stable at each phase.</small></div>
     <div class="budget-timeline">
       <div class="budget-row">
-        <div class="budget-row__phase">Month 1&ndash;2<br><span style="color:#2C5282;font-size:9px;letter-spacing:1px">LAUNCH</span></div>
-        <div class="budget-row__amount">&#8377;15K&ndash;25K<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
-        <div class="budget-row__bar-wrap">
-          <div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:22%;background:linear-gradient(90deg,#2C5282,#4A90D9)"></div></div>
-        </div>
-        <div class="budget-row__roas"><span>&#8377;350&ndash;550</span>Target CPL &middot; Search + Call Ads only</div>
+        <div class="budget-row__phase">Month 1 to 2<br><span style="color:var(--blue);font-size:9px;letter-spacing:1px;font-weight:700;">LAUNCH</span></div>
+        <div class="budget-row__amount">Rs.15K to 25K<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
+        <div class="budget-row__bar-wrap"><div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:22%"></div></div></div>
+        <div class="budget-row__roas"><span>Rs.350 to 550</span>Target CPL &middot; Search and Call Ads only</div>
       </div>
       <div class="budget-row">
-        <div class="budget-row__phase">Month 3&ndash;4<br><span style="color:var(--accent);font-size:9px;letter-spacing:1px">OPTIMIZE</span></div>
-        <div class="budget-row__amount">&#8377;25K&ndash;50K<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
-        <div class="budget-row__bar-wrap">
-          <div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:50%;background:linear-gradient(90deg,var(--accent),var(--gold))"></div></div>
-        </div>
-        <div class="budget-row__roas"><span>&#8377;200&ndash;350</span>Target CPL &middot; + Maps + PMax launch</div>
+        <div class="budget-row__phase">Month 3 to 4<br><span style="color:var(--accent);font-size:9px;letter-spacing:1px;font-weight:700;">OPTIMIZE</span></div>
+        <div class="budget-row__amount">Rs.25K to 50K<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
+        <div class="budget-row__bar-wrap"><div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:50%"></div></div></div>
+        <div class="budget-row__roas"><span>Rs.200 to 350</span>Target CPL &middot; Add Maps and PMax</div>
       </div>
       <div class="budget-row">
-        <div class="budget-row__phase">Month 5+<br><span style="color:var(--green);font-size:9px;letter-spacing:1px">SCALE</span></div>
-        <div class="budget-row__amount">&#8377;50K&ndash;1.5L<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
-        <div class="budget-row__bar-wrap">
-          <div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:100%;background:linear-gradient(90deg,#2D6A4F,#4CAF50)"></div></div>
-        </div>
-        <div class="budget-row__roas"><span>&#8377;120&ndash;200</span>Target CPL &middot; Full 5-channel suite</div>
+        <div class="budget-row__phase">Month 5 plus<br><span style="color:var(--green);font-size:9px;letter-spacing:1px;font-weight:700;">SCALE</span></div>
+        <div class="budget-row__amount">Rs.50K to 1.5L<span style="font-size:13px;color:var(--text2);font-weight:400">/mo</span></div>
+        <div class="budget-row__bar-wrap"><div class="budget-row__bar-track"><div class="budget-row__bar-fill" style="width:100%"></div></div></div>
+        <div class="budget-row__roas"><span>Rs.120 to 200</span>Target CPL &middot; Full 5-channel suite</div>
       </div>
     </div>
     <div class="divider"></div>
     <ul class="dot-list">
-      <li><strong>Coimbatore CPC benchmark:</strong> &#8377;25&ndash;70 per click for skin clinic terms &mdash; lower than metros, meaning same budget buys 2&ndash;3&times; more clicks vs Bangalore/Chennai</li>
-      <li><strong>Call Ads typically generate 30&ndash;40% lower CPL</strong> for local service businesses vs form-fill &mdash; prioritise from Day 1</li>
-      <li><strong>Scale trigger:</strong> CPL &#8804; &#8377;250 for 3 consecutive weeks &rarr; increase spend 25&ndash;30% &middot; Bridal season (Oct&ndash;Feb): +50% budget &middot; Summer glow push (Apr&ndash;Jun): +30% budget</li>
+      <li><strong>Coimbatore CPCs are lower than metros.</strong> Rs.25 to Rs.70 per click for skin clinic terms. Same budget buys 2 to 3 times more clicks than in Bangalore or Chennai.</li>
+      <li><strong>Call Ads cost 30 to 40% less per lead</strong> than form-fill campaigns for local service businesses. They are a priority from Day 1.</li>
+      <li><strong>Scale trigger:</strong> CPL stays below Rs.250 for 3 consecutive weeks. Increase spend by 25 to 30%. Bridal season (Oct to Feb): add 50% budget. Summer skin push (Apr to Jun): add 30%.</li>
     </ul>
   </div>
 
   <!-- SLIDE 10: Pre-Launch Checklist -->
   <div class="slide slide--checklist" data-index="9">
     <div class="slide-num">08 / QA Findings</div>
-    <div class="slide-title">Pre-Launch Checklist<small>Findings from website &amp; digital presence QA &mdash; blockers must ship before any ad spend begins</small></div>
+    <div class="slide-title">Website and Digital QA<small>These issues were found during research. Blockers must be fixed before any ad spend begins.</small></div>
     <div class="check-list">
       <div class="check-item check-item--block">
         <div class="check-item__icon">&#128308;</div>
         <div>
-          <div class="check-item__title">BLOCKER: No Conversion Tracking</div>
-          <div class="check-item__desc">No Google Tag Manager, GA4 events, or phone call tracking detected on 10xhealthyskin.com. Google Ads <strong>cannot optimise toward bookings</strong> without conversion data &mdash; campaigns will burn spend on clicks with no intelligence. <strong>Fix:</strong> Install GTM &rarr; configure &ldquo;Book Appointment&rdquo; form submit + phone click events in GA4 &rarr; import to Google Ads as primary conversion actions. This must be done before spending &#8377;1 on ads.</div>
+          <div class="check-item__title">BLOCKER: No Conversion Tracking on the Website</div>
+          <div class="check-item__desc">No Google Tag Manager, GA4 events, or call tracking found on 10xhealthyskin.com. Google Ads cannot learn or optimize without conversion data. Every rupee spent before this is fixed is wasted. Fix: Install GTM, configure "Book Appointment" form submit and phone click events, link to Google Ads as primary conversions. Must be done before spending anything.</div>
         </div>
       </div>
       <div class="check-item check-item--block">
         <div class="check-item__icon">&#128308;</div>
         <div>
-          <div class="check-item__title">BLOCKER: Single-Page Site &mdash; No Service-Specific Landing Pages</div>
-          <div class="check-item__desc">All ads (Laser Hair Removal, Acne, Hydrafacial, Men&rsquo;s Grooming) must point to the same homepage. This mismatches ad intent, lowers Google Quality Score, raises CPC, and increases bounce. <strong>Fix:</strong> Build 4 dedicated pages (minimum) or anchor sections with service-specific headline, price range, before/after image, and above-the-fold &ldquo;Book Now&rdquo; form. Alternatively, even scroll-targeted landing pages (e.g. <code>/#laser-hair-removal</code>) with relevant H1s will improve Quality Score significantly.</div>
+          <div class="check-item__title">BLOCKER: One Page, No Service-Specific Landing Pages</div>
+          <div class="check-item__desc">The website is a single scrolling page. Every ad, regardless of which service someone searched for, points to the same homepage. A person searching "acne treatment coimbatore" lands on a general page with no acne-specific content above the fold. This lowers Quality Score, raises CPC, and increases bounce rate. Fix: Build at least 4 service pages or anchor sections with a relevant headline, price range, and a "Book Now" form visible without scrolling.</div>
+        </div>
+      </div>
+      <div class="check-item check-item--block">
+        <div class="check-item__icon">&#128308;</div>
+        <div>
+          <div class="check-item__title">BLOCKER: Spelling Errors Found on Website Content</div>
+          <div class="check-item__desc">Content QA found spelling mistakes that reduce credibility with new visitors from paid ads. Examples: "acne scare treatment" instead of "acne scar treatment" and similar copy errors in treatment descriptions. Visitors from Google Ads are evaluating the clinic in seconds. Spelling errors on a medical website reduce trust immediately. Fix: Full copy review and correction before campaigns go live.</div>
         </div>
       </div>
       <div class="check-item check-item--warn">
         <div class="check-item__icon">&#128993;</div>
         <div>
-          <div class="check-item__title">WARNING: No Pricing Visible</div>
-          <div class="check-item__desc">60% of CBE competitors also hide pricing &mdash; which means being the <em>transparent</em> clinic is a differentiator, not a risk. Paid traffic with price anchoring (e.g. &ldquo;Laser Hair Removal from &#8377;800 per session&rdquo;) converts at a higher rate and attracts better-qualified leads than &ldquo;call us for pricing&rdquo;.</div>
+          <div class="check-item__title">WARNING: No Pricing on the Website</div>
+          <div class="check-item__desc">60% of CBE competitors also hide pricing. Being the transparent clinic is a clear advantage. Even a price range like "Laser Hair Removal from Rs.800 per session" reduces bounce from tire-kicker visitors and attracts patients who are ready to book.</div>
         </div>
       </div>
       <div class="check-item check-item--warn">
         <div class="check-item__icon">&#128993;</div>
         <div>
-          <div class="check-item__title">WARNING: Google Business Profile Not Fully Optimised</div>
-          <div class="check-item__desc">GBP is listed but completeness is unknown. Top competitors (Keva: 332 reviews 5.0&#x2605;; Dr. Thaj: 485 reviews) have rich profiles driving organic Maps traffic. Without a complete GBP, Local Ads + Maps Ads underperform. <strong>Fix:</strong> Audit and complete all 48 GBP fields, add 20+ clinic photos, enable booking, activate Q&amp;A section.</div>
+          <div class="check-item__title">WARNING: Google Business Profile Completeness Unknown</div>
+          <div class="check-item__desc">Top competitors like Keva Clinic (5.0 stars, 332 reviews) and Dr. Thaj (4.6 stars, 485 reviews) have rich, complete GBP listings driving organic Maps traffic. A complete GBP is required for Maps Ads to perform well. Fix: Audit and complete all 48 GBP fields, add 20 or more clinic photos, enable booking, activate Q and A.</div>
         </div>
       </div>
       <div class="check-item check-item--ok">
         <div class="check-item__icon">&#9989;</div>
         <div>
-          <div class="check-item__title">READY: Phone CTA + &ldquo;Book Appointment&rdquo; Present</div>
-          <div class="check-item__desc">+(91) 95141 43576 and &ldquo;Book Appointment&rdquo; button visible on all site sections. Google Call Extensions and Location Extensions can be configured on Day 1 from existing site assets.</div>
+          <div class="check-item__title">READY: Phone CTA and "Book Appointment" Button Are Live</div>
+          <div class="check-item__desc">+(91) 95141 43576 and "Book Appointment" visible on all page sections. Call Extensions and Location Extensions can be configured in Google Ads from Day 1 using existing site content.</div>
         </div>
       </div>
       <div class="check-item check-item--ok">
         <div class="check-item__icon">&#9989;</div>
         <div>
-          <div class="check-item__title">READY: Proprietary Treatments = Uncopyable Ad Copy</div>
-          <div class="check-item__desc">&ldquo;10x Miracle White&rdquo;, &ldquo;10x Glow&rdquo;, &ldquo;Glass Glow Treatment&rdquo; &mdash; no competitor can use these in their ads. &ldquo;Only at 10X Healthy Skin&rdquo; copy creates CTR advantage in a crowded local SERP.</div>
+          <div class="check-item__title">READY: Proprietary Treatment Names Are Strong Ad Copy</div>
+          <div class="check-item__desc">"10x Miracle White", "10x Glow", "Glass Glow Treatment" are exclusive to this clinic. No competitor can use these names in their ads. "Only at 10X Healthy Skin" is a natural CTR booster in a local SERP where all other ads look the same.</div>
         </div>
       </div>
     </div>
@@ -942,78 +951,47 @@
   <!-- SLIDE 11: Investment -->
   <div class="slide slide--warm" data-index="10">
     <div class="slide-num">09 / Commercial</div>
-    <div class="slide-title">Setup &amp; Management<small>One-time setup &middot; progressive monthly fee &mdash; same trusted model as our other engagements</small></div>
+    <div class="slide-title">Setup and Management Fees<small>One-time setup. Progressive monthly fee. Same model used across all our engagements.</small></div>
     <div class="invest-cols">
       <div style="flex:1;display:flex;flex-direction:column;gap:18px;">
         <div class="stat-card">
           <div class="stat-card__label">One-time Setup Fee</div>
-          <div class="stat-card__value">&#8377;5,000</div>
-          <div class="stat-card__sub" style="margin-top:8px;line-height:1.65">Google Ads account &middot; GTM + GA4 conversion tracking &middot; Call tracking &middot; GBP optimisation &middot; Campaign build (Search + Call + Maps) &middot; Keyword research &middot; Ad creatives</div>
+          <div class="stat-card__value">Rs.5,000</div>
+          <div class="stat-card__sub" style="margin-top:8px;line-height:1.65">Google Ads account setup &middot; GTM and GA4 conversion tracking &middot; Call tracking &middot; GBP optimisation &middot; Keyword research for all services &middot; Campaign build &middot; Ad copy</div>
         </div>
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(26,22,20,.04);">
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:20px;">
           <div class="stat-card__label" style="margin-bottom:13px">Month 1 All-In Estimate</div>
           <table style="width:100%;border-collapse:collapse;font-size:13px;">
             <tbody>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 0;color:var(--text2)">Setup fee</td>
-                <td style="padding:9px 0;text-align:right;color:var(--text)">&#8377;5,000</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 0;color:var(--text2)">Ad spend (Month 1)</td>
-                <td style="padding:9px 0;text-align:right;color:var(--text)">&#8377;15,000 &ndash; &#8377;25,000</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 0;color:var(--text2)">Management fee (10%)</td>
-                <td style="padding:9px 0;text-align:right;color:var(--text)">&#8377;1,500 &ndash; &#8377;2,500</td>
-              </tr>
-              <tr style="background:var(--accent2);border-radius:6px;">
-                <td style="padding:10px 8px;color:var(--accent);font-weight:700">Month 1 Total</td>
-                <td style="padding:10px 8px;text-align:right;color:var(--accent);font-weight:700">&#8377;21,500 &ndash; &#8377;32,500</td>
-              </tr>
-              <tr>
-                <td style="padding:9px 0;color:var(--text2)">Ongoing (Month 2+)</td>
-                <td style="padding:9px 0;text-align:right;color:var(--text)">&#8377;16,500 &ndash; &#8377;27,500 / mo</td>
-              </tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 0;color:var(--text2)">Setup fee</td><td style="padding:9px 0;text-align:right;color:var(--text)">Rs.5,000</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 0;color:var(--text2)">Ad spend (Month 1)</td><td style="padding:9px 0;text-align:right;color:var(--text)">Rs.15,000 to Rs.25,000</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 0;color:var(--text2)">Management fee (10%)</td><td style="padding:9px 0;text-align:right;color:var(--text)">Rs.1,500 to Rs.2,500</td></tr>
+              <tr style="background:var(--accent2);"><td style="padding:10px 8px;color:var(--accent);font-weight:700">Month 1 Total</td><td style="padding:10px 8px;text-align:right;color:var(--accent);font-weight:700">Rs.21,500 to Rs.32,500</td></tr>
+              <tr><td style="padding:9px 0;color:var(--text2)">Ongoing from Month 2</td><td style="padding:9px 0;text-align:right;color:var(--text)">Rs.16,500 to Rs.27,500 per month</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div style="flex:1.4;display:flex;flex-direction:column;">
-        <div class="stat-card__label" style="margin-bottom:13px">Monthly Management &mdash; Progressive Fee Model</div>
+        <div class="stat-card__label" style="margin-bottom:13px">Monthly Management Fee: Progressive Model</div>
         <div class="fee-table-wrap">
         <table style="width:100%;border-collapse:collapse;font-size:13px;">
           <thead>
-            <tr style="border-bottom:2px solid var(--border);">
-              <th style="padding:9px 12px;text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-weight:600;width:36%">Monthly Ad Spend</th>
-              <th style="padding:9px 12px;text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-weight:600">Rate Structure</th>
-              <th style="padding:9px 12px;text-align:right;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-weight:600;white-space:nowrap">Max Fee</th>
+            <tr style="border-bottom:2px solid var(--text);">
+              <th style="padding:10px 12px;text-align:left;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;width:36%">Monthly Ad Spend</th>
+              <th style="padding:10px 12px;text-align:left;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700">Rate</th>
+              <th style="padding:10px 12px;text-align:right;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;white-space:nowrap">Max Fee</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:13px 12px;color:var(--text)">Up to &#8377;1,00,000</td>
-              <td style="padding:13px 12px;color:var(--text2)">10% of total spend</td>
-              <td style="padding:13px 12px;text-align:right;color:var(--text)">&#8377;10,000</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--bg2);">
-              <td style="padding:13px 12px;color:var(--text)">&#8377;1,00,001 &ndash; &#8377;5,00,000</td>
-              <td style="padding:13px 12px;color:var(--text2)">10% on first &#8377;1L &nbsp;+&nbsp; 5% on remaining</td>
-              <td style="padding:13px 12px;text-align:right;color:var(--text)">&#8377;30,000</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:13px 12px;color:var(--text)">&#8377;5,00,001 &ndash; &#8377;10,00,000</td>
-              <td style="padding:13px 12px;color:var(--text2)">10% on first &#8377;1L &nbsp;+&nbsp; 5% on next &#8377;4L &nbsp;+&nbsp; 3% on remaining</td>
-              <td style="padding:13px 12px;text-align:right;color:var(--text)">&#8377;45,000</td>
-            </tr>
-            <tr style="background:var(--bg3);">
-              <td style="padding:13px 12px;color:var(--text2)">Above &#8377;10,00,000</td>
-              <td style="padding:13px 12px;color:var(--text2)">Negotiable</td>
-              <td style="padding:13px 12px;text-align:right;color:var(--text2)">&mdash;</td>
-            </tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:13px 12px">Up to Rs.1,00,000</td><td style="padding:13px 12px;color:var(--text2)">10% of total spend</td><td style="padding:13px 12px;text-align:right">Rs.10,000</td></tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg2);"><td style="padding:13px 12px">Rs.1,00,001 to Rs.5,00,000</td><td style="padding:13px 12px;color:var(--text2)">10% on first Rs.1L + 5% on rest</td><td style="padding:13px 12px;text-align:right">Rs.30,000</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:13px 12px">Rs.5,00,001 to Rs.10,00,000</td><td style="padding:13px 12px;color:var(--text2)">10% on first Rs.1L + 5% on next Rs.4L + 3% on rest</td><td style="padding:13px 12px;text-align:right">Rs.45,000</td></tr>
+            <tr style="background:var(--bg3);"><td style="padding:13px 12px;color:var(--text2)">Above Rs.10,00,000</td><td style="padding:13px 12px;color:var(--text2)">Negotiable</td><td style="padding:13px 12px;text-align:right;color:var(--text2)">TBD</td></tr>
           </tbody>
         </table>
         </div>
-        <p style="font-size:12px;color:var(--text2);margin-top:12px;line-height:1.65;">Progressive fee: each band charged at its own rate &mdash; like a tax bracket. Higher spend = lower blended effective rate. No hidden charges.</p>
+        <p style="font-size:12px;color:var(--text2);margin-top:12px;line-height:1.65;">Each spend band is charged at its own rate, like a tax bracket. Higher spend means a lower blended effective rate. No hidden charges.</p>
       </div>
     </div>
   </div>
@@ -1021,213 +999,202 @@
   <!-- SLIDE 12: Next Steps -->
   <div class="slide slide--content" data-index="11">
     <div class="slide-num">10 / Action Plan</div>
-    <div class="slide-title">Next Steps<small>Ordered by priority &mdash; blockers 1 &amp; 2 must ship before any ad spend begins</small></div>
+    <div class="slide-title">Next Steps in Order<small>Steps 1, 2, and 3 are blockers. No ad spend until they are done.</small></div>
     <div class="next-grid">
       <div class="next-card">
         <div class="next-card__step">1</div>
-        <div class="next-card__title">Install Conversion Tracking</div>
-        <div class="next-card__desc">Set up Google Tag Manager. Configure: &ldquo;Book Appointment&rdquo; button click, form submit, and phone number click events in GA4. Import to Google Ads as primary conversions. Entire campaign depends on this.</div>
+        <div class="next-card__title">Fix Conversion Tracking</div>
+        <div class="next-card__desc">Install Google Tag Manager. Set up "Book Appointment" form submit, phone click, and call duration events in GA4. Import to Google Ads. The entire campaign depends on this step working correctly.</div>
         <div class="next-card__time">Week 1 &middot; Priority 1</div>
       </div>
       <div class="next-card">
         <div class="next-card__step">2</div>
-        <div class="next-card__title">Service Landing Pages</div>
-        <div class="next-card__desc">Build or anchor 4 service pages: Laser Hair Removal (women + men separate), Acne Treatment, Hydrafacial. Each needs above-fold CTA, price range, and before/after image. Directly affects CPCs.</div>
-        <div class="next-card__time">Week 1&ndash;2 &middot; Priority 1</div>
+        <div class="next-card__title">Fix Website Errors</div>
+        <div class="next-card__desc">Correct all spelling errors found in QA (e.g. "acne scare" to "acne scar"). Do a full copy review of all service descriptions. Paid traffic judges the clinic in seconds. One spelling mistake on a medical site loses the patient.</div>
+        <div class="next-card__time">Week 1 &middot; Priority 1</div>
       </div>
       <div class="next-card">
         <div class="next-card__step">3</div>
-        <div class="next-card__title">GBP Full Audit</div>
-        <div class="next-card__desc">Complete all 48 Google Business Profile fields. Add 20+ clinic photos. Enable booking link. Activate Q&amp;A. Target top 3 in Maps pack for &ldquo;skin clinic coimbatore&rdquo; &mdash; this drives free organic bookings alongside paid ads.</div>
-        <div class="next-card__time">Week 1&ndash;2</div>
+        <div class="next-card__title">Build Service Pages</div>
+        <div class="next-card__desc">Create 4 landing pages or anchor sections: Laser Hair Removal (women and men), Acne Treatment, Hydrafacial. Each needs a relevant headline, price range, before-and-after image, and a "Book Now" form above the fold.</div>
+        <div class="next-card__time">Week 1 to 2 &middot; Priority 1</div>
       </div>
       <div class="next-card">
         <div class="next-card__step">4</div>
-        <div class="next-card__title">Launch Search + Call + Maps</div>
-        <div class="next-card__desc">Activate 3 campaigns: Keyword Search (per service ad groups), Call Ads (mobile), and Local/Maps. Budget &#8377;500&ndash;800/day. Collect conversion data for 3&ndash;4 weeks before switching to Smart Bidding.</div>
-        <div class="next-card__time">Week 2&ndash;3</div>
+        <div class="next-card__title">Keyword Research</div>
+        <div class="next-card__desc">Comprehensive keyword research for all services and both audience segments (women and men). Keywords grouped by service, intent, and match type. Negative keyword lists built from Day 1. Competitor keyword gap analysis included.</div>
+        <div class="next-card__time">Week 1 to 2</div>
       </div>
       <div class="next-card">
         <div class="next-card__step">5</div>
-        <div class="next-card__title">Publish 3 Blog Posts</div>
-        <div class="next-card__desc">Start with highest-opportunity topics: &ldquo;Laser hair removal price in Coimbatore&rdquo;, &ldquo;Hair removal for men Coimbatore&rdquo;, and &ldquo;How many sessions for permanent hair removal?&rdquo; &mdash; these target AI Overviews with zero current competition from local clinics.</div>
-        <div class="next-card__time">Month 1</div>
+        <div class="next-card__title">Launch Search, Call, and Maps Campaigns</div>
+        <div class="next-card__desc">Go live with keyword search campaigns, call-only ads, and local Maps placement. Budget Rs.500 to Rs.800 per day to start. Manual CPC bidding for the first 3 to 4 weeks. Switch to Maximize Conversions once 20 or more conversions are recorded.</div>
+        <div class="next-card__time">Week 2 to 3</div>
       </div>
       <div class="next-card">
         <div class="next-card__step">6</div>
-        <div class="next-card__title">Month 2 Review + PMax</div>
-        <div class="next-card__desc">Review CPL per channel, top-performing keywords, call-to-appointment rate. Once 30+ conversions tracked, launch Performance Max (Local). Begin remarketing from website visitors. Plan bridal season creative (Oct&ndash;Feb).</div>
+        <div class="next-card__title">Month 2 Review and Expand</div>
+        <div class="next-card__desc">Review CPL by service and channel. Move budget toward the best-performing service. Launch Performance Max once 30 or more conversions are tracked. Start remarketing from website visitors. Plan bridal season creative (Oct to Feb).</div>
         <div class="next-card__time">Month 2</div>
       </div>
     </div>
-    <div class="footnote">Steps 1 and 2 are hard blockers. Do not start ad spend until GTM conversion tracking and at least 2 service landing pages are live.</div>
+    <div class="footnote">Steps 1, 2, and 3 are hard blockers. Do not start ad spend until conversion tracking is live, website errors are corrected, and at least 2 service pages are built.</div>
   </div>
 
-  <!-- SLIDE 13: Unit Economics — Inputs -->
+  <!-- SLIDE 13: Unit Economics Inputs -->
   <div class="slide slide--content" data-index="12">
     <div class="slide-num">11 / Economics</div>
-    <div class="slide-title">Unit Economics &mdash; Inputs<small>Share these figures and we derive your CPL guardrail from actuals, not industry averages</small></div>
+    <div class="slide-title">Unit Economics: Inputs<small>Share these figures and we set the cost per lead target from your real numbers, not from industry averages.</small></div>
     <div class="table-scroll-wrap">
     <table class="data-table">
-      <thead>
-        <tr><th>Metric</th><th>How to Find It</th><th style="width:190px">Your Figure</th></tr>
-      </thead>
+      <thead><tr><th>Metric</th><th>How to Find It</th><th style="width:190px">Your Figure</th></tr></thead>
       <tbody>
-        <tr><td><strong>Average appointment value</strong></td><td>Total monthly revenue &divide; appointments booked, last 3 months</td><td class="ph-cell">&#8377; ___</td></tr>
-        <tr><td><strong>Therapist + consumables cost per appt</strong></td><td>Staff time cost + product/disposables used per session</td><td class="ph-cell">&#8377; ___</td></tr>
-        <tr><td><strong>Clinic overhead per appointment</strong></td><td>Monthly rent + utilities + equipment depreciation &divide; monthly appt count</td><td class="ph-cell">&#8377; ___</td></tr>
-        <tr><td><strong>Payment processing fee</strong></td><td>UPI / Razorpay / card rate &times; avg appointment value</td><td class="ph-cell">&#8377; ___</td></tr>
-        <tr><td><strong>No-show / cancellation rate</strong></td><td>No-shows + cancellations &divide; total booked appointments (last 3 months)</td><td class="ph-cell">___ %</td></tr>
-        <tr><td><strong>Avg. sessions per patient (LHR)</strong></td><td>Typical laser hair removal course = 6&ndash;8 sessions; confirm your average</td><td class="ph-cell">___ sessions</td></tr>
-        <tr class="ue-derived"><td><strong>Contribution margin per appointment</strong></td><td>Avg value &minus; Therapist cost &minus; Overhead &minus; Payment fee</td><td class="ph-cell">&#8377; calculated</td></tr>
+        <tr><td><strong>Average appointment value</strong></td><td>Total monthly revenue divided by appointments booked, last 3 months</td><td class="ph-cell">Rs. ___</td></tr>
+        <tr><td><strong>Therapist plus consumables per appointment</strong></td><td>Staff time cost plus product and disposables used per session</td><td class="ph-cell">Rs. ___</td></tr>
+        <tr><td><strong>Clinic overhead per appointment</strong></td><td>Monthly rent plus utilities plus equipment depreciation divided by appointment count</td><td class="ph-cell">Rs. ___</td></tr>
+        <tr><td><strong>Payment processing fee</strong></td><td>UPI or Razorpay or card rate multiplied by average appointment value</td><td class="ph-cell">Rs. ___</td></tr>
+        <tr><td><strong>No-show and cancellation rate</strong></td><td>No-shows plus cancellations divided by total booked appointments, last 3 months</td><td class="ph-cell">___ %</td></tr>
+        <tr><td><strong>Average sessions per laser patient</strong></td><td>Typical laser hair removal course is 6 to 8 sessions. Confirm your actual average.</td><td class="ph-cell">___ sessions</td></tr>
+        <tr class="ue-derived"><td><strong>Contribution margin per appointment</strong></td><td>Avg value minus therapist cost minus overhead minus payment fee</td><td class="ph-cell">Rs. calculated</td></tr>
       </tbody>
     </table>
     </div>
-    <div class="ue-note">Max CPL guardrail = contribution margin per appointment. For laser hair removal: patient lifetime value = avg appointment value &times; avg sessions (e.g. &#8377;3,000 &times; 7 sessions = &#8377;21,000 LTV). Paying &#8377;500 CPL for &#8377;21,000 LTV patient is exceptional ROI &mdash; these numbers unlock that calculation.</div>
+    <div class="ue-note">The contribution margin per appointment becomes the maximum CPL guardrail. For laser hair removal: if average appointment value is Rs.3,000 and the patient returns for 7 sessions, the lifetime value is Rs.21,000. Paying Rs.500 to acquire that patient is exceptional economics. These numbers unlock that calculation.</div>
   </div>
 
-  <!-- SLIDE 14: Unit Economics — Derived Targets -->
+  <!-- SLIDE 14: Unit Economics Derived -->
   <div class="slide slide--content" data-index="13">
     <div class="slide-num">12 / Economics</div>
-    <div class="slide-title">Unit Economics &mdash; Derived Targets<small>Once inputs are filled in, these four numbers govern every bid ceiling and campaign decision</small></div>
+    <div class="slide-title">Unit Economics: What the Numbers Tell Us<small>Once you share the inputs, these four figures govern every bid ceiling and budget decision.</small></div>
     <div class="ue-grid">
       <div class="ue-card">
         <div class="ue-card__label">Max CPL Guardrail</div>
-        <div class="ue-card__formula">= Contribution Margin per Appointment</div>
-        <div class="ue-card__val">calculated</div>
+        <div class="ue-card__formula">Equals the contribution margin per appointment</div>
+        <div class="ue-card__val">TBC</div>
       </div>
       <div class="ue-card">
         <div class="ue-card__label">Break-Even CPL</div>
-        <div class="ue-card__formula">Contribution Margin &times; target profit margin %</div>
-        <div class="ue-card__val">calculated</div>
+        <div class="ue-card__formula">Contribution margin multiplied by target profit margin</div>
+        <div class="ue-card__val">TBC</div>
       </div>
       <div class="ue-card">
         <div class="ue-card__label">Patient LTV (LHR)</div>
-        <div class="ue-card__formula">Avg appt value &times; avg sessions per course</div>
-        <div class="ue-card__val">calculated</div>
+        <div class="ue-card__formula">Avg appointment value multiplied by avg sessions per course</div>
+        <div class="ue-card__val">TBC</div>
       </div>
       <div class="ue-card">
         <div class="ue-card__label">LTV-Adjusted Max CAC</div>
-        <div class="ue-card__formula">Patient LTV &times; target lifetime margin %</div>
-        <div class="ue-card__val">calculated</div>
+        <div class="ue-card__formula">Patient LTV multiplied by target lifetime margin</div>
+        <div class="ue-card__val">TBC</div>
       </div>
     </div>
     <div class="callout">
-      <strong>Why LTV changes everything for this clinic:</strong> A patient who books Laser Hair Removal returns for 6&ndash;8 sessions, then often upgrades to Hydrafacial or Anti-Aging. If average LTV = &#8377;18,000&ndash;25,000, a CPL of &#8377;400 is a 45&ndash;62&times; return on that acquisition cost &mdash; not 1&ndash;2&times; like ecommerce. This is why well-run local service clinics scale aggressively once CPL is validated. The Budget Roadmap targets (Slide 7) are provisional &mdash; these numbers will tighten them significantly.
+      <strong>Why LTV changes the math completely:</strong> A laser hair removal patient returns for 6 to 8 sessions. Then many upgrade to Hydrafacial or Anti-Aging treatments. If total lifetime value reaches Rs.18,000 to Rs.25,000, a CPL of Rs.400 is a 45 to 62 times return on that cost. This is why well-run local clinics scale ad spend aggressively once CPL is confirmed. The budget targets on Slide 7 are provisional. These figures will refine them.
     </div>
   </div>
 
-  <!-- SLIDE 15: KPI Framework -->
+  <!-- SLIDE 15: KPIs -->
   <div class="slide slide--content" data-index="14">
     <div class="slide-num">13 / KPIs</div>
-    <div class="slide-title">KPI Framework<small>Targets derived from Unit Economics &mdash; not industry benchmarks. Set once actuals are confirmed.</small></div>
+    <div class="slide-title">KPI Framework<small>All targets are set from Unit Economics after inputs are confirmed. Not from benchmarks.</small></div>
     <div style="display:flex;flex-direction:column;gap:18px;flex:1;">
       <div>
-        <div class="kpi-section-label">Primary &mdash; What We Optimise Every Week</div>
+        <div class="kpi-section-label">Primary: What We Optimise Every Week</div>
         <table class="data-table">
           <thead><tr><th>KPI</th><th>Target</th><th>Why It Matters</th></tr></thead>
           <tbody>
-            <tr><td><strong>Cost per Lead (CPL)</strong></td><td>Below contribution margin per appointment</td><td>If CPL exceeds what one appointment earns, every click loses money</td></tr>
-            <tr><td><strong>Appointments Booked from Ads</strong></td><td>Month-on-month growth</td><td>Confirms campaigns drive clinic bookings, not just form fills or clicks</td></tr>
-            <tr><td><strong>Call Volume from Google Ads</strong></td><td>Tracked separately (&#x2265;60 sec = conversion)</td><td>Phone bookings are often the majority for local clinics &mdash; missing them understates true CPL</td></tr>
+            <tr><td><strong>Cost per Lead (CPL)</strong></td><td>Below contribution margin per appointment</td><td>If CPL is higher than what one appointment earns, the campaign loses money on every lead</td></tr>
+            <tr><td><strong>Appointments Booked from Ads</strong></td><td>Month-on-month growth</td><td>Confirms campaigns are driving actual bookings, not just form fills or phone calls that do not convert</td></tr>
+            <tr><td><strong>Call Volume from Ads</strong></td><td>Tracked separately (60 sec or more = conversion)</td><td>Phone bookings are often the majority for local clinics. Missing them makes CPL look worse than it is.</td></tr>
           </tbody>
         </table>
       </div>
       <div>
-        <div class="kpi-section-label">Secondary &mdash; Diagnostic Layer</div>
+        <div class="kpi-section-label">Secondary: Diagnostic Layer</div>
         <table class="data-table">
           <thead><tr><th>KPI</th><th>A Drop Signals</th><th>First Action</th></tr></thead>
           <tbody>
-            <tr><td>Landing page conversion rate</td><td>Page mismatch or slow load (&gt;3 sec mobile)</td><td>Audit page speed &middot; review CTA placement &middot; A/B test headline</td></tr>
-            <tr><td>Avg. CPC by service</td><td>Competitor pressure rising (possible new clinic entering)</td><td>Review Auction Insights &middot; refresh ad copy &middot; tighten match types</td></tr>
-            <tr><td>Appointment show rate</td><td>Lead quality issue &mdash; not an ads problem</td><td>Add confirmation WhatsApp &middot; tighten radius targeting &middot; add qualification question to form</td></tr>
-            <tr><td>Maps Local Pack position</td><td>GBP ranking slipping &mdash; needs fresh reviews or posts</td><td>Send review request to last 20 patients &middot; publish 2 GBP posts</td></tr>
+            <tr><td>Landing page conversion rate</td><td>Page mismatch or slow load on mobile</td><td>Check page speed, review CTA placement, test a new headline</td></tr>
+            <tr><td>Avg. CPC by service</td><td>A competitor entering the auction</td><td>Review Auction Insights, freshen ad copy, tighten match types</td></tr>
+            <tr><td>Appointment show rate</td><td>Lead quality issue, not an ads problem</td><td>Add a WhatsApp confirmation message, tighten radius targeting</td></tr>
+            <tr><td>Maps Local Pack position</td><td>GBP ranking slipping</td><td>Send review requests to last 20 patients, publish 2 GBP posts</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 16: Reporting Cadence -->
+  <!-- SLIDE 16: Reporting -->
   <div class="slide slide--content" data-index="15">
     <div class="slide-num">14 / Reporting</div>
-    <div class="slide-title">Reporting Cadence<small>Full visibility into what&rsquo;s working &mdash; no black box, no &ldquo;trust me&rdquo;</small></div>
+    <div class="slide-title">Reporting Cadence<small>Clear updates on what is working and what is being done about what is not.</small></div>
     <table class="data-table" style="margin-bottom:20px">
-      <thead><tr><th>Frequency</th><th>Format</th><th>What&rsquo;s Covered</th></tr></thead>
+      <thead><tr><th>Frequency</th><th>Format</th><th>What Is Covered</th></tr></thead>
       <tbody>
-        <tr><td><strong>Weekly</strong> (Monday AM)</td><td>WhatsApp summary + dashboard link</td><td>Spend pacing &middot; CPL this week vs target &middot; Calls + form fills &middot; Top keyword &middot; Action taken in last 7 days</td></tr>
-        <tr><td><strong>Monthly</strong></td><td>PDF report (2&ndash;3 pages)</td><td>Full KPI scorecard &middot; Breakdown by service &middot; Call vs form split &middot; CPL trend &middot; GBP performance &middot; Next-month plan + budget recommendation</td></tr>
-        <tr><td><strong>Quarterly</strong></td><td>30-min call / meeting</td><td>Unit economics review &middot; LTV update &middot; Organic/AI traction review &middot; Budget scaling decision &middot; Seasonal campaign planning</td></tr>
+        <tr><td><strong>Weekly (Monday morning)</strong></td><td>WhatsApp summary and dashboard link</td><td>Spend pacing. CPL this week vs target. Calls and form fills. Top keyword this week. Action taken in the last 7 days.</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>PDF report, 2 to 3 pages</td><td>Full KPI scorecard. Breakdown by service. Call vs form split. CPL trend. GBP performance. Next-month plan and any budget changes.</td></tr>
+        <tr><td><strong>Quarterly</strong></td><td>30-minute call or meeting</td><td>Unit economics review. LTV update. Organic and AI traction. Budget scaling decision. Seasonal campaign planning (Navarathri, Diwali, bridal).</td></tr>
       </tbody>
     </table>
-    <div class="callout"><strong>All CPL targets and bid ceilings derive from Unit Economics (Slides 11&ndash;12) &mdash; not fixed in advance.</strong> Targets are confirmed once actual appointment values, therapist costs, and no-show rates are shared. This ensures every campaign is calibrated to 10X Healthy Skin&rsquo;s specific economics, not generic benchmarks.</div>
+    <div class="callout"><strong>All CPL targets and bid ceilings come from Unit Economics, not from benchmarks.</strong> Targets are confirmed once appointment values, therapist costs, and no-show rates are shared by the 10X Healthy Skin team. This keeps every campaign calibrated to the actual clinic economics.</div>
   </div>
 
   <!-- SLIDE 17: Recovery Plan -->
   <div class="slide slide--content" data-index="16">
     <div class="slide-num">15 / Safety Net</div>
-    <div class="slide-title">Recovery Plan<small>Three severity levels defined before launch &mdash; fast, documented response regardless of who notices first</small></div>
+    <div class="slide-title">Recovery Plan<small>Three response levels set before launch. Fast action regardless of who notices the problem first.</small></div>
     <div class="rec-grid">
       <div class="rec-tier rec-tier--l1">
-        <div class="rec-tier__header">Level 1 &mdash; Watch<span class="rec-tier__trigger">CPL rises 20&ndash;35% above target &middot; sustained 1 week</span></div>
+        <div class="rec-tier__header">Level 1: Watch<span class="rec-tier__trigger">CPL rises 20 to 35% above target for 1 week</span></div>
         <ul class="rec-tier__list">
-          <li>Review Search Terms report &mdash; block irrelevant queries (e.g. &ldquo;hair removal machine price&rdquo;)</li>
-          <li>Check ad copy CTR &mdash; rotate weakest RSA headline variant</li>
-          <li>Verify landing page loads &lt;3 seconds on mobile (most CBE searchers are on mobile)</li>
-          <li>Verify call conversion threshold (60 sec) is firing correctly in GTM</li>
-          <li><strong>Budget: no change.</strong> Normal CPL weekly variance.</li>
+          <li>Check Search Terms report. Block irrelevant queries like "hair removal machine price".</li>
+          <li>Check ad copy CTR. Rotate the weakest RSA headline variant.</li>
+          <li>Confirm landing page loads in under 3 seconds on mobile.</li>
+          <li>Confirm call conversion tag (60 sec) is firing correctly.</li>
+          <li><strong>Budget: no change.</strong> Normal weekly CPL variance.</li>
         </ul>
       </div>
       <div class="rec-tier rec-tier--l2">
-        <div class="rec-tier__header">Level 2 &mdash; Act<span class="rec-tier__trigger">CPL above max guardrail &middot; 2 consecutive weeks</span></div>
+        <div class="rec-tier__header">Level 2: Act<span class="rec-tier__trigger">CPL above the max guardrail for 2 weeks straight</span></div>
         <ul class="rec-tier__list">
-          <li>Pause lowest-performing service ad group immediately</li>
-          <li>Shift paused budget to best-performing service campaign</li>
-          <li>Tighten radius targeting to core CBE city only (exclude Tirupur, Erode)</li>
-          <li>Switch to Maximize Conversions bidding if on Manual CPC</li>
-          <li>Verify conversions are recording correctly in Google Ads &amp; GA4</li>
+          <li>Pause the lowest-performing service ad group.</li>
+          <li>Move its budget to the best-performing service campaign.</li>
+          <li>Tighten radius targeting to core CBE city only.</li>
+          <li>Switch to Maximize Conversions if still on Manual CPC.</li>
+          <li>Verify conversions are recording in Google Ads and GA4.</li>
         </ul>
       </div>
       <div class="rec-tier rec-tier--l3">
-        <div class="rec-tier__header">Level 3 &mdash; Reset<span class="rec-tier__trigger">CPL above guardrail &middot; full calendar month</span></div>
+        <div class="rec-tier__header">Level 3: Reset<span class="rec-tier__trigger">CPL above guardrail for a full calendar month</span></div>
         <ul class="rec-tier__list">
-          <li>Full account audit: keywords, negatives, ad copy, landing pages, extensions</li>
-          <li>Rebuild campaigns with tighter phrase-match keywords and new RSAs</li>
-          <li>Survey last 20 bookings &mdash; which channel / search term brought them?</li>
-          <li>Pause Call Ads for 2 weeks &mdash; test Search-only to isolate problem</li>
-          <li>Written findings report &amp; revised strategy before resuming full budget</li>
+          <li>Full account audit: keywords, negatives, ad copy, landing pages, extensions.</li>
+          <li>Rebuild campaigns with tighter match types and new RSA copy.</li>
+          <li>Call the last 20 bookings and ask how they found the clinic.</li>
+          <li>Pause Call Ads for 2 weeks to test Search-only and isolate the issue.</li>
+          <li>Written findings report before resuming full budget.</li>
         </ul>
       </div>
     </div>
-    <div class="callout" style="margin-top:14px"><strong>Day-one safeguards automatically in place:</strong> Daily budget cap &middot; Automated CPL alert when 7-day average exceeds guardrail &middot; Target CPA bid ceiling from Unit Economics &middot; Location exclusions (outside defined radius).</div>
+    <div class="callout" style="margin-top:14px"><strong>Day-one safeguards are set up at launch:</strong> Daily budget cap. Target CPA ceiling from Unit Economics. Automated CPL alert when 7-day average exceeds the guardrail. Location exclusions outside the defined radius.</div>
   </div>
 
   <!-- SLIDE 18: Thank You -->
   <div class="slide slide-ty" data-index="17">
-    <div class="ty-eyebrow">Google Ads &amp; Digital Visibility Proposal &middot; August 2026</div>
-    <div class="ty-title">Thank You</div>
+    <div class="ty-eyebrow">Google Ads and Digital Visibility Proposal &middot; August 2026</div>
+    <div class="ty-title">Let's<br>Get<br>Started</div>
     <div class="ty-rule"></div>
-    <p class="ty-sub">Coimbatore&rsquo;s best skin clinic deserves Coimbatore&rsquo;s best digital presence. Let&rsquo;s build it.</p>
+    <p class="ty-sub">Coimbatore's best skin clinic deserves to be the most visible one online. Zero competitors are running Google Ads right now. That window will not stay open for long.</p>
     <div class="ty-meta">
-      <div class="ty-item"><strong>Immediate first step</strong>Install GTM + conversion tracking before any ad spend (Slide 8, Blocker 1)</div>
-      <div class="ty-item"><strong>Run in parallel</strong>Service landing pages + Google Business Profile full audit (Slide 8, Blockers 2 &amp; Warning 2)</div>
-      <div class="ty-item"><strong>Campaign go-live</strong>Week 2&ndash;3: Search + Call Ads + Maps (once tracking is confirmed)</div>
-      <div class="ty-item"><strong>Organic layer</strong>3 blog posts Month 1 &rarr; target AI Overviews with zero local competition (Slide 6)</div>
-      <div class="ty-item"><strong>Unit economics</strong>Share appointment value + therapist cost &rarr; we set bid ceilings from your actuals (Slide 11)</div>
-      <div class="ty-item"><strong>Prepared on</strong>August 2026 &middot; 10xhealthyskin.com</div>
+      <div class="ty-item"><strong>First step</strong>Fix website errors and install GTM conversion tracking (Slide 8)</div>
+      <div class="ty-item"><strong>Run alongside</strong>Build service landing pages and complete GBP (Slide 8)</div>
+      <div class="ty-item"><strong>Keyword research</strong>Comprehensive research for all services and both audience segments (Slide 10)</div>
+      <div class="ty-item"><strong>Campaign go-live</strong>Week 2 to 3: Search, Call Ads, and Maps once tracking is confirmed</div>
+      <div class="ty-item"><strong>Share with us</strong>Appointment value plus therapist cost so we set bid ceilings from actuals (Slide 11)</div>
+      <div class="ty-item"><strong>Prepared August 2026</strong>10xhealthyskin.com &middot; +(91) 95141 43576</div>
     </div>
-    <div class="ty-ornament">&#10022;</div>
+    <div class="ty-ornament"></div>
   </div>
-
-</div><!-- /deck -->
-
-<nav id="nav">
-  <button class="nav-btn" id="btn-prev" onclick="go(-1)" disabled>&#8592;</button>
-  <span id="slide-counter">1 / 18</span>
-  <button class="nav-btn" id="btn-next" onclick="go(1)">&#8594;</button>
-</nav>
-
-
+\n</div><!-- /deck -->\n\n<nav id="nav">\n  <button class="nav-btn" id="btn-prev" onclick="go(-1)" disabled>&#8592;</button>\n  <span id="slide-counter">1 / 18</span>\n  <button class="nav-btn" id="btn-next" onclick="go(1)">&#8594;</button>\n</nav>\n\n
 <script>
   var deck  = document.getElementById('deck');
   var total = document.querySelectorAll('.slide').length;
@@ -1264,6 +1231,4 @@
 
   updateUI();
 </script>
-
-</body>
-</html>
+\n</body>\n</html>

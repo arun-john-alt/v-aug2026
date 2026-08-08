@@ -530,13 +530,14 @@
   .divider  { height: 1px; background: var(--border); margin: 14px 0; }
   .footnote { font-size: 11px; color: var(--text3); margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
 
-  .dot-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .dot-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.55; color: var(--text2); }
-  .dot-list li::before { content: "\25C6"; color: var(--accent); font-size: 7px; margin-top: 7px; flex-shrink: 0; }
+  .dot-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  /* position:relative avoids strong+text becoming separate flex items */
+  .dot-list li { position: relative; padding-left: 18px; font-size: 13px; line-height: 1.55; color: var(--text2); }
+  .dot-list li::before { content: "\25C6"; color: var(--accent); font-size: 7px; position: absolute; left: 0; top: 6px; }
   .dot-list li strong { color: var(--text); }
 
   .fee-table-wrap { overflow-x: auto; }
-  .table-scroll-wrap { overflow-x: auto; }
+  .table-scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .table-scroll-wrap .data-table { min-width: 500px; }
 
   /* Mobile */
@@ -1126,6 +1127,7 @@
     <div style="display:flex;flex-direction:column;gap:18px;flex:1;">
       <div>
         <div class="kpi-section-label">Primary: What We Optimise Every Week</div>
+        <div class="table-scroll-wrap">
         <table class="data-table">
           <thead><tr><th>KPI</th><th>Target</th><th>Why It Matters</th></tr></thead>
           <tbody>
@@ -1134,9 +1136,11 @@
             <tr><td><strong>Call Volume from Ads</strong></td><td>Tracked separately (60 sec or more = conversion)</td><td>Phone bookings are often the majority for local clinics. Missing them makes CPL look worse than it is.</td></tr>
           </tbody>
         </table>
+        </div>
       </div>
       <div>
         <div class="kpi-section-label">Secondary: Diagnostic Layer</div>
+        <div class="table-scroll-wrap">
         <table class="data-table">
           <thead><tr><th>KPI</th><th>A Drop Signals</th><th>First Action</th></tr></thead>
           <tbody>
@@ -1146,6 +1150,7 @@
             <tr><td>Maps Local Pack position</td><td>GBP ranking slipping</td><td>Send review requests to last 20 patients, publish 2 GBP posts</td></tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
@@ -1154,7 +1159,8 @@
   <div class="slide slide--content" data-index="15">
     <div class="slide-num">14 / Reporting</div>
     <div class="slide-title">Reporting Cadence<small>Clear updates on what is working and what is being done about what is not.</small></div>
-    <table class="data-table" style="margin-bottom:20px">
+    <div class="table-scroll-wrap" style="margin-bottom:20px">
+    <table class="data-table">
       <thead><tr><th>Frequency</th><th>Format</th><th>What Is Covered</th></tr></thead>
       <tbody>
         <tr><td><strong>Weekly (Monday morning)</strong></td><td>WhatsApp summary and dashboard link</td><td>Spend pacing. CPL this week vs target. Calls and form fills. Top keyword this week. Action taken in the last 7 days.</td></tr>
@@ -1162,6 +1168,7 @@
         <tr><td><strong>Quarterly</strong></td><td>30-minute call or meeting</td><td>Unit economics review. LTV update. Organic and AI traction. Budget scaling decision. Seasonal campaign planning (Navarathri, Diwali, bridal).</td></tr>
       </tbody>
     </table>
+    </div>
     <div class="callout"><strong>All CPL targets and bid ceilings come from Unit Economics, not from benchmarks.</strong> Targets are confirmed once appointment values, therapist costs, and no-show rates are shared by the 10X Healthy Skin team. This keeps every campaign calibrated to the actual clinic economics.</div>
   </div>
 

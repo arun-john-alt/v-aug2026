@@ -543,6 +543,10 @@
   @media (max-width: 767px) {
     .slide { padding: 24px 16px 76px; }
     .stat-grid     { grid-template-columns: 1fr 1fr; gap: 9px; }
+    /* prevent stat card content overflow on narrow screens */
+    .stat-card { min-width: 0; overflow: hidden; }
+    .stat-card__value { font-size: 22px; }
+    .dot-list li { word-break: break-word; }
     .audience-split{ grid-template-columns: 1fr; }
     .camp-grid     { grid-template-columns: 1fr; }
     .next-grid     { grid-template-columns: 1fr; }
@@ -559,12 +563,20 @@
       row-gap: 8px;
     }
     .budget-row__phase    { grid-column: 1; grid-row: 1; }
-    .budget-row__amount   { grid-column: 2; grid-row: 1; font-size: 17px; }
+    .budget-row__amount   { grid-column: 2; grid-row: 1; font-size: 14px; }
+    .budget-row__amount span { font-size: 11px; }
     .budget-row__bar-wrap { grid-column: 1/-1; grid-row: 2; }
     .budget-row__roas     { grid-column: 1/-1; grid-row: 3; text-align: left; display: flex; align-items: center; gap: 6px; }
     .budget-row__roas span{ display: inline; }
     .invest-cols   { flex-direction: column !important; gap: 20px !important; }
+    .invest-estimate { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .invest-estimate table { min-width: 300px; font-size: 12px; }
     .fee-table-wrap table { min-width: 460px; }
+    /* comp-table scroll on mobile */
+    .comp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .comp-table-wrap .comp-table { min-width: 540px; }
+    /* demand gen card: stack vertically on mobile */
+    .camp-card--dgen { flex-direction: column !important; gap: 10px !important; }
     .slide--split  { flex-direction: column !important; gap: 18px !important; }
   }
 </style>
@@ -705,6 +717,7 @@
   <div class="slide slide--warm" data-index="4">
     <div class="slide-num">03 / Competitors</div>
     <div class="slide-title">Who You Are Competing With<small>All clinics below have verified Google Maps listings. Maps 3-pack position varies by query. Verify independently from a CBE network.</small></div>
+    <div class="comp-table-wrap">
     <table class="comp-table">
       <thead>
         <tr><th>Clinic</th><th>Location</th><th>Google Maps</th><th>Ads Running</th><th>Online Booking</th><th>Price Shown</th></tr>
@@ -719,6 +732,7 @@
         <tr class="you"><td><strong>10X Healthy Skin</strong> <span class="badge badge--accent">You</span></td><td>Race Course Road</td><td><span class="star-txt">Listed on Maps</span></td><td><span class="pill pill--you">To Launch</span></td><td><span class="pill pill--you">To Build</span></td><td><span class="pill pill--you">Opportunity</span></td></tr>
       </tbody>
     </table>
+    </div><!-- /comp-table-wrap -->
     <div class="table-note">Source: Google Maps and Practo research, August 2026. All listed clinics have a Google Maps listing with 4.6 or higher rating. Ratings and review counts are as found during research and may have changed. The "Ads Running" column is based on observed search results and may not capture all activity. Recommend verifying Maps 3-pack position by searching "skin clinic coimbatore" from a Coimbatore device or VPN.</div>
     <div class="callout callout--green" style="margin-top:12px"><strong>Key finding:</strong> No major competitor is running Google Search Ads. The first clinic to go live takes all paid placements on 2,400 monthly searches for "skin clinic coimbatore".</div>
   </div>
@@ -971,7 +985,7 @@
           <div class="stat-card__value">Rs.5,000</div>
           <div class="stat-card__sub" style="margin-top:8px;line-height:1.65">Google Ads account setup &middot; GTM and GA4 conversion tracking &middot; Call tracking &middot; GBP optimisation &middot; Keyword research for all services &middot; Campaign build &middot; Ad copy</div>
         </div>
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:20px;">
+        <div class="invest-estimate" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:20px;">
           <div class="stat-card__label" style="margin-bottom:13px">Month 1 All-In Estimate</div>
           <table style="width:100%;border-collapse:collapse;font-size:13px;">
             <tbody>
